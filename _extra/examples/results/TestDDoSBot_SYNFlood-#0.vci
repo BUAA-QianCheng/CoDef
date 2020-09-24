@@ -1,0 +1,244 @@
+file 21560 1598876082                                           
+version 2
+run TestDDoSBot_SYNFlood-0-20200831-20:14:00-15500
+attr configname TestDDoSBot_SYNFlood
+attr datetime 20200831-20:14:00
+attr experiment TestDDoSBot_SYNFlood
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestBot
+attr processid 15500
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.bot.numPktGen 4
+param *.bot.pg[*].destAddr "\"recvhost\""
+param *.bot.pg[*].localPort 1234
+param *.bot.pg[*].destPort 1234
+param *.bot.pg[*].sendInterval 0.01ms
+param *.bot.pg[0].packetType "\"TCP_SYN\""
+param *.bot.pg[0].packetName "\"SYNFlood\""
+param *.bot.pg[1].packetType "\"TCP_SYNACK\""
+param *.bot.pg[1].packetName "\"SYNACKFlood\""
+param *.bot.pg[2].packetType "\"TCP_ACK\""
+param *.bot.pg[2].packetName "\"ACKFlood\""
+param *.bot.pg[3].packetType "\"TCP_RST\""
+param *.bot.pg[3].packetName "\"RSTFlood\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestBot.bot.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+0	9064 16 5 5 0.00001 0.00001 1 28 28 28 784
+vector 1 TestBot.bot.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+1	9080 815 9 460 0.00001 0.00011 45 28 40 1788 71184
+vector 2 TestBot.bot.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+2	9895 817 10 464 0.00001 0.00011 45 46 58 2598 150132
+vector 3 TestBot.bot.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+3	10712 817 10 464 0.00001 0.00011 45 64 64 2880 184320
+vector 4 TestBot.bot.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+4	11529 1107 10 464 0.00001 0.00011 60 0 30 928 18698
+vector 5 TestBot.bot.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+5	12636 306 10 448 0.00001 0.00010898 15 64 64 960 61440
+vector 6 TestBot.bot.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+6	12942 405 10 448 0.00001 0.00010898 15 0 6.898e-005 0.00054124 2.74857624e-008
+vector 7 TestBot.bot.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+7	13347 288 11 442 0.00001576 0.00010802 14 64 64 896 57344
+vector 8 TestBot.router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+8	13635 291 12 443 0.00001581 0.00010807 14 64 64 896 57344
+vector 9 TestBot.router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+9	13926 291 12 443 0.00001581 0.00010807 14 64 64 896 57344
+vector 10 TestBot.router.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+10	14217 305 13 444 0.00001581 0.00010807 14 46 46 644 29624
+vector 11 TestBot.router.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+11	14522 21 14 14 0.00001581 0.00001581 1 28 28 28 784
+vector 12 TestBot.router.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+12	14543 175 15 430 0.00001581 0.00010443 8 28 40 308 11984
+vector 13 TestBot.router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+13	14718 175 16 431 0.00001581 0.00010443 8 46 58 452 25664
+vector 14 TestBot.router.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+14	14893 175 16 431 0.00001581 0.00010443 8 64 64 512 32768
+vector 15 TestBot.router.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+15	15068 334 16 431 0.00001581 0.00010443 16 0 1 8 8
+vector 16 TestBot.router.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+16	15402 175 16 431 0.00001581 0.00010443 8 64 64 512 32768
+vector 17 TestBot.router.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+17	15577 167 16 431 0.00001581 0.00010443 8 0 0 0 0
+vector 18 TestBot.router.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+18	15744 175 26 465 0.00002157 0.00011019 8 64 64 512 32768
+vector 19 TestBot.bot.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+19	15919 173 27 466 0.00002162 0.00011024 8 64 64 512 32768
+vector 20 TestBot.bot.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+20	16092 173 27 466 0.00002162 0.00011024 8 64 64 512 32768
+vector 21 TestBot.bot.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+21	16265 173 28 467 0.00002162 0.00011024 8 46 46 368 16928
+vector 22 TestBot.router.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+22	16438 21 50 50 0.00002743 0.00002743 1 28 28 28 784
+vector 23 TestBot.router.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+23	16459 305 51 446 0.00002743 0.00010807 14 28 40 548 21584
+vector 24 TestBot.router.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+24	16764 305 52 447 0.00002743 0.00010807 14 46 58 800 45848
+vector 25 TestBot.router.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+25	17069 305 52 447 0.00002743 0.00010807 14 64 64 896 57344
+vector 26 TestBot.router.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+26	17374 541 52 447 0.00002743 0.00010807 26 0 2 35 57
+vector 27 TestBot.router.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+27	17915 262 52 441 0.00002743 0.00010625 12 64 64 768 49152
+vector 28 TestBot.router.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+28	18177 339 52 441 0.00002743 0.00010625 12 0 1.162e-005 0.0001113 1.260378e-009
+vector 29 TestBot.router.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+29	18516 241 70 432 0.00003319 0.00010529 11 64 64 704 45056
+vector 30 TestBot.recvhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+30	18757 239 71 433 0.00003324 0.00010534 11 64 64 704 45056
+vector 31 TestBot.recvhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+31	18996 239 71 433 0.00003324 0.00010534 11 64 64 704 45056
+vector 32 TestBot.recvhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+32	19235 239 72 435 0.00003324 0.00010534 11 46 46 506 23276
+vector 33 TestBot.recvhost.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+33	19474 21 73 73 0.00003324 0.00003324 1 28 28 28 784
+vector 34 TestBot.recvhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+34	19495 196 74 439 0.00003324 0.00010534 9 28 40 348 13584
+vector 35 TestBot.recvhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+35	19691 196 75 440 0.00003324 0.00010534 9 46 58 510 29028
+vector 36 TestBot.recvhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+36	19887 196 75 440 0.00003324 0.00010534 9 64 64 576 36864
+vector 37 TestBot.recvhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+37	20083 374 75 440 0.00003324 0.00010534 18 0 1 9 9
+vector 38 TestBot.recvhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+38	20457 196 75 440 0.00003324 0.00010534 9 64 64 576 36864
+vector 39 TestBot.recvhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+39	20653 187 75 440 0.00003324 0.00010534 9 0 0 0 0
+vector 40 TestBot.recvhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+40	20840 193 82 470 0.000039 0.0001111 9 64 64 576 36864
+vector 41 TestBot.router.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+41	21033 175 83 427 0.00003905 0.00010443 8 64 64 512 32768
+vector 42 TestBot.router.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+42	21208 175 83 427 0.00003905 0.00010443 8 64 64 512 32768
+vector 43 TestBot.router.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+43	21383 177 84 428 0.00003905 0.00010443 8 46 46 368 16928

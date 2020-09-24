@@ -1,0 +1,1418 @@
+version 2
+run TestTcpSocketApp-0-20200921-17:01:58-8832
+attr configname TestTcpSocketApp
+attr datetime 20200921-17:01:58
+attr experiment TestTcpSocketApp
+attr inifile test.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TwoNodeNetwork
+attr processid 8832
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.sendhost.numApps 1
+param *.sendhost.app[*].typename "\"TcpSocketClient\""
+param *.sendhost.app[*].connectAddress "\"recvhost\""
+param *.sendhost.app[*].thinkTime 0.01s
+param *.sendhost.app[*].idleInterval 0.01s
+param *.sendhost.app[*].requestLength 200MiB
+param *.recvhost.numApps 1
+param *.recvhost.app[*].typename "\"TcpSocketServer\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+scalar TwoNodeNetwork.sendhost.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar TwoNodeNetwork.sendhost.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TwoNodeNetwork.sendhost.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].mac.queue packetPopped:count 33
+attr interpolationmode none
+attr title "packet popped, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac.queue packetPopped:sum(packetBytes) 18012
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic TwoNodeNetwork.sendhost.eth[0].mac.queue queueingTime:histogram
+field count 33
+field mean 0.00026278909090909
+field stddev 0.00020825095588562
+field min 0
+field max 0.00057964
+field sum 0.00867204
+field sqrsum 3.666708248e-006
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	6
+bin	1e-005	0
+bin	2e-005	0
+bin	3e-005	0
+bin	4e-005	3
+bin	5e-005	0
+bin	6e-005	0
+bin	7e-005	0
+bin	8e-005	1
+bin	9e-005	1
+bin	0.0001	0
+bin	0.00011	0
+bin	0.00012	0
+bin	0.00013	2
+bin	0.00014	0
+bin	0.00015	0
+bin	0.00016	0
+bin	0.00017	0
+bin	0.00018	2
+bin	0.00019	0
+bin	0.0002	0
+bin	0.00021	0
+bin	0.00022	0
+bin	0.00023	2
+bin	0.00024	0
+bin	0.00025	0
+bin	0.00026	0
+bin	0.00027	0
+bin	0.00028	2
+bin	0.00029	0
+bin	0.0003	0
+bin	0.00031	0
+bin	0.00032	0
+bin	0.00033	2
+bin	0.00034	0
+bin	0.00035	0
+bin	0.00036	0
+bin	0.00037	0
+bin	0.00038	2
+bin	0.00039	0
+bin	0.0004	0
+bin	0.00041	0
+bin	0.00042	0
+bin	0.00043	2
+bin	0.00044	0
+bin	0.00045	0
+bin	0.00046	0
+bin	0.00047	0
+bin	0.00048	2
+bin	0.00049	0
+bin	0.0005	0
+bin	0.00051	0
+bin	0.00052	0
+bin	0.00053	2
+bin	0.00054	0
+bin	0.00055	0
+bin	0.00056	0
+bin	0.00057	4
+bin	0.00058	0
+bin	0.00059	0
+bin	0.0006	0
+bin	0.00061	0
+bin	0.00062	0
+bin	0.00063	0
+bin	0.00064	0
+bin	0.00065	0
+bin	0.00066	0
+bin	0.00067	0
+bin	0.00068	0
+bin	0.00069	0
+bin	0.0007	0
+bin	0.00071	0
+bin	0.00072	0
+bin	0.00073	0
+scalar TwoNodeNetwork.sendhost.eth[0].mac.queue queueLength:max 12
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar TwoNodeNetwork.sendhost.eth[0].mac.queue queueLength:timeavg 7.7603971110008
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar TwoNodeNetwork.sendhost.eth[0].mac.queue packetPushed:count 45
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac.queue packetPushed:sum(packetBytes) 25140
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].mac "simulated time" 1.001594592743
+scalar TwoNodeNetwork.sendhost.eth[0].mac full-duplex 1
+scalar TwoNodeNetwork.sendhost.eth[0].mac "frames/sec sent" 32.94746221585
+scalar TwoNodeNetwork.sendhost.eth[0].mac "frames/sec rcvd" 29.952238378046
+scalar TwoNodeNetwork.sendhost.eth[0].mac "bits/sec sent" 143866.59137743
+scalar TwoNodeNetwork.sendhost.eth[0].mac "bits/sec rcvd" 15335.546049559
+scalar TwoNodeNetwork.sendhost.eth[0].mac "rx channel idle (%)" 100
+scalar TwoNodeNetwork.sendhost.eth[0].mac "rx channel utilization (%)" 0
+scalar TwoNodeNetwork.sendhost.eth[0].mac txPk:count 33
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac txPk:sum(packetBytes) 18012
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].mac packetReceivedFromUpper:count 45
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 25114
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].mac passedUpPk:count 30
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac passedUpPk:sum(packetBytes) 1920
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar TwoNodeNetwork.sendhost.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar TwoNodeNetwork.sendhost.eth[0].mac rxPkOk:count 30
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar TwoNodeNetwork.sendhost.eth[0].mac rxPkOk:sum(packetBytes) 1920
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar TwoNodeNetwork.sendhost.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar TwoNodeNetwork.sendhost.eth[0].encap decapPk:count 30
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar TwoNodeNetwork.sendhost.eth[0].encap decapPk:sum(packetBytes) 1380
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.eth[0].encap encapPk:count 45
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar TwoNodeNetwork.sendhost.eth[0].encap encapPk:sum(packetBytes) 24304
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar TwoNodeNetwork.sendhost.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar TwoNodeNetwork.sendhost.ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.ipv4.arp arpRequestSent:count 1
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar TwoNodeNetwork.sendhost.ipv4.arp arpRequestSent:sum(packetBytes) 28
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar TwoNodeNetwork.sendhost.ipv4.arp arpResolutionCompleted:count 1
+attr title "ARP completed resolutions, count"
+scalar TwoNodeNetwork.sendhost.ipv4.arp arpResolutionInitiated:count 1
+attr title "ARP initiated resolutions, count"
+scalar TwoNodeNetwork.sendhost.udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar TwoNodeNetwork.sendhost.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar TwoNodeNetwork.sendhost.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar TwoNodeNetwork.sendhost.udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar TwoNodeNetwork.sendhost.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar TwoNodeNetwork.sendhost.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar TwoNodeNetwork.sendhost.app[0] numActiveSessions:max 1
+attr interpolationmode sample-hold
+attr source sum(connect)
+attr title "number of active sessions, max"
+scalar TwoNodeNetwork.sendhost.app[0] numActiveSessions:timeavg 1
+attr interpolationmode sample-hold
+attr source sum(connect)
+attr title "number of active sessions, timeavg"
+scalar TwoNodeNetwork.sendhost.app[0] numSessions:last 1
+attr source sum(connect+1)/2
+attr title "total number of sessions, last"
+scalar TwoNodeNetwork.sendhost.app[0] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar TwoNodeNetwork.sendhost.app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic TwoNodeNetwork.sendhost.app[0] endToEndDelay:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic TwoNodeNetwork.sendhost.app[0] endToEndDelay:weightedHistogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field weights 0
+field weightedSum 0
+field sqrSumWeights 0
+field weightedSqrSum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, weightedHistogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar TwoNodeNetwork.sendhost.app[0] packetSent:count 1
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar TwoNodeNetwork.sendhost.app[0] packetSent:sum(packetBytes) 209715200
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar TwoNodeNetwork.recvhost.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TwoNodeNetwork.recvhost.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].mac.queue packetPopped:count 31
+attr interpolationmode none
+attr title "packet popped, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac.queue packetPopped:sum(packetBytes) 1984
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic TwoNodeNetwork.recvhost.eth[0].mac.queue queueingTime:histogram
+field count 31
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	31
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar TwoNodeNetwork.recvhost.eth[0].mac.queue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar TwoNodeNetwork.recvhost.eth[0].mac.queue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar TwoNodeNetwork.recvhost.eth[0].mac.queue packetPushed:count 31
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac.queue packetPushed:sum(packetBytes) 1984
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].mac "simulated time" 1.001594592743
+scalar TwoNodeNetwork.recvhost.eth[0].mac full-duplex 1
+scalar TwoNodeNetwork.recvhost.eth[0].mac "frames/sec sent" 29.952238378046
+scalar TwoNodeNetwork.recvhost.eth[0].mac "frames/sec rcvd" 31.949054269915
+scalar TwoNodeNetwork.recvhost.eth[0].mac "bits/sec sent" 15335.546049559
+scalar TwoNodeNetwork.recvhost.eth[0].mac "bits/sec rcvd" 139122.15681835
+scalar TwoNodeNetwork.recvhost.eth[0].mac "rx channel idle (%)" 100
+scalar TwoNodeNetwork.recvhost.eth[0].mac "rx channel utilization (%)" 0
+scalar TwoNodeNetwork.recvhost.eth[0].mac txPk:count 30
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac txPk:sum(packetBytes) 1920
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].mac packetReceivedFromUpper:count 31
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 1790
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].mac passedUpPk:count 32
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac passedUpPk:sum(packetBytes) 17418
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar TwoNodeNetwork.recvhost.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar TwoNodeNetwork.recvhost.eth[0].mac rxPkOk:count 32
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar TwoNodeNetwork.recvhost.eth[0].mac rxPkOk:sum(packetBytes) 17418
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar TwoNodeNetwork.recvhost.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar TwoNodeNetwork.recvhost.eth[0].encap decapPk:count 32
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar TwoNodeNetwork.recvhost.eth[0].encap decapPk:sum(packetBytes) 16842
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.eth[0].encap encapPk:count 31
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar TwoNodeNetwork.recvhost.eth[0].encap encapPk:sum(packetBytes) 1232
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar TwoNodeNetwork.recvhost.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.ipv4.arp arpReplySent:count 1
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar TwoNodeNetwork.recvhost.ipv4.arp arpReplySent:sum(packetBytes) 28
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar TwoNodeNetwork.recvhost.ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar TwoNodeNetwork.recvhost.ipv4.arp arpResolutionCompleted:count 1
+attr title "ARP completed resolutions, count"
+scalar TwoNodeNetwork.recvhost.ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar TwoNodeNetwork.recvhost.udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar TwoNodeNetwork.recvhost.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar TwoNodeNetwork.recvhost.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar TwoNodeNetwork.recvhost.udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar TwoNodeNetwork.recvhost.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar TwoNodeNetwork.recvhost.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar TwoNodeNetwork.recvhost.app[0].thread_3 packetReceived:count 29
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar TwoNodeNetwork.recvhost.app[0].thread_3 packetReceived:sum(packetBytes) 15544
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic TwoNodeNetwork.recvhost.app[0].thread_3 endToEndDelay:histogram
+field count 29
+field mean 0.00085649448275862
+field stddev 0.00042347040331381
+field min 0.00010314
+field max 0.00154722
+field sum 0.02483834
+field sqrsum 2.62950622804e-005
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	2e-005	0
+bin	4e-005	0
+bin	6e-005	0
+bin	8e-005	0
+bin	0.0001	1
+bin	0.00012	0
+bin	0.00014	0
+bin	0.00016	0
+bin	0.00018	0
+bin	0.0002	1
+bin	0.00022	0
+bin	0.00024	0
+bin	0.00026	1
+bin	0.00028	0
+bin	0.0003	1
+bin	0.00032	0
+bin	0.00034	0
+bin	0.00036	1
+bin	0.00038	0
+bin	0.0004	1
+bin	0.00042	0
+bin	0.00044	0
+bin	0.00046	1
+bin	0.00048	0
+bin	0.0005	1
+bin	0.00052	0
+bin	0.00054	0
+bin	0.00056	1
+bin	0.00058	0
+bin	0.0006	1
+bin	0.00062	0
+bin	0.00064	0
+bin	0.00066	1
+bin	0.00068	0
+bin	0.0007	1
+bin	0.00072	0
+bin	0.00074	0
+bin	0.00076	1
+bin	0.00078	0
+bin	0.0008	1
+bin	0.00082	0
+bin	0.00084	1
+bin	0.00086	0
+bin	0.00088	0
+bin	0.0009	1
+bin	0.00092	0
+bin	0.00094	1
+bin	0.00096	0
+bin	0.00098	0
+bin	0.001	1
+bin	0.00102	0
+bin	0.00104	1
+bin	0.00106	0
+bin	0.00108	0
+bin	0.0011	1
+bin	0.00112	0
+bin	0.00114	1
+bin	0.00116	0
+bin	0.00118	0
+bin	0.0012	1
+bin	0.00122	0
+bin	0.00124	1
+bin	0.00126	0
+bin	0.00128	0
+bin	0.0013	1
+bin	0.00132	0
+bin	0.00134	1
+bin	0.00136	0
+bin	0.00138	1
+bin	0.0014	0
+bin	0.00142	0
+bin	0.00144	1
+bin	0.00146	0
+bin	0.00148	1
+bin	0.0015	0
+bin	0.00152	0
+bin	0.00154	1
+bin	0.00156	0
+bin	0.00158	0
+bin	0.0016	0
+bin	0.00162	0
+bin	0.00164	0
+bin	0.00166	0
+bin	0.00168	0
+bin	0.0017	0
+bin	0.00172	0
+bin	0.00174	0
+bin	0.00176	0
+bin	0.00178	0
+bin	0.0018	0
+bin	0.00182	0
+bin	0.00184	0
+bin	0.00186	0
+bin	0.00188	0
+bin	0.0019	0
+bin	0.00192	0
+statistic TwoNodeNetwork.recvhost.app[0].thread_3 endToEndDelay:weightedHistogram
+field count 29
+field mean 0.00085649448275862
+field stddev 0.00042347040331381
+field min 0.00010314
+field max 0.00154722
+field weights 124352
+field weightedSum 106.50680192
+field sqrSumWeights 533221376
+field weightedSqrSum 0.11275322705836
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, weightedHistogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	2e-005	0
+bin	4e-005	0
+bin	6e-005	0
+bin	8e-005	0
+bin	0.0001	4288
+bin	0.00012	0
+bin	0.00014	0
+bin	0.00016	0
+bin	0.00018	0
+bin	0.0002	4288
+bin	0.00022	0
+bin	0.00024	0
+bin	0.00026	4288
+bin	0.00028	0
+bin	0.0003	4288
+bin	0.00032	0
+bin	0.00034	0
+bin	0.00036	4288
+bin	0.00038	0
+bin	0.0004	4288
+bin	0.00042	0
+bin	0.00044	0
+bin	0.00046	4288
+bin	0.00048	0
+bin	0.0005	4288
+bin	0.00052	0
+bin	0.00054	0
+bin	0.00056	4288
+bin	0.00058	0
+bin	0.0006	4288
+bin	0.00062	0
+bin	0.00064	0
+bin	0.00066	4288
+bin	0.00068	0
+bin	0.0007	4288
+bin	0.00072	0
+bin	0.00074	0
+bin	0.00076	4288
+bin	0.00078	0
+bin	0.0008	4288
+bin	0.00082	0
+bin	0.00084	4288
+bin	0.00086	0
+bin	0.00088	0
+bin	0.0009	4288
+bin	0.00092	0
+bin	0.00094	4288
+bin	0.00096	0
+bin	0.00098	0
+bin	0.001	4288
+bin	0.00102	0
+bin	0.00104	4288
+bin	0.00106	0
+bin	0.00108	0
+bin	0.0011	4288
+bin	0.00112	0
+bin	0.00114	4288
+bin	0.00116	0
+bin	0.00118	0
+bin	0.0012	4288
+bin	0.00122	0
+bin	0.00124	4288
+bin	0.00126	0
+bin	0.00128	0
+bin	0.0013	4288
+bin	0.00132	0
+bin	0.00134	4288
+bin	0.00136	0
+bin	0.00138	4288
+bin	0.0014	0
+bin	0.00142	0
+bin	0.00144	4288
+bin	0.00146	0
+bin	0.00148	4288
+bin	0.0015	0
+bin	0.00152	0
+bin	0.00154	4288
+bin	0.00156	0
+bin	0.00158	0
+bin	0.0016	0
+bin	0.00162	0
+bin	0.00164	0
+bin	0.00166	0
+bin	0.00168	0
+bin	0.0017	0
+bin	0.00172	0
+bin	0.00174	0
+bin	0.00176	0
+bin	0.00178	0
+bin	0.0018	0
+bin	0.00182	0
+bin	0.00184	0
+bin	0.00186	0
+bin	0.00188	0
+bin	0.0019	0
+bin	0.00192	0
+scalar TwoNodeNetwork.recvhost.app[0] bytesRcvd 15544
+scalar TwoNodeNetwork.router.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar TwoNodeNetwork.router.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.router.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TwoNodeNetwork.router.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].mac.queue packetPopped:count 30
+attr interpolationmode none
+attr title "packet popped, count"
+scalar TwoNodeNetwork.router.eth[0].mac.queue packetPopped:sum(packetBytes) 1920
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic TwoNodeNetwork.router.eth[0].mac.queue queueingTime:histogram
+field count 30
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	30
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar TwoNodeNetwork.router.eth[0].mac.queue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar TwoNodeNetwork.router.eth[0].mac.queue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar TwoNodeNetwork.router.eth[0].mac.queue packetPushed:count 30
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar TwoNodeNetwork.router.eth[0].mac.queue packetPushed:sum(packetBytes) 1920
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar TwoNodeNetwork.router.eth[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar TwoNodeNetwork.router.eth[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].mac "simulated time" 1.001594592743
+scalar TwoNodeNetwork.router.eth[0].mac full-duplex 1
+scalar TwoNodeNetwork.router.eth[0].mac "frames/sec sent" 29.952238378046
+scalar TwoNodeNetwork.router.eth[0].mac "frames/sec rcvd" 31.949054269915
+scalar TwoNodeNetwork.router.eth[0].mac "bits/sec sent" 15335.546049559
+scalar TwoNodeNetwork.router.eth[0].mac "bits/sec rcvd" 139122.15681835
+scalar TwoNodeNetwork.router.eth[0].mac "rx channel idle (%)" 100
+scalar TwoNodeNetwork.router.eth[0].mac "rx channel utilization (%)" 0
+scalar TwoNodeNetwork.router.eth[0].mac txPk:count 30
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar TwoNodeNetwork.router.eth[0].mac txPk:sum(packetBytes) 1920
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].mac packetReceivedFromUpper:count 30
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, count"
+scalar TwoNodeNetwork.router.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 1732
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].mac passedUpPk:count 32
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TwoNodeNetwork.router.eth[0].mac passedUpPk:sum(packetBytes) 17418
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar TwoNodeNetwork.router.eth[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar TwoNodeNetwork.router.eth[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar TwoNodeNetwork.router.eth[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar TwoNodeNetwork.router.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar TwoNodeNetwork.router.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar TwoNodeNetwork.router.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar TwoNodeNetwork.router.eth[0].mac rxPkOk:count 32
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar TwoNodeNetwork.router.eth[0].mac rxPkOk:sum(packetBytes) 17418
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar TwoNodeNetwork.router.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar TwoNodeNetwork.router.eth[0].encap decapPk:count 32
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar TwoNodeNetwork.router.eth[0].encap decapPk:sum(packetBytes) 16842
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[0].encap encapPk:count 30
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar TwoNodeNetwork.router.eth[0].encap encapPk:sum(packetBytes) 1192
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].mac.queue packetPopped:count 32
+attr interpolationmode none
+attr title "packet popped, count"
+scalar TwoNodeNetwork.router.eth[1].mac.queue packetPopped:sum(packetBytes) 17418
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic TwoNodeNetwork.router.eth[1].mac.queue queueingTime:histogram
+field count 32
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	32
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar TwoNodeNetwork.router.eth[1].mac.queue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar TwoNodeNetwork.router.eth[1].mac.queue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar TwoNodeNetwork.router.eth[1].mac.queue packetPushed:count 32
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar TwoNodeNetwork.router.eth[1].mac.queue packetPushed:sum(packetBytes) 17418
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar TwoNodeNetwork.router.eth[1].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar TwoNodeNetwork.router.eth[1].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].mac "simulated time" 1.001594592743
+scalar TwoNodeNetwork.router.eth[1].mac full-duplex 1
+scalar TwoNodeNetwork.router.eth[1].mac "frames/sec sent" 31.949054269915
+scalar TwoNodeNetwork.router.eth[1].mac "frames/sec rcvd" 29.952238378046
+scalar TwoNodeNetwork.router.eth[1].mac "bits/sec sent" 139122.15681835
+scalar TwoNodeNetwork.router.eth[1].mac "bits/sec rcvd" 15335.546049559
+scalar TwoNodeNetwork.router.eth[1].mac "rx channel idle (%)" 100
+scalar TwoNodeNetwork.router.eth[1].mac "rx channel utilization (%)" 0
+scalar TwoNodeNetwork.router.eth[1].mac txPk:count 32
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar TwoNodeNetwork.router.eth[1].mac txPk:sum(packetBytes) 17418
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].mac packetReceivedFromUpper:count 32
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, count"
+scalar TwoNodeNetwork.router.eth[1].mac packetReceivedFromUpper:sum(packetBytes) 17392
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].mac passedUpPk:count 30
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TwoNodeNetwork.router.eth[1].mac passedUpPk:sum(packetBytes) 1920
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar TwoNodeNetwork.router.eth[1].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar TwoNodeNetwork.router.eth[1].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar TwoNodeNetwork.router.eth[1].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar TwoNodeNetwork.router.eth[1].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar TwoNodeNetwork.router.eth[1].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar TwoNodeNetwork.router.eth[1].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar TwoNodeNetwork.router.eth[1].mac rxPkOk:count 30
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar TwoNodeNetwork.router.eth[1].mac rxPkOk:sum(packetBytes) 1920
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar TwoNodeNetwork.router.eth[1].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar TwoNodeNetwork.router.eth[1].encap decapPk:count 30
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar TwoNodeNetwork.router.eth[1].encap decapPk:sum(packetBytes) 1380
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar TwoNodeNetwork.router.eth[1].encap encapPk:count 32
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar TwoNodeNetwork.router.eth[1].encap encapPk:sum(packetBytes) 16816
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar TwoNodeNetwork.router.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar TwoNodeNetwork.router.ipv4.arp arpReplySent:count 1
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar TwoNodeNetwork.router.ipv4.arp arpReplySent:sum(packetBytes) 28
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar TwoNodeNetwork.router.ipv4.arp arpRequestSent:count 1
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar TwoNodeNetwork.router.ipv4.arp arpRequestSent:sum(packetBytes) 28
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar TwoNodeNetwork.router.ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar TwoNodeNetwork.router.ipv4.arp arpResolutionCompleted:count 2
+attr title "ARP completed resolutions, count"
+scalar TwoNodeNetwork.router.ipv4.arp arpResolutionInitiated:count 1
+attr title "ARP initiated resolutions, count"
+

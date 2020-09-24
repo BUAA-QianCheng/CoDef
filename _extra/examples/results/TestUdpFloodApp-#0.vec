@@ -1,0 +1,283 @@
+version 2
+run TestUdpFloodApp-0-20200914-21:25:37-11532
+attr configname TestUdpFloodApp
+attr datetime 20200914-21:25:37
+attr experiment TestUdpFloodApp
+attr inifile test.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TwoNodeNetwork
+attr processid 11532
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.sendhost.numApps 1
+param *.sendhost.app[*].typename "\"UdpFloodApp\""
+param *.sendhost.app[*].destAddr "\"recvhost\""
+param *.sendhost.app[*].destPort 1000
+param *.sendhost.app[*].sendInterval 0.01ms
+param *.sendhost.app[*].messageLength 100Byte
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TwoNodeNetwork.sendhost.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 1 TwoNodeNetwork.sendhost.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 2 TwoNodeNetwork.sendhost.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 3 TwoNodeNetwork.sendhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 4 TwoNodeNetwork.sendhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 5 TwoNodeNetwork.sendhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 6 TwoNodeNetwork.sendhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 7 TwoNodeNetwork.sendhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 8 TwoNodeNetwork.sendhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 9 TwoNodeNetwork.sendhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 10 TwoNodeNetwork.router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 11 TwoNodeNetwork.router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 12 TwoNodeNetwork.router.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 13 TwoNodeNetwork.router.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 14 TwoNodeNetwork.router.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 15 TwoNodeNetwork.router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 16 TwoNodeNetwork.router.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 17 TwoNodeNetwork.router.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 18 TwoNodeNetwork.router.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 19 TwoNodeNetwork.router.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 20 TwoNodeNetwork.router.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 21 TwoNodeNetwork.sendhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 22 TwoNodeNetwork.sendhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 23 TwoNodeNetwork.sendhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+0	1	0.00001	100
+0	14	0.00002	100
+1	3	0.00001	108
+1	15	0.00002	108
+2	4	0.00001	28
+3	5	0.00001	28
+3	21	0.00002162	128
+4	6	0.00001	46
+5	6	0.00001	64
+6	6	0.00001	1
+6	6	0.00001	0
+7	6	0.00001	64
+8	6	0.00001	0
+9	7	0.00001576	64
+10	8	0.00001581	64
+11	8	0.00001581	64
+12	9	0.00001581	46
+13	10	0.00001581	28
+14	11	0.00001581	28
+15	12	0.00001581	46
+16	12	0.00001581	64
+17	12	0.00001581	1
+17	12	0.00001581	0
+18	12	0.00001581	64
+19	12	0.00001581	0
+20	17	0.00002157	64
+21	18	0.00002162	64
+22	18	0.00002162	64
+23	19	0.00002162	46
+vector 24 TwoNodeNetwork.router.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 25 TwoNodeNetwork.router.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 26 TwoNodeNetwork.router.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 27 TwoNodeNetwork.router.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 28 TwoNodeNetwork.router.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 29 TwoNodeNetwork.router.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 30 TwoNodeNetwork.router.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 31 TwoNodeNetwork.router.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 32 TwoNodeNetwork.recvhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 33 TwoNodeNetwork.recvhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 34 TwoNodeNetwork.recvhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 35 TwoNodeNetwork.recvhost.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 36 TwoNodeNetwork.recvhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 37 TwoNodeNetwork.recvhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 38 TwoNodeNetwork.recvhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 39 TwoNodeNetwork.recvhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 40 TwoNodeNetwork.recvhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 41 TwoNodeNetwork.recvhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 42 TwoNodeNetwork.recvhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 43 TwoNodeNetwork.router.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 44 TwoNodeNetwork.router.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 45 TwoNodeNetwork.router.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+0	26	0.00003	100
+0	44	0.00004	100
+1	27	0.00003	108
+1	45	0.00004	108
+3	22	0.00002162	128
+3	29	0.00003	128
+3	47	0.00004	128
+4	23	0.00002162	146
+4	24	0.00002162	146
+4	30	0.00003	146
+4	48	0.00004	146
+5	23	0.00002162	146
+5	24	0.00002162	146
+5	30	0.00003	146
+5	48	0.00004	146
+6	23	0.00002162	1
+6	23	0.00002162	0
+6	24	0.00002162	1
+6	30	0.00003	2
+6	37	0.0000349	1
+6	48	0.00004	2
+7	23	0.00002162	146
+7	37	0.0000349	146
+8	23	0.00002162	0
+8	37	0.0000349	1.328e-005
+9	31	0.00003394	146
+10	32	0.00003399	146
+11	32	0.00003399	146
+12	33	0.00003399	128
+24	34	0.00003399	28
+25	35	0.00003399	28
+26	36	0.00003399	46
+27	36	0.00003399	64
+28	36	0.00003399	1
+28	36	0.00003399	0
+29	36	0.00003399	64
+30	36	0.00003399	0
+31	38	0.00003975	64
+32	39	0.0000398	64
+33	39	0.0000398	64
+34	40	0.0000398	46
+35	41	0.0000398	28
+36	42	0.0000398	28
+37	43	0.0000398	46
+38	43	0.0000398	64
+39	43	0.0000398	1
+39	43	0.0000398	0
+40	43	0.0000398	64
+41	43	0.0000398	0
+42	50	0.00004556	64
+43	51	0.00004561	64
+44	51	0.00004561	64
+45	52	0.00004561	46
+

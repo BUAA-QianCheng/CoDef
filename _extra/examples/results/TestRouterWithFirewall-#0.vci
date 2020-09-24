@@ -1,0 +1,384 @@
+file 26037 1600237328                                           
+version 2
+run TestRouterWithFirewall-0-20200916-12:48:59-7944
+attr configname TestRouterWithFirewall
+attr datetime 20200916-12:48:59
+attr experiment TestRouterWithFirewall
+attr inifile test.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestRouterWithFirewall
+attr processid 7944
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.sendhost.numApps 1
+param *.sendhost.app[*].typename "\"PingApp\""
+param *.sendhost.app[*].destAddr "\"recvhost\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestRouterWithFirewall.sendhost.app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 1 TestRouterWithFirewall.sendhost.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 2 TestRouterWithFirewall.sendhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 3 TestRouterWithFirewall.sendhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 4 TestRouterWithFirewall.sendhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 5 TestRouterWithFirewall.sendhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 6 TestRouterWithFirewall.sendhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 7 TestRouterWithFirewall.sendhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 8 TestRouterWithFirewall.sendhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 9 TestRouterWithFirewall.router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 10 TestRouterWithFirewall.router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+0	2757 22 1 1 0.548813502304 0.548813502304 1 0 0 0 0
+1	2779 23 3 3 0.548813502304 0.548813502304 1 28 28 28 784
+2	2802 23 4 4 0.548813502304 0.548813502304 1 28 28 28 784
+3	2825 23 5 5 0.548813502304 0.548813502304 1 46 46 46 2116
+4	2848 23 5 5 0.548813502304 0.548813502304 1 64 64 64 4096
+5	2871 44 5 5 0.548813502304 0.548813502304 2 0 1 1 1
+6	2915 23 5 5 0.548813502304 0.548813502304 1 64 64 64 4096
+7	2938 22 5 5 0.548813502304 0.548813502304 1 0 0 0 0
+8	2960 23 6 6 0.548819262304 0.548819262304 1 64 64 64 4096
+9	2983 23 7 7 0.548819312304 0.548819312304 1 64 64 64 4096
+10	3006 24 7 7 0.548819312304 0.548819312304 1 64 64 64 4096
+vector 11 TestRouterWithFirewall.router.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 12 TestRouterWithFirewall.router.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 13 TestRouterWithFirewall.router.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 14 TestRouterWithFirewall.router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 15 TestRouterWithFirewall.router.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 16 TestRouterWithFirewall.router.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 17 TestRouterWithFirewall.router.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 18 TestRouterWithFirewall.router.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 19 TestRouterWithFirewall.router.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 20 TestRouterWithFirewall.sendhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 21 TestRouterWithFirewall.sendhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 22 TestRouterWithFirewall.sendhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 23 TestRouterWithFirewall.router.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+2	5576 24 17 17 0.548825122304 0.548825122304 1 84 84 84 7056
+3	5600 25 18 18 0.548825122304 0.548825122304 1 102 102 102 10404
+4	5625 25 18 18 0.548825122304 0.548825122304 1 102 102 102 10404
+5	5650 46 18 18 0.548825122304 0.548825122304 2 0 1 1 1
+6	5696 25 18 18 0.548825122304 0.548825122304 1 102 102 102 10404
+7	5721 23 18 18 0.548825122304 0.548825122304 1 0 0 0 0
+8	5744 25 20 20 0.548833922304 0.548833922304 1 102 102 102 10404
+9	5769 25 21 21 0.548833972304 0.548833972304 1 102 102 102 10404
+10	5794 26 21 21 0.548833972304 0.548833972304 1 102 102 102 10404
+11	5820 49 8 22 0.548819312304 0.548833972304 2 46 84 130 9172
+12	5869 24 9 9 0.548819312304 0.548819312304 1 28 28 28 784
+13	5893 25 10 10 0.548819312304 0.548819312304 1 28 28 28 784
+14	5918 25 11 11 0.548819312304 0.548819312304 1 46 46 46 2116
+15	5943 25 11 11 0.548819312304 0.548819312304 1 64 64 64 4096
+16	5968 48 11 11 0.548819312304 0.548819312304 2 0 1 1 1
+17	6016 25 11 11 0.548819312304 0.548819312304 1 64 64 64 4096
+18	6041 24 11 11 0.548819312304 0.548819312304 1 0 0 0 0
+19	6065 25 13 13 0.548825072304 0.548825072304 1 64 64 64 4096
+20	6090 25 14 14 0.548825122304 0.548825122304 1 64 64 64 4096
+21	6115 25 14 14 0.548825122304 0.548825122304 1 64 64 64 4096
+22	6140 25 15 15 0.548825122304 0.548825122304 1 46 46 46 2116
+23	6165 25 23 23 0.548833972304 0.548833972304 1 28 28 28 784
+vector 24 TestRouterWithFirewall.router.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 25 TestRouterWithFirewall.router.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 26 TestRouterWithFirewall.router.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 27 TestRouterWithFirewall.router.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 28 TestRouterWithFirewall.router.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 29 TestRouterWithFirewall.router.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 30 TestRouterWithFirewall.router.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 31 TestRouterWithFirewall.recvhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 32 TestRouterWithFirewall.recvhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 33 TestRouterWithFirewall.recvhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 34 TestRouterWithFirewall.recvhost.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 35 TestRouterWithFirewall.recvhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 36 TestRouterWithFirewall.recvhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 37 TestRouterWithFirewall.recvhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 38 TestRouterWithFirewall.recvhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 39 TestRouterWithFirewall.recvhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 40 TestRouterWithFirewall.recvhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 41 TestRouterWithFirewall.recvhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 42 TestRouterWithFirewall.router.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 43 TestRouterWithFirewall.router.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 44 TestRouterWithFirewall.router.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+24	10405 25 24 24 0.548833972304 0.548833972304 1 28 28 28 784
+25	10430 25 25 25 0.548833972304 0.548833972304 1 46 46 46 2116
+26	10455 25 25 25 0.548833972304 0.548833972304 1 64 64 64 4096
+27	10480 48 25 25 0.548833972304 0.548833972304 2 0 1 1 1
+28	10528 25 25 25 0.548833972304 0.548833972304 1 64 64 64 4096
+29	10553 24 25 25 0.548833972304 0.548833972304 1 0 0 0 0
+30	10577 25 27 27 0.548839732304 0.548839732304 1 64 64 64 4096
+31	10602 25 28 28 0.548839782304 0.548839782304 1 64 64 64 4096
+32	10627 25 28 28 0.548839782304 0.548839782304 1 64 64 64 4096
+33	10652 25 29 29 0.548839782304 0.548839782304 1 46 46 46 2116
+34	10677 25 30 30 0.548839782304 0.548839782304 1 28 28 28 784
+35	10702 25 31 31 0.548839782304 0.548839782304 1 28 28 28 784
+36	10727 25 32 32 0.548839782304 0.548839782304 1 46 46 46 2116
+37	10752 25 32 32 0.548839782304 0.548839782304 1 64 64 64 4096
+38	10777 48 32 32 0.548839782304 0.548839782304 2 0 1 1 1
+39	10825 25 32 32 0.548839782304 0.548839782304 1 64 64 64 4096
+40	10850 24 32 32 0.548839782304 0.548839782304 1 0 0 0 0
+41	10874 25 34 34 0.548845542304 0.548845542304 1 64 64 64 4096
+42	10899 25 35 35 0.548845592304 0.548845592304 1 64 64 64 4096
+43	10924 25 35 35 0.548845592304 0.548845592304 1 64 64 64 4096
+44	10949 25 36 36 0.548845592304 0.548845592304 1 46 46 46 2116
+24	10974 25 38 38 0.548845592304 0.548845592304 1 84 84 84 7056
+25	10999 26 39 39 0.548845592304 0.548845592304 1 102 102 102 10404
+26	11025 26 39 39 0.548845592304 0.548845592304 1 102 102 102 10404
+27	11051 48 39 39 0.548845592304 0.548845592304 2 0 1 1 1
+28	11099 26 39 39 0.548845592304 0.548845592304 1 102 102 102 10404
+29	11125 24 39 39 0.548845592304 0.548845592304 1 0 0 0 0
+30	11149 26 41 41 0.548854392304 0.548854392304 1 102 102 102 10404
+31	11175 26 42 42 0.548854442304 0.548854442304 1 102 102 102 10404
+32	11201 26 42 42 0.548854442304 0.548854442304 1 102 102 102 10404
+33	11227 25 43 43 0.548854442304 0.548854442304 1 84 84 84 7056
+35	11252 25 47 47 0.548854442304 0.548854442304 1 84 84 84 7056
+36	11277 26 48 48 0.548854442304 0.548854442304 1 102 102 102 10404
+37	11303 26 48 48 0.548854442304 0.548854442304 1 102 102 102 10404
+38	11329 48 48 48 0.548854442304 0.548854442304 2 0 1 1 1
+39	11377 26 48 48 0.548854442304 0.548854442304 1 102 102 102 10404
+40	11403 24 48 48 0.548854442304 0.548854442304 1 0 0 0 0
+41	11427 26 50 50 0.548863242304 0.548863242304 1 102 102 102 10404
+42	11453 26 51 51 0.548863292304 0.548863292304 1 102 102 102 10404
+43	11479 26 51 51 0.548863292304 0.548863292304 1 102 102 102 10404
+44	11505 25 52 52 0.548863292304 0.548863292304 1 84 84 84 7056
+vector 45 TestRouterWithFirewall.sendhost.app[0] pingRxSeq:vector ETV
+attr interpolationmode none
+attr title "ping rx seq, vector"
+vector 46 TestRouterWithFirewall.sendhost.app[0] rtt:vector ETV
+attr interpolationmode none
+attr title "ping round-trip time, vector"
+attr unit s
+0	11814 23 64 64 1.548813502304 1.548813502304 1 1 1 1 1
+2	11837 24 66 66 1.548813502304 1.548813502304 1 84 84 84 7056
+3	11861 25 67 67 1.548813502304 1.548813502304 1 102 102 102 10404
+4	11886 25 67 67 1.548813502304 1.548813502304 1 102 102 102 10404
+5	11911 46 67 67 1.548813502304 1.548813502304 2 0 1 1 1
+6	11957 25 67 67 1.548813502304 1.548813502304 1 102 102 102 10404
+7	11982 23 67 67 1.548813502304 1.548813502304 1 0 0 0 0
+8	12005 25 68 68 1.548822302304 1.548822302304 1 102 102 102 10404
+9	12030 25 69 69 1.548822352304 1.548822352304 1 102 102 102 10404
+10	12055 26 69 69 1.548822352304 1.548822352304 1 102 102 102 10404
+11	12081 25 70 70 1.548822352304 1.548822352304 1 84 84 84 7056
+13	12106 25 54 54 0.548863292304 0.548863292304 1 84 84 84 7056
+14	12131 26 55 55 0.548863292304 0.548863292304 1 102 102 102 10404
+15	12157 26 55 55 0.548863292304 0.548863292304 1 102 102 102 10404
+16	12183 48 55 55 0.548863292304 0.548863292304 2 0 1 1 1
+17	12231 26 55 55 0.548863292304 0.548863292304 1 102 102 102 10404
+18	12257 24 55 55 0.548863292304 0.548863292304 1 0 0 0 0
+19	12281 26 57 57 0.548872092304 0.548872092304 1 102 102 102 10404
+20	12307 26 58 58 0.548872142304 0.548872142304 1 102 102 102 10404
+21	12333 26 58 58 0.548872142304 0.548872142304 1 102 102 102 10404
+22	12359 25 59 59 0.548872142304 0.548872142304 1 84 84 84 7056
+45	12384 24 61 61 0.548872142304 0.548872142304 1 0 0 0 0
+46	12408 33 61 61 0.548872142304 0.548872142304 1 5.864e-005 5.864e-005 5.864e-005 3.4386496e-009
+0	12441 23 98 98 2.548813502304 2.548813502304 1 2 2 2 4
+2	12464 25 100 100 2.548813502304 2.548813502304 1 84 84 84 7056
+3	12489 26 101 101 2.548813502304 2.548813502304 1 102 102 102 10404
+4	12515 26 101 101 2.548813502304 2.548813502304 1 102 102 102 10404
+5	12541 48 101 101 2.548813502304 2.548813502304 2 0 1 1 1
+6	12589 26 101 101 2.548813502304 2.548813502304 1 102 102 102 10404
+7	12615 24 101 101 2.548813502304 2.548813502304 1 0 0 0 0
+8	12639 26 102 102 2.548822302304 2.548822302304 1 102 102 102 10404
+9	12665 26 103 103 2.548822352304 2.548822352304 1 102 102 102 10404
+10	12691 27 103 103 2.548822352304 2.548822352304 1 102 102 102 10404
+11	12718 26 104 104 2.548822352304 2.548822352304 1 84 84 84 7056
+13	12744 25 88 88 1.548840052304 1.548840052304 1 84 84 84 7056
+14	12769 26 89 89 1.548840052304 1.548840052304 1 102 102 102 10404
+15	12795 26 89 89 1.548840052304 1.548840052304 1 102 102 102 10404
+16	12821 48 89 89 1.548840052304 1.548840052304 2 0 1 1 1
+17	12869 26 89 89 1.548840052304 1.548840052304 1 102 102 102 10404
+18	12895 24 89 89 1.548840052304 1.548840052304 1 0 0 0 0
+19	12919 26 91 91 1.548848852304 1.548848852304 1 102 102 102 10404
+20	12945 26 92 92 1.548848902304 1.548848902304 1 102 102 102 10404
+21	12971 26 92 92 1.548848902304 1.548848902304 1 102 102 102 10404
+22	12997 25 93 93 1.548848902304 1.548848902304 1 84 84 84 7056
+24	13022 51 72 106 1.548822352304 2.548822352304 2 84 84 168 14112
+25	13073 53 73 107 1.548822352304 2.548822352304 2 102 102 204 20808
+26	13126 53 73 107 1.548822352304 2.548822352304 2 102 102 204 20808
+27	13179 98 73 107 1.548822352304 2.548822352304 4 0 1 2 2
+28	13277 53 73 107 1.548822352304 2.548822352304 2 102 102 204 20808
+29	13330 49 73 107 1.548822352304 2.548822352304 2 0 0 0 0
+30	13379 53 75 109 1.548831152304 2.548831152304 2 102 102 204 20808
+31	13432 53 76 110 1.548831202304 2.548831202304 2 102 102 204 20808
+32	13485 53 76 110 1.548831202304 2.548831202304 2 102 102 204 20808
+33	13538 51 77 111 1.548831202304 2.548831202304 2 84 84 168 14112
+35	13589 25 81 81 1.548831202304 1.548831202304 1 84 84 84 7056
+36	13614 26 82 82 1.548831202304 1.548831202304 1 102 102 102 10404
+37	13640 26 82 82 1.548831202304 1.548831202304 1 102 102 102 10404
+38	13666 48 82 82 1.548831202304 1.548831202304 2 0 1 1 1
+39	13714 26 82 82 1.548831202304 1.548831202304 1 102 102 102 10404
+40	13740 24 82 82 1.548831202304 1.548831202304 1 0 0 0 0
+41	13764 26 84 84 1.548840002304 1.548840002304 1 102 102 102 10404
+42	13790 26 85 85 1.548840052304 1.548840052304 1 102 102 102 10404
+43	13816 26 85 85 1.548840052304 1.548840052304 1 102 102 102 10404
+44	13842 25 86 86 1.548840052304 1.548840052304 1 84 84 84 7056
+45	13867 24 95 95 1.548848902304 1.548848902304 1 1 1 1 1
+46	13891 32 95 95 1.548848902304 1.548848902304 1 3.54e-005 3.54e-005 3.54e-005 1.25316e-009
+0	13923 246 132 438 3.548813502304 12.548813502304 10 3 12 75 645
+2	14169 253 134 440 3.548813502304 12.548813502304 10 84 84 840 70560
+3	14422 263 135 441 3.548813502304 12.548813502304 10 102 102 1020 104040
+4	14685 263 135 441 3.548813502304 12.548813502304 10 102 102 1020 104040
+5	14948 486 135 441 3.548813502304 12.548813502304 20 0 1 10 10
+6	15434 263 135 441 3.548813502304 12.548813502304 10 102 102 1020 104040
+7	15697 243 135 441 3.548813502304 12.548813502304 10 0 0 0 0
+8	15940 263 136 442 3.548822302304 12.548822302304 10 102 102 1020 104040
+9	16203 263 137 443 3.548822352304 12.548822352304 10 102 102 1020 104040
+10	16466 273 137 443 3.548822352304 12.548822352304 10 102 102 1020 104040
+11	16739 263 138 444 3.548822352304 12.548822352304 10 84 84 840 70560
+13	17002 262 122 428 2.548840052304 11.548840052304 10 84 84 840 70560
+14	17264 272 123 429 2.548840052304 11.548840052304 10 102 102 1020 104040
+15	17536 272 123 429 2.548840052304 11.548840052304 10 102 102 1020 104040
+16	17808 504 123 429 2.548840052304 11.548840052304 20 0 1 10 10
+17	18312 272 123 429 2.548840052304 11.548840052304 10 102 102 1020 104040
+18	18584 252 123 429 2.548840052304 11.548840052304 10 0 0 0 0
+19	18836 272 125 431 2.548848852304 11.548848852304 10 102 102 1020 104040
+20	19108 272 126 432 2.548848902304 11.548848902304 10 102 102 1020 104040
+21	19380 272 126 432 2.548848902304 11.548848902304 10 102 102 1020 104040
+22	19652 262 127 433 2.548848902304 11.548848902304 10 84 84 840 70560
+24	19914 236 140 412 3.548822352304 11.548822352304 9 84 84 756 63504
+25	20150 245 141 413 3.548822352304 11.548822352304 9 102 102 918 93636
+26	20395 245 141 413 3.548822352304 11.548822352304 9 102 102 918 93636
+27	20640 454 141 413 3.548822352304 11.548822352304 18 0 1 9 9
+28	21094 245 141 413 3.548822352304 11.548822352304 9 102 102 918 93636
+29	21339 227 141 413 3.548822352304 11.548822352304 9 0 0 0 0
+30	21566 245 143 415 3.548831152304 11.548831152304 9 102 102 918 93636
+31	21811 245 144 416 3.548831202304 11.548831202304 9 102 102 918 93636
+32	22056 245 144 416 3.548831202304 11.548831202304 9 102 102 918 93636
+33	22301 236 145 417 3.548831202304 11.548831202304 9 84 84 756 63504
+35	22537 262 115 421 2.548831202304 11.548831202304 10 84 84 840 70560
+36	22799 272 116 422 2.548831202304 11.548831202304 10 102 102 1020 104040
+37	23071 272 116 422 2.548831202304 11.548831202304 10 102 102 1020 104040
+38	23343 504 116 422 2.548831202304 11.548831202304 20 0 1 10 10
+39	23847 272 116 422 2.548831202304 11.548831202304 10 102 102 1020 104040
+40	24119 252 116 422 2.548831202304 11.548831202304 10 0 0 0 0
+41	24371 272 118 424 2.548840002304 11.548840002304 10 102 102 1020 104040
+42	24643 272 119 425 2.548840052304 11.548840052304 10 102 102 1020 104040
+43	24915 272 119 425 2.548840052304 11.548840052304 10 102 102 1020 104040
+44	25187 262 120 426 2.548840052304 11.548840052304 10 84 84 840 70560
+45	25449 254 129 435 2.548848902304 11.548848902304 10 2 11 65 505
+46	25703 332 129 435 2.548848902304 11.548848902304 10 3.54e-005 3.54e-005 0.000354 1.25316e-008
+

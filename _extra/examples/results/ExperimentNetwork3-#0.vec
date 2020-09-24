@@ -1,0 +1,164 @@
+version 2
+run ExperimentNetwork3-0-20200923-14:55:21-6028
+attr configname ExperimentNetwork3
+attr datetime 20200923-14:55:21
+attr experiment ExperimentNetwork3
+attr inifile experiment.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network ExperimentNetwork3
+attr processid 6028
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.visualizer.*.interfaceTableVisualizer.nodeFilter "\"not (*witch* ap)\""
+param **.visualizer.*.packetDropVisualizer.displayPacketDrops true
+param **.visualizer.*.packetDropVisualizer.labelFormat "\"%n/reason: %r\""
+param **.visualizer.*.packetDropVisualizer.fadeOutTime 3s
+param **.visualizer.*.networkRouteVisualizer.displayRoutes true
+param **.visualizer.*.networkRouteVisualizer.packetFilter "\"*Flood\""
+param **.visualizer.*.networkRouteVisualizer.fadeOutTime 2s
+param *.WirelessNetwork.**.radio.radioMediumModule "\"ExperimentNetwork3.WirelessNetwork.radioMedium\""
+param **.bot.numPktGen 4
+param **.bot.pg[*].localPort 1234
+param **.bot.pg[*].destPort 1234
+param **.bot.pg[*].startTime "2s+uniform(0.01ms, 0.05ms)"
+param **.bot.pg[*].sendInterval 0.01ms
+param **.bot.pg[0].packetType "\"UDP\""
+param **.bot.pg[0].packetName "\"UDPFlood\""
+param **.bot.pg[1].packetType "\"TCP_SYN\""
+param **.bot.pg[1].packetName "\"SYNFlood\""
+param **.bot.pg[2].packetType "\"TCP_SYNACK\""
+param **.bot.pg[2].packetName "\"SYNACKFlood\""
+param **.bot.pg[3].packetType "\"TCP_ACK\""
+param **.bot.pg[3].packetName "\"ACKFlood\""
+param **.bot.pg[0].destAddr "\"WirelessNetwork.wirelessHost\""
+param **.bot.pg[1].destAddr "\"WiredNetwork1.host1\""
+param **.bot.pg[2].destAddr "\"WiredNetwork2.host2\""
+param **.bot.pg[3].destAddr "\"CloudCenter.server1\""
+param **.*ost*.numApps 1
+param **.*ost*.app[*].typename "\"PingApp\""
+param **.*ost*.app[*].sendInterval 0.02ms
+param **.*ost*.app[*].startTime "2s+uniform(0.01ms, 0.05ms)"
+param *.WiredNetwork1.host1.app[*].destAddr "\"WiredNetwork2.host2\""
+param *.WiredNetwork1.host2.app[*].destAddr "\"WiredNetwork1.host3\""
+param *.WiredNetwork1.host3.app[*].destAddr "\"WirelessNetwork.mobileHost\""
+param *.WiredNetwork2.host1.app[*].destAddr "\"CloudCenter.server1\""
+param *.WiredNetwork2.host2.app[*].destAddr "\"CloudCenter.server2\""
+param *.WiredNetwork2.host3.app[*].destAddr "\"CloudCenter.server3\""
+param *.WirelessNetwork.*Host.app[*].destAddr "\"WirelessNetwork.mecNode\""
+param **.router.eth[*].mac.queue.typename "\"EtherQosQueue\""
+param **.router.eth[*].mac.queue.dataQueue.typename "\"DropTailQueue\""
+param **.router.**.queue.packetCapacity 4
+param **.coreRouter.eth[*].mac.queue.typename "\"EtherQosQueue\""
+param **.coreRouter.eth[*].mac.queue.dataQueue.typename "\"DropTailQueue\""
+param **.coreRouter.**.queue.packetCapacity 4
+param **.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 ExperimentNetwork3.InternetCloud.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "tx state, vector"
+vector 1 ExperimentNetwork3.InternetCloud.ppp[1].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "tx state, vector"
+vector 2 ExperimentNetwork3.InternetCloud.ppp[2].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "tx state, vector"
+vector 3 ExperimentNetwork3.InternetCloud.ppp[3].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "tx state, vector"
+vector 4 ExperimentNetwork3.CloudCenter.coreRouter.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "tx state, vector"
+vector 5 ExperimentNetwork3.WiredNetwork1.router.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "tx state, vector"
+vector 6 ExperimentNetwork3.WiredNetwork2.router.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "tx state, vector"
+vector 7 ExperimentNetwork3.WirelessNetwork.router.ppp[0].ppp transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "tx state, vector"
+vector 8 ExperimentNetwork3.WirelessNetwork.ap.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 9 ExperimentNetwork3.WirelessNetwork.ap.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 10 ExperimentNetwork3.WirelessNetwork.wirelessHost.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 11 ExperimentNetwork3.WirelessNetwork.wirelessHost.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 12 ExperimentNetwork3.WirelessNetwork.mobileHost.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 13 ExperimentNetwork3.WirelessNetwork.mobileHost.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 14 ExperimentNetwork3.WirelessNetwork.ap.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 15 ExperimentNetwork3.WirelessNetwork.wirelessHost.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 16 ExperimentNetwork3.WirelessNetwork.mobileHost.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 17 ExperimentNetwork3.WirelessNetwork.ap.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 18 ExperimentNetwork3.WirelessNetwork.wirelessHost.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 19 ExperimentNetwork3.WirelessNetwork.mobileHost.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+0	0	0	0
+1	0	0	0
+2	0	0	0
+3	0	0	0
+4	0	0	0
+5	0	0	0
+6	0	0	0
+7	0	0	0
+8	0	0	0
+8	0	0	0
+8	0	0	2
+9	0	0	0
+10	0	0	0
+10	0	0	0
+10	0	0	2
+11	0	0	0
+12	0	0	0
+12	0	0	0
+12	0	0	2
+13	0	0	0
+14	0	0	1
+15	0	0	1
+16	0	0	1
+17	0	0	31
+18	0	0	31
+19	0	0	31
+

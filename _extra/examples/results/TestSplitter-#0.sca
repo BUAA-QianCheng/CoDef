@@ -1,0 +1,1193 @@
+version 2
+run TestSplitter-0-20200911-15:30:11-2892
+attr configname TestSplitter
+attr datetime 20200911-15:30:11
+attr experiment TestSplitter
+attr inifile test.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestSplitter
+attr processid 2892
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.standardHost.numApps 1
+param *.standardHost.app[*].typename "\"PingApp\""
+param *.standardHost.app[*].destAddr "\"standardHost1\""
+param *.standardHost.numPktGen 4
+param *.standardHost.pg[*].destAddr "\"standardHost1\""
+param *.standardHost.pg[*].localPort 1234
+param *.standardHost.pg[*].destPort 1234
+param *.standardHost.pg[*].sendInterval 0.01ms
+param *.standardHost.pg[0].packetType "\"UDP\""
+param *.standardHost.pg[0].packetName "\"UDPFlood\""
+param *.standardHost.pg[1].packetType "\"TCP_SYN\""
+param *.standardHost.pg[1].packetName "\"SYNFlood\""
+param *.standardHost.pg[2].packetType "\"TCP_SYNACK\""
+param *.standardHost.pg[2].packetName "\"SYNACKFlood\""
+param *.standardHost.pg[3].packetType "\"TCP_ACK\""
+param *.standardHost.pg[3].packetName "\"ACKFlood\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+scalar TestSplitter.standardHost.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar TestSplitter.standardHost.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar TestSplitter.standardHost.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TestSplitter.standardHost.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].mac.queue packetPopped:count 9
+attr interpolationmode none
+attr title "packet popped, count"
+scalar TestSplitter.standardHost.eth[0].mac.queue packetPopped:sum(packetBytes) 3484
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic TestSplitter.standardHost.eth[0].mac.queue queueingTime:histogram
+field count 9
+field mean 0.00015015111111111
+field stddev 0.00010712908433806
+field min 0
+field max 0.00027968
+field sum 0.00135136
+field sqrsum 2.947213312e-007
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	2
+bin	5e-006	0
+bin	1e-005	0
+bin	1.5e-005	0
+bin	2e-005	0
+bin	2.5e-005	0
+bin	3e-005	0
+bin	3.5e-005	0
+bin	4e-005	0
+bin	4.5e-005	0
+bin	5e-005	0
+bin	5.5e-005	0
+bin	6e-005	0
+bin	6.5e-005	0
+bin	7e-005	0
+bin	7.5e-005	0
+bin	8e-005	0
+bin	8.5e-005	0
+bin	9e-005	0
+bin	9.5e-005	0
+bin	0.0001	0
+bin	0.000105	0
+bin	0.00011	0
+bin	0.000115	0
+bin	0.00012	1
+bin	0.000125	1
+bin	0.00013	0
+bin	0.000135	1
+bin	0.00014	1
+bin	0.000145	0
+bin	0.00015	0
+bin	0.000155	0
+bin	0.00016	0
+bin	0.000165	0
+bin	0.00017	0
+bin	0.000175	0
+bin	0.00018	0
+bin	0.000185	0
+bin	0.00019	0
+bin	0.000195	0
+bin	0.0002	0
+bin	0.000205	0
+bin	0.00021	0
+bin	0.000215	0
+bin	0.00022	0
+bin	0.000225	0
+bin	0.00023	0
+bin	0.000235	0
+bin	0.00024	0
+bin	0.000245	0
+bin	0.00025	0
+bin	0.000255	0
+bin	0.00026	0
+bin	0.000265	1
+bin	0.00027	1
+bin	0.000275	1
+bin	0.00028	0
+bin	0.000285	0
+bin	0.00029	0
+bin	0.000295	0
+bin	0.0003	0
+bin	0.000305	0
+bin	0.00031	0
+bin	0.000315	0
+bin	0.00032	0
+bin	0.000325	0
+bin	0.00033	0
+bin	0.000335	0
+bin	0.00034	0
+bin	0.000345	0
+bin	0.00035	0
+scalar TestSplitter.standardHost.eth[0].mac.queue queueLength:max 113
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar TestSplitter.standardHost.eth[0].mac.queue queueLength:timeavg 58.140602780112
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar TestSplitter.standardHost.eth[0].mac.queue packetPushed:count 121
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar TestSplitter.standardHost.eth[0].mac.queue packetPushed:sum(packetBytes) 51364
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar TestSplitter.standardHost.eth[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar TestSplitter.standardHost.eth[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].mac "simulated time" 0.000307230211
+scalar TestSplitter.standardHost.eth[0].mac full-duplex 1
+scalar TestSplitter.standardHost.eth[0].mac "frames/sec sent" 29293.994137836
+scalar TestSplitter.standardHost.eth[0].mac "frames/sec rcvd" 9764.6647126119
+scalar TestSplitter.standardHost.eth[0].mac "bits/sec sent" 90720244.956639
+scalar TestSplitter.standardHost.eth[0].mac "bits/sec rcvd" 4999508.3328573
+scalar TestSplitter.standardHost.eth[0].mac "rx channel idle (%)" 100
+scalar TestSplitter.standardHost.eth[0].mac "rx channel utilization (%)" 0
+scalar TestSplitter.standardHost.eth[0].mac txPk:count 9
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar TestSplitter.standardHost.eth[0].mac txPk:sum(packetBytes) 3484
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].mac packetReceivedFromUpper:count 121
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, count"
+scalar TestSplitter.standardHost.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 50806
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].mac passedUpPk:count 3
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TestSplitter.standardHost.eth[0].mac passedUpPk:sum(packetBytes) 192
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar TestSplitter.standardHost.eth[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar TestSplitter.standardHost.eth[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar TestSplitter.standardHost.eth[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar TestSplitter.standardHost.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar TestSplitter.standardHost.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar TestSplitter.standardHost.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar TestSplitter.standardHost.eth[0].mac rxPkOk:count 3
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar TestSplitter.standardHost.eth[0].mac rxPkOk:sum(packetBytes) 192
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar TestSplitter.standardHost.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar TestSplitter.standardHost.eth[0].encap decapPk:count 3
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar TestSplitter.standardHost.eth[0].encap decapPk:sum(packetBytes) 138
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar TestSplitter.standardHost.eth[0].encap encapPk:count 121
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar TestSplitter.standardHost.eth[0].encap encapPk:sum(packetBytes) 48628
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar TestSplitter.standardHost.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar TestSplitter.standardHost.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar TestSplitter.standardHost.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar TestSplitter.standardHost.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar TestSplitter.standardHost.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar TestSplitter.standardHost.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar TestSplitter.standardHost.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar TestSplitter.standardHost.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar TestSplitter.standardHost.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar TestSplitter.standardHost.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar TestSplitter.standardHost.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar TestSplitter.standardHost.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar TestSplitter.standardHost.ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar TestSplitter.standardHost.ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar TestSplitter.standardHost.ipv4.arp arpRequestSent:count 1
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar TestSplitter.standardHost.ipv4.arp arpRequestSent:sum(packetBytes) 28
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar TestSplitter.standardHost.ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar TestSplitter.standardHost.ipv4.arp arpResolutionCompleted:count 1
+attr title "ARP completed resolutions, count"
+scalar TestSplitter.standardHost.ipv4.arp arpResolutionInitiated:count 1
+attr title "ARP initiated resolutions, count"
+scalar TestSplitter.standardHost.udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar TestSplitter.standardHost.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar TestSplitter.standardHost.udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar TestSplitter.standardHost.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar TestSplitter.standardHost.udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar TestSplitter.standardHost.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar TestSplitter.standardHost.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar TestSplitter.standardHost.app[0] pingRxSeq:count 0
+attr interpolationmode none
+attr title "ping rx seq, count"
+scalar TestSplitter.standardHost.app[0] pingTxSeq:count 0
+attr interpolationmode none
+attr title "ping tx seq, count"
+scalar TestSplitter.standardHost.app[0] numOutOfOrderArrivals:last nan
+attr interpolationmode none
+attr title "ping out-of-order arrivals, last"
+scalar TestSplitter.standardHost.app[0] numLost:last nan
+attr interpolationmode none
+attr title "pings lost, last"
+statistic TestSplitter.standardHost.app[0] rtt:histogram
+field count 0
+field mean nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr title "ping round-trip time, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar TestSplitter.standardHost.pg[0] "packets sent" 30
+scalar TestSplitter.standardHost.pg[1] "packets sent" 30
+scalar TestSplitter.standardHost.pg[2] "packets sent" 30
+scalar TestSplitter.standardHost.pg[3] "packets sent" 30
+scalar TestSplitter.standardHost1.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar TestSplitter.standardHost1.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar TestSplitter.standardHost1.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TestSplitter.standardHost1.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].mac.queue packetPopped:count 4
+attr interpolationmode none
+attr title "packet popped, count"
+scalar TestSplitter.standardHost1.eth[0].mac.queue packetPopped:sum(packetBytes) 256
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic TestSplitter.standardHost1.eth[0].mac.queue queueingTime:histogram
+field count 4
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	4
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar TestSplitter.standardHost1.eth[0].mac.queue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar TestSplitter.standardHost1.eth[0].mac.queue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar TestSplitter.standardHost1.eth[0].mac.queue packetPushed:count 4
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar TestSplitter.standardHost1.eth[0].mac.queue packetPushed:sum(packetBytes) 256
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar TestSplitter.standardHost1.eth[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar TestSplitter.standardHost1.eth[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].mac "simulated time" 0.000307230211
+scalar TestSplitter.standardHost1.eth[0].mac full-duplex 1
+scalar TestSplitter.standardHost1.eth[0].mac "frames/sec sent" 13019.552950149
+scalar TestSplitter.standardHost1.eth[0].mac "frames/sec rcvd" 16274.441187686
+scalar TestSplitter.standardHost1.eth[0].mac "bits/sec sent" 6666011.1104764
+scalar TestSplitter.standardHost1.eth[0].mac "bits/sec rcvd" 46193373.867129
+scalar TestSplitter.standardHost1.eth[0].mac "rx channel idle (%)" 100
+scalar TestSplitter.standardHost1.eth[0].mac "rx channel utilization (%)" 0
+scalar TestSplitter.standardHost1.eth[0].mac txPk:count 4
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar TestSplitter.standardHost1.eth[0].mac txPk:sum(packetBytes) 256
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].mac packetReceivedFromUpper:count 4
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, count"
+scalar TestSplitter.standardHost1.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 220
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].mac passedUpPk:count 5
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TestSplitter.standardHost1.eth[0].mac passedUpPk:sum(packetBytes) 1774
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar TestSplitter.standardHost1.eth[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar TestSplitter.standardHost1.eth[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar TestSplitter.standardHost1.eth[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar TestSplitter.standardHost1.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar TestSplitter.standardHost1.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar TestSplitter.standardHost1.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar TestSplitter.standardHost1.eth[0].mac rxPkOk:count 5
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar TestSplitter.standardHost1.eth[0].mac rxPkOk:sum(packetBytes) 1774
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar TestSplitter.standardHost1.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar TestSplitter.standardHost1.eth[0].encap decapPk:count 5
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar TestSplitter.standardHost1.eth[0].encap decapPk:sum(packetBytes) 1684
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar TestSplitter.standardHost1.eth[0].encap encapPk:count 4
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar TestSplitter.standardHost1.eth[0].encap encapPk:sum(packetBytes) 148
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar TestSplitter.standardHost1.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar TestSplitter.standardHost1.ipv4.arp arpReplySent:count 1
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar TestSplitter.standardHost1.ipv4.arp arpReplySent:sum(packetBytes) 28
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar TestSplitter.standardHost1.ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar TestSplitter.standardHost1.ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar TestSplitter.standardHost1.ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar TestSplitter.standardHost1.ipv4.arp arpResolutionCompleted:count 1
+attr title "ARP completed resolutions, count"
+scalar TestSplitter.standardHost1.ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar TestSplitter.standardHost1.udp packetReceived:count 1
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar TestSplitter.standardHost1.udp packetReceived:sum(packetBytes) 1480
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar TestSplitter.standardHost1.udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar TestSplitter.standardHost1.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar TestSplitter.standardHost1.udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar TestSplitter.standardHost1.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar TestSplitter.standardHost1.udp droppedPkBadChecksum:count 1
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar TestSplitter.router.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar TestSplitter.router.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar TestSplitter.router.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TestSplitter.router.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].mac.queue packetPopped:count 4
+attr interpolationmode none
+attr title "packet popped, count"
+scalar TestSplitter.router.eth[0].mac.queue packetPopped:sum(packetBytes) 256
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic TestSplitter.router.eth[0].mac.queue queueingTime:histogram
+field count 4
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	4
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar TestSplitter.router.eth[0].mac.queue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar TestSplitter.router.eth[0].mac.queue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar TestSplitter.router.eth[0].mac.queue packetPushed:count 4
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar TestSplitter.router.eth[0].mac.queue packetPushed:sum(packetBytes) 256
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar TestSplitter.router.eth[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar TestSplitter.router.eth[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].mac "simulated time" 0.000307230211
+scalar TestSplitter.router.eth[0].mac full-duplex 1
+scalar TestSplitter.router.eth[0].mac "frames/sec sent" 9764.6647126119
+scalar TestSplitter.router.eth[0].mac "frames/sec rcvd" 26039.105900298
+scalar TestSplitter.router.eth[0].mac "bits/sec sent" 4999508.3328573
+scalar TestSplitter.router.eth[0].mac "bits/sec rcvd" 89053742.17902
+scalar TestSplitter.router.eth[0].mac "rx channel idle (%)" 100
+scalar TestSplitter.router.eth[0].mac "rx channel utilization (%)" 0
+scalar TestSplitter.router.eth[0].mac txPk:count 3
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar TestSplitter.router.eth[0].mac txPk:sum(packetBytes) 192
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].mac packetReceivedFromUpper:count 4
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, count"
+scalar TestSplitter.router.eth[0].mac packetReceivedFromUpper:sum(packetBytes) 220
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].mac passedUpPk:count 8
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TestSplitter.router.eth[0].mac passedUpPk:sum(packetBytes) 3420
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar TestSplitter.router.eth[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar TestSplitter.router.eth[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar TestSplitter.router.eth[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar TestSplitter.router.eth[0].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar TestSplitter.router.eth[0].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar TestSplitter.router.eth[0].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar TestSplitter.router.eth[0].mac rxPkOk:count 8
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar TestSplitter.router.eth[0].mac rxPkOk:sum(packetBytes) 3420
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar TestSplitter.router.eth[0].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar TestSplitter.router.eth[0].encap decapPk:count 8
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar TestSplitter.router.eth[0].encap decapPk:sum(packetBytes) 3276
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar TestSplitter.router.eth[0].encap encapPk:count 4
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar TestSplitter.router.eth[0].encap encapPk:sum(packetBytes) 148
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].mac.queue packetPopped:count 6
+attr interpolationmode none
+attr title "packet popped, count"
+scalar TestSplitter.router.eth[1].mac.queue packetPopped:sum(packetBytes) 3292
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic TestSplitter.router.eth[1].mac.queue queueingTime:histogram
+field count 6
+field mean 6.509e-005
+field stddev 6.7217415302881e-005
+field min 0
+field max 0.00012794
+field sum 0.00039054
+field sqrsum 4.80111532e-008
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	2
+bin	2e-006	0
+bin	4e-006	0
+bin	6e-006	0
+bin	8e-006	0
+bin	1e-005	1
+bin	1.2e-005	0
+bin	1.4e-005	0
+bin	1.6e-005	0
+bin	1.8e-005	0
+bin	2e-005	0
+bin	2.2e-005	0
+bin	2.4e-005	0
+bin	2.6e-005	0
+bin	2.8e-005	0
+bin	3e-005	0
+bin	3.2e-005	0
+bin	3.4e-005	0
+bin	3.6e-005	0
+bin	3.8e-005	0
+bin	4e-005	0
+bin	4.2e-005	0
+bin	4.4e-005	0
+bin	4.6e-005	0
+bin	4.8e-005	0
+bin	5e-005	0
+bin	5.2e-005	0
+bin	5.4e-005	0
+bin	5.6e-005	0
+bin	5.8e-005	0
+bin	6e-005	0
+bin	6.2e-005	0
+bin	6.4e-005	0
+bin	6.6e-005	0
+bin	6.8e-005	0
+bin	7e-005	0
+bin	7.2e-005	0
+bin	7.4e-005	0
+bin	7.6e-005	0
+bin	7.8e-005	0
+bin	8e-005	0
+bin	8.2e-005	0
+bin	8.4e-005	0
+bin	8.6e-005	0
+bin	8.8e-005	0
+bin	9e-005	0
+bin	9.2e-005	0
+bin	9.4e-005	0
+bin	9.6e-005	0
+bin	9.8e-005	0
+bin	0.0001	0
+bin	0.000102	0
+bin	0.000104	0
+bin	0.000106	0
+bin	0.000108	0
+bin	0.00011	0
+bin	0.000112	0
+bin	0.000114	0
+bin	0.000116	0
+bin	0.000118	0
+bin	0.00012	0
+bin	0.000122	1
+bin	0.000124	0
+bin	0.000126	2
+bin	0.000128	0
+bin	0.00013	0
+bin	0.000132	0
+bin	0.000134	0
+bin	0.000136	0
+bin	0.000138	0
+bin	0.00014	0
+bin	0.000142	0
+bin	0.000144	0
+bin	0.000146	0
+bin	0.000148	0
+bin	0.00015	0
+bin	0.000152	0
+bin	0.000154	0
+bin	0.000156	0
+bin	0.000158	0
+bin	0.00016	0
+scalar TestSplitter.router.eth[1].mac.queue queueLength:max 3
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar TestSplitter.router.eth[1].mac.queue queueLength:timeavg 2.5141730944069
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar TestSplitter.router.eth[1].mac.queue packetPushed:count 8
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar TestSplitter.router.eth[1].mac.queue packetPushed:sum(packetBytes) 3420
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar TestSplitter.router.eth[1].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar TestSplitter.router.eth[1].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].mac "simulated time" 0.000307230211
+scalar TestSplitter.router.eth[1].mac full-duplex 1
+scalar TestSplitter.router.eth[1].mac "frames/sec sent" 16274.441187686
+scalar TestSplitter.router.eth[1].mac "frames/sec rcvd" 13019.552950149
+scalar TestSplitter.router.eth[1].mac "bits/sec sent" 46193373.867129
+scalar TestSplitter.router.eth[1].mac "bits/sec rcvd" 6666011.1104764
+scalar TestSplitter.router.eth[1].mac "rx channel idle (%)" 100
+scalar TestSplitter.router.eth[1].mac "rx channel utilization (%)" 0
+scalar TestSplitter.router.eth[1].mac txPk:count 5
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, count"
+scalar TestSplitter.router.eth[1].mac txPk:sum(packetBytes) 1774
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].mac packetReceivedFromUpper:count 8
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, count"
+scalar TestSplitter.router.eth[1].mac packetReceivedFromUpper:sum(packetBytes) 3372
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].mac passedUpPk:count 4
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar TestSplitter.router.eth[1].mac passedUpPk:sum(packetBytes) 256
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar TestSplitter.router.eth[1].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar TestSplitter.router.eth[1].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar TestSplitter.router.eth[1].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].mac rxPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units received, count"
+scalar TestSplitter.router.eth[1].mac rxPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units received, sum"
+scalar TestSplitter.router.eth[1].mac txPausePkUnits:count 0
+attr interpolationmode none
+attr title "pause units sent, count"
+scalar TestSplitter.router.eth[1].mac txPausePkUnits:sum 0
+attr interpolationmode none
+attr title "pause units sent, sum"
+scalar TestSplitter.router.eth[1].mac rxPkOk:count 4
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, count"
+scalar TestSplitter.router.eth[1].mac rxPkOk:sum(packetBytes) 256
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].encap pauseSent:count 0
+attr title "pause sent, count"
+scalar TestSplitter.router.eth[1].encap pauseSent:sum 0
+attr title "pause sent, sum"
+scalar TestSplitter.router.eth[1].encap decapPk:count 4
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, count"
+scalar TestSplitter.router.eth[1].encap decapPk:sum(packetBytes) 184
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, sum(packetBytes)"
+scalar TestSplitter.router.eth[1].encap encapPk:count 8
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, count"
+scalar TestSplitter.router.eth[1].encap encapPk:sum(packetBytes) 3228
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, sum(packetBytes)"
+scalar TestSplitter.router.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar TestSplitter.router.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar TestSplitter.router.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar TestSplitter.router.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar TestSplitter.router.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar TestSplitter.router.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar TestSplitter.router.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar TestSplitter.router.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar TestSplitter.router.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar TestSplitter.router.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar TestSplitter.router.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar TestSplitter.router.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar TestSplitter.router.ipv4.arp arpReplySent:count 1
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar TestSplitter.router.ipv4.arp arpReplySent:sum(packetBytes) 28
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar TestSplitter.router.ipv4.arp arpRequestSent:count 1
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar TestSplitter.router.ipv4.arp arpRequestSent:sum(packetBytes) 28
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar TestSplitter.router.ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar TestSplitter.router.ipv4.arp arpResolutionCompleted:count 2
+attr title "ARP completed resolutions, count"
+scalar TestSplitter.router.ipv4.arp arpResolutionInitiated:count 1
+attr title "ARP initiated resolutions, count"
+

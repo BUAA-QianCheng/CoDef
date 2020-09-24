@@ -1,0 +1,122 @@
+version 2
+run TestSynFloodApp-0-20200830-10:57:04-25988
+attr configname TestSynFloodApp
+attr datetime 20200830-10:57:04
+attr experiment TestSynFloodApp
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TwoNodeNetwork
+attr processid 25988
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.sendhost.numApps 1
+param *.sendhost.app[*].typename "\"SynFloodApp\""
+param *.sendhost.app[*].destAddress "\"recvhost\""
+param *.sendhost.app[*].sendInterval 0.01ms
+
+vector 0 TwoNodeNetwork.sendhost.tcp.conn-0 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+vector 1 TwoNodeNetwork.sendhost.tcp.conn-0 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+vector 2 TwoNodeNetwork.sendhost.tcp.conn-0 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+vector 3 TwoNodeNetwork.sendhost.tcp.conn-0 sndAck:vector ETV
+attr interpolationmode sample-hold
+vector 4 TwoNodeNetwork.sendhost.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 5 TwoNodeNetwork.sendhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 6 TwoNodeNetwork.sendhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 7 TwoNodeNetwork.sendhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 8 TwoNodeNetwork.sendhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 9 TwoNodeNetwork.sendhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 10 TwoNodeNetwork.sendhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 11 TwoNodeNetwork.sendhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 12 TwoNodeNetwork.router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 13 TwoNodeNetwork.router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 14 TwoNodeNetwork.router.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 15 TwoNodeNetwork.router.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 16 TwoNodeNetwork.router.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 17 TwoNodeNetwork.router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 18 TwoNodeNetwork.router.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 19 TwoNodeNetwork.router.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 20 TwoNodeNetwork.router.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 21 TwoNodeNetwork.router.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+0	2	1	0
+1	2	1	7504
+2	2	1	7504
+3	2	1	0
+4	3	1	28
+5	4	1	28
+6	5	1	46
+7	5	1	64
+8	5	1	1
+8	5	1	0
+9	5	1	64
+10	5	1	0
+11	6	1.00000576	64
+12	7	1.00000581	64
+13	7	1.00000581	64
+14	8	1.00000581	46
+15	9	1.00000581	28
+16	10	1.00000581	28
+17	11	1.00000581	46
+18	11	1.00000581	64
+19	11	1.00000581	1
+19	11	1.00000581	0
+20	11	1.00000581	64
+21	11	1.00000581	0
+

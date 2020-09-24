@@ -1,0 +1,299 @@
+file 3439871 1600049601                                         
+version 2
+run TestDDoSBot_PacketGenerator-0-20200914-10:12:26-2444
+attr configname TestDDoSBot_PacketGenerator
+attr datetime 20200914-10:12:26
+attr experiment TestDDoSBot_PacketGenerator
+attr inifile test.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestBot
+attr processid 2444
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.bot.numPktGen 1
+param *.bot.pg[*].destAddr "\"recvhost\""
+param *.bot.pg[*].localPort 1234
+param *.bot.pg[*].destPort 1234
+param *.bot.pg[*].sendInterval 0.01ms
+param *.bot.pg[0].packetType "\"ICMP\""
+param *.bot.pg[0].packetName "\"ICMPFlood\""
+param *.bot.numApps 1
+param *.recvhost.numApps 1
+param *.bot.app[0].typename "\"TcpSessionApp\""
+param *.bot.app[0].connectAddress "\"recvhost\""
+param *.bot.app[0].connectPort 1236
+param *.bot.app[0].sendBytes 300kB
+param *.recvhost.app[0].typename "\"TcpEchoApp\""
+param *.recvhost.app[0].localPort 1236
+param *.recvhost.app[0].echoFactor 2.0
+param *.recvhost.app[0].echoDelay 0.01s
+param *.router.numPcapRecorders 1
+param *.router.pcapRecorder[0].pcapFile "\"results/testBotRouterCap.pcap\""
+param *.router.pcapRecorder[0].pcapLinkType 1
+param **.crcMode "\"computed\""
+param **.fcsMode "\"computed\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestBot.bot.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 1 TestBot.bot.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 2 TestBot.bot.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 3 TestBot.bot.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 4 TestBot.bot.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 5 TestBot.bot.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 6 TestBot.bot.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 7 TestBot.bot.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 8 TestBot.router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 9 TestBot.router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 10 TestBot.router.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 11 TestBot.router.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 12 TestBot.router.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 13 TestBot.router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 14 TestBot.router.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 15 TestBot.router.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 16 TestBot.router.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 17 TestBot.router.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 18 TestBot.router.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 19 TestBot.bot.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 20 TestBot.bot.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 21 TestBot.bot.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 22 TestBot.router.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 23 TestBot.router.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 24 TestBot.router.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 25 TestBot.router.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 26 TestBot.router.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 27 TestBot.router.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 28 TestBot.router.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 29 TestBot.router.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 30 TestBot.recvhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 31 TestBot.recvhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 32 TestBot.recvhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 33 TestBot.recvhost.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 34 TestBot.recvhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 35 TestBot.recvhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 36 TestBot.recvhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 37 TestBot.recvhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 38 TestBot.recvhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 39 TestBot.recvhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 40 TestBot.recvhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 41 TestBot.router.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 42 TestBot.router.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 43 TestBot.router.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+0	9425 16 3 3 0.00001 0.00001 1 28 28 28 784
+1	9441 7616 4 2323 0.00001 0.00372 373 28 1500 558028 837000784
+2	17057 7617 5 2324 0.00001 0.00372 373 46 1518 564742 857210644
+3	24674 7617 5 2324 0.00001 0.00372 373 64 1518 564760 857212624
+4	32291 7822 5 2324 0.00001 0.00372 405 0 341 68895 15716235
+5	40113 738 5 2320 0.00001 0.00371282 32 64 1518 47122 71438140
+6	40851 908 5 2320 0.00001 0.00371282 32 0 0.00340282 0.05291058 0.00012204161085
+7	41759 719 6 2314 0.00001576 0.00371186 31 64 1518 45604 69133816
+8	42478 725 7 2315 0.00001581 0.00371191 31 64 1518 45604 69133816
+9	43203 725 7 2315 0.00001581 0.00371191 31 64 1518 45604 69133816
+10	43928 756 8 2316 0.00001581 0.00371191 31 46 1500 45046 67502116
+11	44684 20 9 9 0.00001581 0.00001581 1 28 28 28 784
+12	44704 686 10 2254 0.00001581 0.00359867 28 28 1500 40528 60750784
+13	45390 686 11 2255 0.00001581 0.00359867 28 46 1518 41032 62218864
+14	46076 686 11 2255 0.00001581 0.00359867 28 64 1518 41050 62220844
+15	46762 1208 11 2255 0.00001581 0.00359867 56 0 1 28 28
+16	47970 686 11 2255 0.00001581 0.00359867 28 64 1518 41050 62220844
+17	48656 604 11 2255 0.00001581 0.00359867 28 0 0 0 0
+18	49260 686 15 2325 0.00002157 0.00372075 28 64 1518 41050 62220844
+19	49946 678 16 2326 0.00002162 0.0037208 28 64 1518 41050 62220844
+20	50624 678 16 2326 0.00002162 0.0037208 28 64 1518 41050 62220844
+21	51302 678 17 2327 0.00002162 0.0037208 28 46 1500 40546 60752116
+22	51980 21 75 75 0.00014375 0.00014375 1 28 28 28 784
+23	52001 757 76 2318 0.00014375 0.00371191 31 28 1500 45028 67500784
+24	52758 757 77 2319 0.00014375 0.00371191 31 46 1518 45586 69131836
+25	53515 757 77 2319 0.00014375 0.00371191 31 64 1518 45604 69133816
+26	54272 1311 77 2319 0.00014375 0.00371191 61 0 1 31 31
+27	55583 733 77 2269 0.00014375 0.00360049 30 64 1518 44086 66829492
+28	56316 897 77 2269 0.00014375 0.00360049 30 0 1.162e-005 0.00032536 3.7806832e-009
+29	57213 710 79 2256 0.00014951 0.00359953 29 64 1518 42568 64525168
+30	57923 704 80 2257 0.00014956 0.00359958 29 64 1518 42568 64525168
+31	58627 704 80 2257 0.00014956 0.00359958 29 64 1518 42568 64525168
+32	59331 704 81 2259 0.00014956 0.00359958 29 46 1500 42046 63002116
+33	60035 21 82 82 0.00014956 0.00014956 1 28 28 28 784
+34	60056 704 83 2263 0.00014956 0.00359958 29 28 1500 42028 63000784
+35	60760 704 84 2264 0.00014956 0.00359958 29 46 1518 42550 64523188
+36	61464 704 84 2264 0.00014956 0.00359958 29 64 1518 42568 64525168
+37	62168 1238 84 2264 0.00014956 0.00359958 58 0 1 29 29
+38	63406 704 84 2264 0.00014956 0.00359958 29 64 1518 42568 64525168
+39	64110 619 84 2264 0.00014956 0.00359958 29 0 0 0 0
+40	64729 705 90 2330 0.00015532 0.00372166 29 64 1518 42568 64525168
+41	65434 686 91 2250 0.00015537 0.00359867 28 64 1518 41050 62220844
+42	66120 686 91 2250 0.00015537 0.00359867 28 64 1518 41050 62220844
+43	66806 686 92 2252 0.00015537 0.00359867 28 46 1500 40546 60752116
+vector 44 TestBot.bot.eth[0].mac.queue packetDropQueueOverflow:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, vector(packetBytes)"
+1	67733 392341 2349 115891 0.00373 0.18237 17865 1500 1500 26797500 40196250000
+2	460074 392341 2350 115892 0.00373 0.18237 17865 1518 1518 27119070 41166748260
+3	852415 392341 2350 115892 0.00373 0.18237 17865 1518 1518 27119070 41166748260
+4	1244756 591921 2350 115892 0.00373 0.18237 26071 342 10001 205827891 1862858951139
+5	1836677 36115 2397 115888 0.00383586 0.1823669 1452 1518 1518 2204136 3345878448
+6	1872792 44536 2397 115888 0.00383586 0.1823669 1452 0.00351586 0.1675369 124.18430376 13.880771949581
+7	1917328 36115 2391 115882 0.0038349 0.18236594 1452 1518 1518 2204136 3345878448
+8	1953443 36406 2392 115883 0.00383495 0.18236599 1452 1518 1518 2204136 3345878448
+9	1989849 36406 2392 115883 0.00383495 0.18236599 1452 1518 1518 2204136 3345878448
+10	2026255 37858 2393 115884 0.00383495 0.18236599 1452 1500 1500 2178000 3267000000
+12	2064113 37856 2335 115826 0.00372171 0.18225275 1452 1500 1500 2178000 3267000000
+13	2101969 37856 2336 115827 0.00372171 0.18225275 1452 1518 1518 2204136 3345878448
+14	2139825 37856 2336 115827 0.00372171 0.18225275 1452 1518 1518 2204136 3345878448
+15	2177681 67000 2336 115827 0.00372171 0.18225275 2904 0 1 1452 1452
+16	2244681 37856 2336 115827 0.00372171 0.18225275 1452 1518 1518 2204136 3345878448
+17	2282537 33500 2336 115827 0.00372171 0.18225275 1452 0 0 0 0
+18	2316037 37858 2402 115893 0.00384379 0.18237483 1452 1518 1518 2204136 3345878448
+19	2353895 37497 2403 115894 0.00384384 0.18237488 1452 1518 1518 2204136 3345878448
+20	2391392 37497 2403 115894 0.00384384 0.18237488 1452 1518 1518 2204136 3345878448
+21	2428889 37497 2404 115895 0.00384384 0.18237488 1452 1500 1500 2178000 3267000000
+23	2466386 37858 2395 115886 0.00383495 0.18236599 1452 1500 1500 2178000 3267000000
+24	2504244 37858 2396 115887 0.00383495 0.18236599 1452 1518 1518 2204136 3345878448
+25	2542102 37858 2396 115887 0.00383495 0.18236599 1452 1518 1518 2204136 3345878448
+26	2579960 67003 2346 115887 0.00372353 0.18236599 2904 0 1 1452 1452
+27	2646963 37857 2346 115837 0.00372353 0.18225457 1452 1518 1518 2204136 3345878448
+28	2684820 46569 2346 115837 0.00372353 0.18225457 1452 1.162e-005 1.162e-005 0.01687224 1.960554288e-007
+29	2731389 37857 2337 115828 0.00372257 0.18225361 1452 1518 1518 2204136 3345878448
+30	2769246 37567 2338 115829 0.00372262 0.18225366 1452 1518 1518 2204136 3345878448
+31	2806813 37567 2338 115829 0.00372262 0.18225366 1452 1518 1518 2204136 3345878448
+32	2844380 37567 2340 115831 0.00372262 0.18225366 1452 1500 1500 2178000 3267000000
+34	2881947 37567 2344 115835 0.00372262 0.18225366 1452 1500 1500 2178000 3267000000
+35	2919514 37567 2345 115836 0.00372262 0.18225366 1452 1518 1518 2204136 3345878448
+36	2957081 37567 2345 115836 0.00372262 0.18225366 1452 1518 1518 2204136 3345878448
+37	2994648 66422 2345 115836 0.00372262 0.18225366 2904 0 1 1452 1452
+38	3061070 37567 2345 115836 0.00372262 0.18225366 1452 1518 1518 2204136 3345878448
+39	3098637 33211 2345 115836 0.00372262 0.18225366 1452 0 0 0 0
+40	3131848 37567 2407 115898 0.0038447 0.18237574 1452 1518 1518 2204136 3345878448
+41	3169415 37856 2331 115822 0.00372171 0.18225275 1452 1518 1518 2204136 3345878448
+42	3207271 37856 2331 115822 0.00372171 0.18225275 1452 1518 1518 2204136 3345878448
+43	3245127 37856 2333 115824 0.00372171 0.18225275 1452 1500 1500 2178000 3267000000
+44	3282983 156886 69168 115881 0.10886 0.18236 6754 1518 1518 10252572 15563404296
+

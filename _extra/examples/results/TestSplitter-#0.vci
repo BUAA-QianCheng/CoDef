@@ -1,0 +1,327 @@
+file 23762 1599810006                                           
+version 2
+run TestSplitter-0-20200911-15:30:11-2892
+attr configname TestSplitter
+attr datetime 20200911-15:30:11
+attr experiment TestSplitter
+attr inifile test.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestSplitter
+attr processid 2892
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.standardHost.numApps 1
+param *.standardHost.app[*].typename "\"PingApp\""
+param *.standardHost.app[*].destAddr "\"standardHost1\""
+param *.standardHost.numPktGen 4
+param *.standardHost.pg[*].destAddr "\"standardHost1\""
+param *.standardHost.pg[*].localPort 1234
+param *.standardHost.pg[*].destPort 1234
+param *.standardHost.pg[*].sendInterval 0.01ms
+param *.standardHost.pg[0].packetType "\"UDP\""
+param *.standardHost.pg[0].packetName "\"UDPFlood\""
+param *.standardHost.pg[1].packetType "\"TCP_SYN\""
+param *.standardHost.pg[1].packetName "\"SYNFlood\""
+param *.standardHost.pg[2].packetType "\"TCP_SYNACK\""
+param *.standardHost.pg[2].packetName "\"SYNACKFlood\""
+param *.standardHost.pg[3].packetType "\"TCP_ACK\""
+param *.standardHost.pg[3].packetName "\"ACKFlood\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestSplitter.standardHost.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 1 TestSplitter.standardHost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 2 TestSplitter.standardHost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 3 TestSplitter.standardHost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 4 TestSplitter.standardHost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 5 TestSplitter.standardHost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 6 TestSplitter.standardHost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 7 TestSplitter.standardHost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 8 TestSplitter.router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 9 TestSplitter.router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 10 TestSplitter.router.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 11 TestSplitter.router.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 12 TestSplitter.router.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 13 TestSplitter.router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 14 TestSplitter.router.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 15 TestSplitter.router.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 16 TestSplitter.router.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 17 TestSplitter.router.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 18 TestSplitter.router.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 19 TestSplitter.standardHost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 20 TestSplitter.standardHost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 21 TestSplitter.standardHost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+0	5455 16 5 5 0.00001 0.00001 1 28 28 28 784
+1	5471 1052 9 239 0.00001 0.00014 57 28 1500 22708 31567984
+2	6523 1053 10 243 0.00001 0.00014 57 46 1518 23734 32403940
+3	7576 1053 10 243 0.00001 0.00014 57 64 1518 24004 32436664
+4	8629 1049 10 243 0.00001 0.00014 59 0 55 1542 56982
+5	9678 39 10 42 0.00001 0.00002172 2 64 1518 1582 2308420
+6	9717 35 10 42 0.00001 0.00002172 2 0 0 0 0
+7	9752 42 12 244 0.00001576 0.0001438 2 64 1518 1582 2308420
+8	9794 20 13 13 0.00001586 0.00001586 1 64 64 64 4096
+9	9814 20 13 13 0.00001586 0.00001586 1 64 64 64 4096
+10	9834 21 15 15 0.00001586 0.00001586 1 46 46 46 2116
+11	9855 21 16 16 0.00001586 0.00001586 1 28 28 28 784
+12	9876 21 17 17 0.00001586 0.00001586 1 28 28 28 784
+13	9897 21 18 18 0.00001586 0.00001586 1 46 46 46 2116
+14	9918 21 18 18 0.00001586 0.00001586 1 64 64 64 4096
+15	9939 40 18 18 0.00001586 0.00001586 2 0 1 1 1
+16	9979 21 18 18 0.00001586 0.00001586 1 64 64 64 4096
+17	10000 20 18 18 0.00001586 0.00001586 1 0 0 0 0
+18	10020 21 29 29 0.00002162 0.00002162 1 64 64 64 4096
+19	10041 21 30 30 0.00002172 0.00002172 1 64 64 64 4096
+20	10062 21 30 30 0.00002172 0.00002172 1 64 64 64 4096
+21	10083 21 32 32 0.00002172 0.00002172 1 46 46 46 2116
+8	10104 22 245 245 0.0001439 0.0001439 1 1518 1518 1518 2304324
+9	10126 22 245 245 0.0001439 0.0001439 1 1518 1518 1518 2304324
+10	10148 23 247 247 0.0001439 0.0001439 1 1500 1500 1500 2250000
+vector 22 TestSplitter.router.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 23 TestSplitter.router.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 24 TestSplitter.router.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 25 TestSplitter.router.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 26 TestSplitter.router.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 27 TestSplitter.router.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 28 TestSplitter.router.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 29 TestSplitter.router.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 30 TestSplitter.standardHost1.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 31 TestSplitter.standardHost1.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 32 TestSplitter.standardHost1.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 33 TestSplitter.standardHost1.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 34 TestSplitter.standardHost1.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 35 TestSplitter.standardHost1.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 36 TestSplitter.standardHost1.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 37 TestSplitter.standardHost1.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 38 TestSplitter.standardHost1.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 39 TestSplitter.standardHost1.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+1	13635 74 267 270 0.00015 0.00015 4 40 1500 1620 2254800
+2	13709 74 271 274 0.00015 0.00015 4 58 1518 1692 2314416
+3	13783 74 271 274 0.00015 0.00015 4 64 1518 1710 2316612
+4	13857 93 251 274 0.00014476 0.00015 5 54 58 280 15690
+5	13950 21 251 251 0.00014476 0.00014476 1 64 64 64 4096
+6	13971 29 251 251 0.00014476 0.00014476 1 0.00012304 0.00012304 0.00012304 1.51388416e-008
+7	14000 21 275 275 0.00015052 0.00015052 1 64 64 64 4096
+8	14021 21 276 276 0.00015062 0.00015062 1 64 64 64 4096
+9	14042 21 276 276 0.00015062 0.00015062 1 64 64 64 4096
+10	14063 22 279 279 0.00015062 0.00015062 1 46 46 46 2116
+22	14085 21 248 248 0.0001439 0.0001439 1 28 28 28 784
+23	14106 21 249 249 0.0001439 0.0001439 1 28 28 28 784
+24	14127 21 250 250 0.0001439 0.0001439 1 46 46 46 2116
+25	14148 21 250 250 0.0001439 0.0001439 1 64 64 64 4096
+26	14169 40 250 250 0.0001439 0.0001439 2 0 1 1 1
+27	14209 21 250 250 0.0001439 0.0001439 1 64 64 64 4096
+28	14230 20 250 250 0.0001439 0.0001439 1 0 0 0 0
+29	14250 22 253 253 0.00014966 0.00014966 1 64 64 64 4096
+30	14272 22 254 254 0.00014971 0.00014971 1 64 64 64 4096
+31	14294 22 254 254 0.00014971 0.00014971 1 64 64 64 4096
+32	14316 22 255 255 0.00014971 0.00014971 1 46 46 46 2116
+33	14338 22 256 256 0.00014971 0.00014971 1 28 28 28 784
+34	14360 22 257 257 0.00014971 0.00014971 1 28 28 28 784
+35	14382 22 258 258 0.00014971 0.00014971 1 46 46 46 2116
+36	14404 22 258 258 0.00014971 0.00014971 1 64 64 64 4096
+37	14426 42 258 258 0.00014971 0.00014971 2 0 1 1 1
+38	14468 22 258 258 0.00014971 0.00014971 1 64 64 64 4096
+39	14490 21 258 258 0.00014971 0.00014971 1 0 0 0 0
+vector 40 TestSplitter.standardHost1.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 41 TestSplitter.router.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 42 TestSplitter.router.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 43 TestSplitter.router.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+1	15266 148 309 337 0.00016 0.00017 8 40 1500 3240 4509600
+2	15414 148 313 341 0.00016 0.00017 8 58 1518 3384 4628832
+3	15562 148 313 341 0.00016 0.00017 8 64 1518 3420 4633224
+4	15710 206 281 341 0.00015148 0.00017 11 56 63 652 38694
+5	15916 64 281 324 0.00015148 0.00016492 3 64 1518 1646 2312516
+6	15980 85 281 324 0.00015148 0.00016492 3 0.00012976 0.0001432 0.00040944 5.5970688e-008
+7	16065 42 292 317 0.00015724 0.00016396 2 64 64 128 8192
+8	16107 42 293 318 0.00015734 0.00016406 2 64 64 128 8192
+9	16149 42 293 318 0.00015734 0.00016406 2 64 64 128 8192
+10	16191 44 295 320 0.00015734 0.00016406 2 46 46 92 4232
+23	16235 90 287 322 0.00015552 0.00016406 4 40 1500 1620 2254800
+24	16325 90 289 323 0.00015552 0.00016406 4 58 1518 1692 2314416
+25	16415 90 289 323 0.00015552 0.00016406 4 64 1518 1710 2316612
+26	16505 105 289 323 0.00015552 0.00016406 5 0 3 7 15
+27	16610 24 289 289 0.00015552 0.00015552 1 1518 1518 1518 2304324
+28	16634 21 289 289 0.00015552 0.00015552 1 0 0 0 0
+40	16655 22 283 283 0.00015547 0.00015547 1 64 64 64 4096
+41	16677 22 284 284 0.00015552 0.00015552 1 64 64 64 4096
+42	16699 22 284 284 0.00015552 0.00015552 1 64 64 64 4096
+43	16721 22 285 285 0.00015552 0.00015552 1 46 46 46 2116
+vector 44 TestSplitter.standardHost1.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 45 TestSplitter.standardHost1.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), vector(count)"
+1	17171 954 350 619 0.00018 0.0003 52 40 1500 21060 29312400
+2	18125 954 354 623 0.00018 0.0003 52 58 1518 21996 30087408
+3	19079 954 354 623 0.00018 0.0003 52 64 1518 22230 30115956
+4	20033 1009 354 631 0.00018 0.0003014 55 64 113 4969 461235
+5	21042 62 540 631 0.00028796 0.0003014 3 64 64 192 12288
+6	21104 86 540 631 0.00028796 0.0003014 3 0.00026624 0.00027968 0.00081888 2.236118016e-007
+7	21190 84 533 648 0.000287 0.00030716 4 64 1518 1710 2316612
+8	21274 64 534 625 0.0002871 0.00030054 3 64 1518 1646 2312516
+9	21338 64 534 625 0.0002871 0.00030054 3 64 1518 1646 2312516
+10	21402 67 536 627 0.0002871 0.00030054 3 46 1500 1592 2254232
+12	21469 65 562 644 0.00029018 0.00030362 3 40 40 120 4800
+13	21534 65 563 645 0.00029018 0.00030362 3 58 58 174 10092
+14	21599 65 563 645 0.00029018 0.00030362 3 64 64 192 12288
+15	21664 124 563 645 0.00029018 0.00030362 6 0 1 3 3
+16	21788 65 563 645 0.00029018 0.00030362 3 64 64 192 12288
+17	21853 62 563 645 0.00029018 0.00030362 3 0 0 0 0
+18	21915 44 584 633 0.00029594 0.00030266 2 64 64 128 8192
+19	21959 44 585 634 0.00029604 0.00030276 2 64 64 128 8192
+20	22003 44 585 634 0.00029604 0.00030276 2 64 64 128 8192
+21	22047 44 587 636 0.00029604 0.00030276 2 46 46 92 4232
+23	22091 67 538 629 0.0002871 0.00030054 3 40 1500 1580 2253200
+24	22158 67 539 630 0.0002871 0.00030054 3 58 1518 1634 2311052
+25	22225 67 539 630 0.0002871 0.00030054 3 64 1518 1646 2312516
+26	22292 144 507 630 0.00027856 0.00030054 7 1 2 11 19
+27	22436 88 507 607 0.00027856 0.00029872 4 64 1518 1710 2316612
+28	22524 118 507 607 0.00027856 0.00029872 4 1.162e-005 0.00012794 0.00039054 4.80111532e-008
+29	22642 89 502 598 0.0002776 0.00029776 4 64 1518 1710 2316612
+30	22731 90 503 599 0.00027765 0.00029781 4 64 1518 1710 2316612
+31	22821 90 503 599 0.00027765 0.00029781 4 64 1518 1710 2316612
+32	22911 90 504 601 0.00027765 0.00029781 4 46 1500 1638 2256348
+34	23001 66 530 605 0.00028437 0.00029781 3 40 40 120 4800
+35	23067 66 531 606 0.00028437 0.00029781 3 58 58 174 10092
+36	23133 66 531 606 0.00028437 0.00029781 3 64 64 192 12288
+37	23199 126 531 606 0.00028437 0.00029781 6 0 1 3 3
+38	23325 66 531 606 0.00028437 0.00029781 3 64 64 192 12288
+39	23391 63 531 606 0.00028437 0.00029781 3 0 0 0 0
+40	23454 66 558 639 0.00029013 0.00030357 3 64 64 192 12288
+41	23520 65 559 640 0.00029018 0.00030362 3 64 64 192 12288
+42	23585 65 559 640 0.00029018 0.00030362 3 64 64 192 12288
+43	23650 65 560 642 0.00029018 0.00030362 3 46 46 138 6348
+44	23715 24 506 506 0.00027765 0.00027765 1 1480 1480 1480 2190400
+45	23739 21 506 506 0.00027765 0.00027765 1 1 1 1 1
+

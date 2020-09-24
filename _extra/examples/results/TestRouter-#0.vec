@@ -1,0 +1,1085 @@
+version 2
+run TestRouter-0-20200831-13:22:26-12508
+attr configname TestRouter
+attr datetime 20200831-13:22:26
+attr experiment TestRouter
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestRouter
+attr processid 12508
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.sendhost.numApps 1
+param *.sendhost.app[*].typename "\"PingApp\""
+param *.sendhost.app[*].destAddr "\"recvhost\""
+param *.mitigator.hasBgp true
+param *.router1.hasBgp true
+param **.bgpConfig "xmldoc(\"bgpcfg.xml\")"
+param *.*.bgp.nextHopSelf true
+param *.configurator.addStaticRoutes false
+param *.configurator.addSubnetRoutes false
+param *.configurator.addDefaultRoutes false
+param *.configurator.config "xml(\"<config> \t\t\t\t\t\t\t\t<interface hosts='sendhost' names='eth0' address='10.1.1.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='recvhost' names='eth0' address='10.1.5.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth0' address='10.1.1.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth1' address='10.1.4.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth2' address='10.1.2.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth3' address='10.1.3.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router2' names='eth0' address='10.1.4.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router2' names='eth1' address='10.1.5.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='mitigator' names='eth0' address='10.1.2.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='mitigator' names='eth1' address='10.1.3.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<route hosts='sendhost' destination='*' gateway='router1' interface='eth0' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='recvhost' destination='*' gateway='router2' interface='eth0' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='mitigator' destination='10.1.5.2' netmask='255.255.255.255' gateway='router1' interface='eth1' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='router1' destination='10.1.5.2' netmask='255.255.255.255' gateway='mitigator' interface='eth1' metric='60'/> \t\t\t\t\t\t\t</config>\")"
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestRouter.sendhost.app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 1 TestRouter.sendhost.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 2 TestRouter.sendhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 3 TestRouter.sendhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 4 TestRouter.sendhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 5 TestRouter.sendhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 6 TestRouter.sendhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 7 TestRouter.sendhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 8 TestRouter.sendhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 9 TestRouter.router1.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 10 TestRouter.router1.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 11 TestRouter.router1.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 12 TestRouter.router1.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 13 TestRouter.router1.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 14 TestRouter.router1.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 15 TestRouter.router1.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 16 TestRouter.router1.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 17 TestRouter.router1.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 18 TestRouter.router1.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 19 TestRouter.router1.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 20 TestRouter.sendhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 21 TestRouter.sendhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 22 TestRouter.sendhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 23 TestRouter.router1.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 24 TestRouter.router1.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 25 TestRouter.router1.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 26 TestRouter.router1.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 27 TestRouter.router1.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 28 TestRouter.router1.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 29 TestRouter.router1.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 30 TestRouter.router1.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 31 TestRouter.router2.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 32 TestRouter.router2.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 33 TestRouter.router2.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 34 TestRouter.router1.ipv4.ip packetDropAddressResolutionFailed:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, vector(packetBytes)"
+vector 35 TestRouter.router1.tcp.conn-0 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+vector 36 TestRouter.router1.tcp.conn-0 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+vector 37 TestRouter.router1.tcp.conn-0 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+vector 38 TestRouter.router1.tcp.conn-0 sndAck:vector ETV
+attr interpolationmode sample-hold
+vector 39 TestRouter.mitigator.tcp.conn-2 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+vector 40 TestRouter.mitigator.tcp.conn-2 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+vector 41 TestRouter.mitigator.tcp.conn-2 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+vector 42 TestRouter.mitigator.tcp.conn-2 sndAck:vector ETV
+attr interpolationmode sample-hold
+vector 43 TestRouter.mitigator.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 44 TestRouter.mitigator.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 45 TestRouter.mitigator.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 46 TestRouter.mitigator.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 47 TestRouter.mitigator.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 48 TestRouter.mitigator.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 49 TestRouter.mitigator.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 50 TestRouter.mitigator.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 51 TestRouter.router1.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 52 TestRouter.router1.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 53 TestRouter.router1.eth[2].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 54 TestRouter.router1.eth[2].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 55 TestRouter.router1.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 56 TestRouter.router1.eth[2].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 57 TestRouter.router1.eth[2].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 58 TestRouter.router1.eth[2].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 59 TestRouter.router1.eth[2].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 60 TestRouter.router1.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 61 TestRouter.mitigator.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 62 TestRouter.mitigator.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 63 TestRouter.mitigator.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 64 TestRouter.router2.eth[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+vector 65 TestRouter.router1.tcp.conn-1 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+vector 66 TestRouter.router1.tcp.conn-1 rcvAck:vector ETV
+attr interpolationmode sample-hold
+vector 67 TestRouter.router1.tcp.conn-6 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+vector 68 TestRouter.router1.tcp.conn-6 sndWnd:vector ETV
+attr interpolationmode sample-hold
+vector 69 TestRouter.router1.tcp.conn-6 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+vector 70 TestRouter.router1.tcp.conn-6 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+vector 71 TestRouter.router1.tcp.conn-6 sndAck:vector ETV
+attr interpolationmode sample-hold
+vector 72 TestRouter.mitigator.tcp.conn-2 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+vector 73 TestRouter.mitigator.tcp.conn-2 rcvAck:vector ETV
+attr interpolationmode sample-hold
+vector 74 TestRouter.mitigator.tcp.conn-2 sndWnd:vector ETV
+attr interpolationmode sample-hold
+vector 75 TestRouter.mitigator.tcp.conn-2 sndNxt:vector ETV
+attr interpolationmode sample-hold
+vector 76 TestRouter.mitigator.tcp.conn-2 unacked:vector ETV
+attr interpolationmode sample-hold
+vector 77 TestRouter.router1.tcp.conn-6 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+vector 78 TestRouter.router1.tcp.conn-6 rcvAck:vector ETV
+attr interpolationmode sample-hold
+vector 79 TestRouter.router1.tcp.conn-6 unacked:vector ETV
+attr interpolationmode sample-hold
+35	281	16	0
+38	281	16	0
+36	281	16	7504
+37	281	16	7504
+vector 80 TestRouter.router1.tcp.conn-6 sndNxt:vector ETV
+attr interpolationmode sample-hold
+66	329	17.00001743	0
+65	329	17.00001743	4250000
+vector 81 TestRouter.mitigator.tcp.conn-2 dupAcks:vector ETV
+attr interpolationmode sample-hold
+vector 82 TestRouter.router1.tcp.conn-6 dupAcks:vector ETV
+attr interpolationmode sample-hold
+vector 83 TestRouter.mitigator.tcp.conn-2 rtt:vector ETV
+attr interpolationmode sample-hold
+vector 84 TestRouter.mitigator.tcp.conn-2 srtt:vector ETV
+attr interpolationmode sample-hold
+vector 85 TestRouter.mitigator.tcp.conn-2 rttvar:vector ETV
+attr interpolationmode sample-hold
+vector 86 TestRouter.mitigator.tcp.conn-2 rto:vector ETV
+attr interpolationmode sample-hold
+vector 87 TestRouter.mitigator.tcp.conn-2 cwnd:vector ETV
+attr interpolationmode sample-hold
+vector 88 TestRouter.mitigator.tcp.conn-2 ssthresh:vector ETV
+attr interpolationmode sample-hold
+vector 89 TestRouter.router1.tcp.conn-6 rtt:vector ETV
+attr interpolationmode sample-hold
+vector 90 TestRouter.router1.tcp.conn-6 srtt:vector ETV
+attr interpolationmode sample-hold
+vector 91 TestRouter.router1.tcp.conn-6 rttvar:vector ETV
+attr interpolationmode sample-hold
+vector 92 TestRouter.router1.tcp.conn-6 rto:vector ETV
+attr interpolationmode sample-hold
+vector 93 TestRouter.router1.tcp.conn-6 cwnd:vector ETV
+attr interpolationmode sample-hold
+vector 94 TestRouter.router1.tcp.conn-6 ssthresh:vector ETV
+attr interpolationmode sample-hold
+0	1	0.548813502304	0
+0	32	1.548813502304	1
+0	49	2.548813502304	2
+0	66	3.548813502304	3
+0	76	4.548813502304	4
+0	92	5.548813502304	5
+0	109	6.548813502304	6
+0	126	7.548813502304	7
+0	143	8.548813502304	8
+0	160	9.548813502304	9
+0	177	10.548813502304	10
+0	194	11.548813502304	11
+0	211	12.548813502304	12
+0	228	13.548813502304	13
+0	245	14.548813502304	14
+0	262	15.548813502304	15
+0	283	16.548813502304	16
+0	436	17.548813502304	17
+0	450	18.548813502304	18
+0	464	19.548813502304	19
+1	3	0.548813502304	28
+2	4	0.548813502304	28
+2	17	0.548825122304	84
+2	34	1.548813502304	84
+2	51	2.548813502304	84
+2	68	3.548813502304	84
+2	78	4.548813502304	84
+2	94	5.548813502304	84
+2	111	6.548813502304	84
+2	128	7.548813502304	84
+2	145	8.548813502304	84
+2	162	9.548813502304	84
+2	179	10.548813502304	84
+2	196	11.548813502304	84
+2	213	12.548813502304	84
+2	230	13.548813502304	84
+2	247	14.548813502304	84
+2	264	15.548813502304	84
+2	285	16.548813502304	84
+2	438	17.548813502304	84
+2	452	18.548813502304	84
+2	466	19.548813502304	84
+3	5	0.548813502304	46
+3	18	0.548825122304	102
+3	35	1.548813502304	102
+3	52	2.548813502304	102
+3	69	3.548813502304	102
+3	79	4.548813502304	102
+3	95	5.548813502304	102
+3	112	6.548813502304	102
+3	129	7.548813502304	102
+3	146	8.548813502304	102
+3	163	9.548813502304	102
+3	180	10.548813502304	102
+3	197	11.548813502304	102
+3	214	12.548813502304	102
+3	231	13.548813502304	102
+3	248	14.548813502304	102
+3	265	15.548813502304	102
+3	286	16.548813502304	102
+3	439	17.548813502304	102
+3	453	18.548813502304	102
+4	5	0.548813502304	64
+4	18	0.548825122304	102
+4	35	1.548813502304	102
+4	52	2.548813502304	102
+4	69	3.548813502304	102
+4	79	4.548813502304	102
+4	95	5.548813502304	102
+4	112	6.548813502304	102
+4	129	7.548813502304	102
+4	146	8.548813502304	102
+4	163	9.548813502304	102
+4	180	10.548813502304	102
+4	197	11.548813502304	102
+4	214	12.548813502304	102
+4	231	13.548813502304	102
+4	248	14.548813502304	102
+4	265	15.548813502304	102
+4	286	16.548813502304	102
+4	439	17.548813502304	102
+4	453	18.548813502304	102
+5	5	0.548813502304	1
+5	5	0.548813502304	0
+5	18	0.548825122304	1
+5	18	0.548825122304	0
+5	35	1.548813502304	1
+5	35	1.548813502304	0
+5	52	2.548813502304	1
+5	52	2.548813502304	0
+5	69	3.548813502304	1
+5	69	3.548813502304	0
+5	79	4.548813502304	1
+5	79	4.548813502304	0
+5	95	5.548813502304	1
+5	95	5.548813502304	0
+5	112	6.548813502304	1
+5	112	6.548813502304	0
+5	129	7.548813502304	1
+5	129	7.548813502304	0
+5	146	8.548813502304	1
+5	146	8.548813502304	0
+5	163	9.548813502304	1
+5	163	9.548813502304	0
+5	180	10.548813502304	1
+5	180	10.548813502304	0
+5	197	11.548813502304	1
+5	197	11.548813502304	0
+5	214	12.548813502304	1
+5	214	12.548813502304	0
+5	231	13.548813502304	1
+5	231	13.548813502304	0
+5	248	14.548813502304	1
+5	248	14.548813502304	0
+5	265	15.548813502304	1
+5	265	15.548813502304	0
+5	286	16.548813502304	1
+5	286	16.548813502304	0
+5	439	17.548813502304	1
+5	439	17.548813502304	0
+5	453	18.548813502304	1
+5	453	18.548813502304	0
+6	5	0.548813502304	64
+6	18	0.548825122304	102
+6	35	1.548813502304	102
+6	52	2.548813502304	102
+6	69	3.548813502304	102
+6	79	4.548813502304	102
+6	95	5.548813502304	102
+6	112	6.548813502304	102
+6	129	7.548813502304	102
+6	146	8.548813502304	102
+6	163	9.548813502304	102
+6	180	10.548813502304	102
+6	197	11.548813502304	102
+6	214	12.548813502304	102
+6	231	13.548813502304	102
+6	248	14.548813502304	102
+6	265	15.548813502304	102
+6	286	16.548813502304	102
+6	439	17.548813502304	102
+6	453	18.548813502304	102
+7	5	0.548813502304	0
+7	18	0.548825122304	0
+7	35	1.548813502304	0
+7	52	2.548813502304	0
+7	69	3.548813502304	0
+7	79	4.548813502304	0
+7	95	5.548813502304	0
+7	112	6.548813502304	0
+7	129	7.548813502304	0
+7	146	8.548813502304	0
+7	163	9.548813502304	0
+7	180	10.548813502304	0
+7	197	11.548813502304	0
+7	214	12.548813502304	0
+7	231	13.548813502304	0
+7	248	14.548813502304	0
+7	265	15.548813502304	0
+7	286	16.548813502304	0
+7	439	17.548813502304	0
+7	453	18.548813502304	0
+8	6	0.548819262304	64
+8	20	0.548833922304	102
+8	36	1.548822302304	102
+8	53	2.548822302304	102
+8	70	3.548822302304	102
+8	80	4.548822302304	102
+8	96	5.548822302304	102
+8	113	6.548822302304	102
+8	130	7.548822302304	102
+8	147	8.548822302304	102
+8	164	9.548822302304	102
+8	181	10.548822302304	102
+8	198	11.548822302304	102
+8	215	12.548822302304	102
+8	232	13.548822302304	102
+8	249	14.548822302304	102
+8	266	15.548822302304	102
+8	287	16.548822302304	102
+8	440	17.548822302304	102
+8	454	18.548822302304	102
+9	7	0.548819312304	64
+9	21	0.548833972304	102
+9	37	1.548822352304	102
+9	54	2.548822352304	102
+9	71	3.548822352304	102
+9	81	4.548822352304	102
+9	98	5.548822352304	102
+9	115	6.548822352304	102
+9	132	7.548822352304	102
+9	149	8.548822352304	102
+9	166	9.548822352304	102
+9	183	10.548822352304	102
+9	200	11.548822352304	102
+9	217	12.548822352304	102
+9	234	13.548822352304	102
+9	251	14.548822352304	102
+9	268	15.548822352304	102
+9	289	16.548822352304	102
+9	441	17.548822352304	102
+9	455	18.548822352304	102
+10	7	0.548819312304	64
+10	21	0.548833972304	102
+10	37	1.548822352304	102
+10	54	2.548822352304	102
+10	71	3.548822352304	102
+10	81	4.548822352304	102
+10	98	5.548822352304	102
+10	115	6.548822352304	102
+10	132	7.548822352304	102
+10	149	8.548822352304	102
+10	166	9.548822352304	102
+10	183	10.548822352304	102
+10	200	11.548822352304	102
+10	217	12.548822352304	102
+10	234	13.548822352304	102
+10	251	14.548822352304	102
+10	268	15.548822352304	102
+10	289	16.548822352304	102
+10	441	17.548822352304	102
+10	455	18.548822352304	102
+11	8	0.548819312304	46
+11	22	0.548833972304	84
+11	38	1.548822352304	84
+11	55	2.548822352304	84
+11	72	3.548822352304	84
+11	82	4.548822352304	84
+11	100	5.548822352304	84
+11	117	6.548822352304	84
+11	133	7.548822352304	84
+11	151	8.548822352304	84
+11	168	9.548822352304	84
+11	184	10.548822352304	84
+11	202	11.548822352304	84
+11	219	12.548822352304	84
+11	235	13.548822352304	84
+11	253	14.548822352304	84
+11	270	15.548822352304	84
+11	290	16.548822352304	84
+11	442	17.548822352304	84
+11	456	18.548822352304	84
+12	9	0.548819312304	28
+12	309	17.00000581	28
+13	10	0.548819312304	28
+14	11	0.548819312304	46
+15	11	0.548819312304	64
+16	11	0.548819312304	1
+16	11	0.548819312304	0
+17	11	0.548819312304	64
+18	11	0.548819312304	0
+19	13	0.548825072304	64
+20	14	0.548825122304	64
+21	14	0.548825122304	64
+22	15	0.548825122304	46
+23	23	0.548833972304	28
+23	41	1.548833972304	28
+23	58	2.548833972304	28
+23	83	4.548822352304	28
+23	97	5.548822352304	28
+23	114	6.548822352304	28
+23	134	7.548822352304	28
+23	148	8.548822352304	28
+23	165	9.548822352304	28
+23	185	10.548822352304	28
+23	199	11.548822352304	28
+23	216	12.548822352304	28
+23	236	13.548822352304	28
+23	250	14.548822352304	28
+23	267	15.548822352304	28
+23	291	16.548822352304	28
+24	24	0.548833972304	28
+24	42	1.548833972304	28
+24	59	2.548833972304	28
+24	84	4.548822352304	28
+24	99	5.548822352304	28
+24	116	6.548822352304	28
+24	135	7.548822352304	28
+24	150	8.548822352304	28
+24	167	9.548822352304	28
+24	186	10.548822352304	28
+24	201	11.548822352304	28
+24	218	12.548822352304	28
+24	237	13.548822352304	28
+24	252	14.548822352304	28
+24	269	15.548822352304	28
+24	292	16.548822352304	28
+24	310	17.00000581	84
+24	444	17.548822352304	84
+24	458	18.548822352304	84
+25	25	0.548833972304	46
+25	43	1.548833972304	46
+25	60	2.548833972304	46
+25	85	4.548822352304	46
+25	101	5.548822352304	46
+25	118	6.548822352304	46
+25	136	7.548822352304	46
+25	152	8.548822352304	46
+25	169	9.548822352304	46
+25	187	10.548822352304	46
+25	203	11.548822352304	46
+25	220	12.548822352304	46
+25	238	13.548822352304	46
+25	254	14.548822352304	46
+25	271	15.548822352304	46
+25	293	16.548822352304	46
+25	312	17.00000581	102
+25	445	17.548822352304	102
+25	459	18.548822352304	102
+26	25	0.548833972304	64
+26	43	1.548833972304	64
+26	60	2.548833972304	64
+26	85	4.548822352304	64
+26	101	5.548822352304	64
+26	118	6.548822352304	64
+26	136	7.548822352304	64
+26	152	8.548822352304	64
+26	169	9.548822352304	64
+26	187	10.548822352304	64
+26	203	11.548822352304	64
+26	220	12.548822352304	64
+26	238	13.548822352304	64
+26	254	14.548822352304	64
+26	271	15.548822352304	64
+26	293	16.548822352304	64
+26	312	17.00000581	102
+26	445	17.548822352304	102
+26	459	18.548822352304	102
+27	25	0.548833972304	1
+27	25	0.548833972304	0
+27	43	1.548833972304	1
+27	43	1.548833972304	0
+27	60	2.548833972304	1
+27	60	2.548833972304	0
+27	85	4.548822352304	1
+27	85	4.548822352304	0
+27	101	5.548822352304	1
+27	101	5.548822352304	0
+27	118	6.548822352304	1
+27	118	6.548822352304	0
+27	136	7.548822352304	1
+27	136	7.548822352304	0
+27	152	8.548822352304	1
+27	152	8.548822352304	0
+27	169	9.548822352304	1
+27	169	9.548822352304	0
+27	187	10.548822352304	1
+27	187	10.548822352304	0
+27	203	11.548822352304	1
+27	203	11.548822352304	0
+27	220	12.548822352304	1
+27	220	12.548822352304	0
+27	238	13.548822352304	1
+27	238	13.548822352304	0
+27	254	14.548822352304	1
+27	254	14.548822352304	0
+27	271	15.548822352304	1
+27	271	15.548822352304	0
+27	293	16.548822352304	1
+27	293	16.548822352304	0
+27	312	17.00000581	1
+27	312	17.00000581	0
+27	445	17.548822352304	1
+27	445	17.548822352304	0
+27	459	18.548822352304	1
+27	459	18.548822352304	0
+28	25	0.548833972304	64
+28	43	1.548833972304	64
+28	60	2.548833972304	64
+28	85	4.548822352304	64
+28	101	5.548822352304	64
+28	118	6.548822352304	64
+28	136	7.548822352304	64
+28	152	8.548822352304	64
+28	169	9.548822352304	64
+28	187	10.548822352304	64
+28	203	11.548822352304	64
+28	220	12.548822352304	64
+28	238	13.548822352304	64
+28	254	14.548822352304	64
+28	271	15.548822352304	64
+28	293	16.548822352304	64
+28	312	17.00000581	102
+28	445	17.548822352304	102
+28	459	18.548822352304	102
+29	25	0.548833972304	0
+29	43	1.548833972304	0
+29	60	2.548833972304	0
+29	85	4.548822352304	0
+29	101	5.548822352304	0
+29	118	6.548822352304	0
+29	136	7.548822352304	0
+29	152	8.548822352304	0
+29	169	9.548822352304	0
+29	187	10.548822352304	0
+29	203	11.548822352304	0
+29	220	12.548822352304	0
+29	238	13.548822352304	0
+29	254	14.548822352304	0
+29	271	15.548822352304	0
+29	293	16.548822352304	0
+29	312	17.00000581	0
+29	445	17.548822352304	0
+29	459	18.548822352304	0
+30	27	0.548839732304	64
+30	44	1.548839732304	64
+30	61	2.548839732304	64
+30	87	4.548828112304	64
+30	104	5.548828112304	64
+30	121	6.548828112304	64
+30	138	7.548828112304	64
+30	155	8.548828112304	64
+30	172	9.548828112304	64
+30	189	10.548828112304	64
+30	206	11.548828112304	64
+30	223	12.548828112304	64
+30	240	13.548828112304	64
+30	257	14.548828112304	64
+30	274	15.548828112304	64
+30	295	16.548828112304	64
+30	322	17.00001461	102
+30	447	17.548831152304	102
+30	461	18.548831152304	102
+31	28	0.548839782304	64
+31	45	1.548839782304	64
+31	62	2.548839782304	64
+31	88	4.548828162304	64
+31	105	5.548828162304	64
+31	122	6.548828162304	64
+31	139	7.548828162304	64
+31	156	8.548828162304	64
+31	173	9.548828162304	64
+31	190	10.548828162304	64
+31	207	11.548828162304	64
+31	224	12.548828162304	64
+31	241	13.548828162304	64
+31	258	14.548828162304	64
+31	275	15.548828162304	64
+31	296	16.548828162304	64
+32	28	0.548839782304	64
+32	45	1.548839782304	64
+32	62	2.548839782304	64
+32	88	4.548828162304	64
+32	105	5.548828162304	64
+32	122	6.548828162304	64
+32	139	7.548828162304	64
+32	156	8.548828162304	64
+32	173	9.548828162304	64
+32	190	10.548828162304	64
+32	207	11.548828162304	64
+32	224	12.548828162304	64
+32	241	13.548828162304	64
+32	258	14.548828162304	64
+32	275	15.548828162304	64
+32	296	16.548828162304	64
+33	29	0.548839782304	46
+33	46	1.548839782304	46
+33	63	2.548839782304	46
+33	89	4.548828162304	46
+33	106	5.548828162304	46
+33	123	6.548828162304	46
+33	140	7.548828162304	46
+33	157	8.548828162304	46
+33	174	9.548828162304	46
+33	191	10.548828162304	46
+33	208	11.548828162304	46
+33	225	12.548828162304	46
+33	242	13.548828162304	46
+33	259	14.548828162304	46
+33	276	15.548828162304	46
+33	297	16.548828162304	46
+34	75	3.548833972304	84
+34	75	3.548833972304	84
+34	75	3.548833972304	84
+34	75	3.548833972304	84
+34	131	7.548822352304	84
+34	131	7.548822352304	84
+34	131	7.548822352304	84
+34	182	10.548822352304	84
+34	182	10.548822352304	84
+34	182	10.548822352304	84
+34	233	13.548822352304	84
+34	233	13.548822352304	84
+34	233	13.548822352304	84
+34	288	16.548822352304	84
+34	288	16.548822352304	84
+34	288	16.548822352304	84
+34	288	16.548822352304	44
+39	302	17	0
+39	338	17.00002324	0
+39	342	17.00002324	0
+39	368	17.0000367	0
+39	368	17.0000367	0
+39	390	17.00004342	0
+39	408	17.00005118	0
+39	408	17.00005118	0
+40	302	17	7504
+40	338	17.00002324	4257509
+40	338	17.00002324	4257509
+40	342	17.00002324	4257509
+40	368	17.0000367	4257538
+40	390	17.00004342	4257538
+40	408	17.00005118	4257557
+41	302	17	7504
+41	338	17.00002324	7504
+41	342	17.00002324	7504
+41	368	17.0000367	7504
+41	390	17.00004342	7504
+41	408	17.00005118	7504
+42	302	17	0
+42	338	17.00002324	4250005
+42	342	17.00002324	4250005
+42	368	17.0000367	4250034
+42	390	17.00004342	4250034
+42	408	17.00005118	4250053
+43	303	17	28
+44	304	17	28
+44	319	17.00001162	44
+44	341	17.00002324	40
+44	346	17.00002324	69
+44	372	17.0000367	40
+44	392	17.00004342	59
+44	411	17.00005118	40
+45	305	17	46
+45	320	17.00001162	62
+45	344	17.00002324	58
+45	347	17.00002324	87
+45	373	17.0000367	58
+45	393	17.00004342	77
+45	412	17.00005118	58
+46	305	17	64
+46	320	17.00001162	64
+46	344	17.00002324	64
+46	347	17.00002324	87
+46	373	17.0000367	64
+46	393	17.00004342	77
+46	412	17.00005118	64
+47	305	17	1
+47	305	17	0
+47	320	17.00001162	1
+47	320	17.00001162	0
+47	344	17.00002324	1
+47	344	17.00002324	0
+47	347	17.00002324	1
+47	363	17.00002996	0
+47	373	17.0000367	1
+47	385	17.00003852	0
+47	393	17.00004342	1
+47	403	17.00004524	0
+47	412	17.00005118	1
+47	423	17.000053	0
+48	305	17	64
+48	320	17.00001162	64
+48	344	17.00002324	64
+48	363	17.00002996	87
+48	385	17.00003852	64
+48	403	17.00004524	77
+48	423	17.000053	64
+49	305	17	0
+49	320	17.00001162	0
+49	344	17.00002324	0
+49	363	17.00002996	6.72e-006
+49	385	17.00003852	1.82e-006
+49	403	17.00004524	1.82e-006
+49	423	17.000053	1.82e-006
+50	306	17.00000576	64
+50	325	17.00001738	64
+50	349	17.000029	64
+50	374	17.00003756	87
+50	394	17.00004428	64
+50	413	17.00005204	77
+50	429	17.00005876	64
+51	307	17.00000581	64
+51	326	17.00001743	64
+51	350	17.00002905	64
+51	375	17.00003761	87
+51	395	17.00004433	64
+51	414	17.00005209	77
+51	430	17.00005881	64
+52	307	17.00000581	64
+52	326	17.00001743	64
+52	350	17.00002905	64
+52	375	17.00003761	87
+52	395	17.00004433	64
+52	414	17.00005209	77
+52	430	17.00005881	64
+53	308	17.00000581	46
+53	327	17.00001743	46
+53	351	17.00002905	46
+53	377	17.00003761	69
+53	397	17.00004433	46
+53	416	17.00005209	59
+53	432	17.00005881	46
+54	311	17.00000581	28
+54	331	17.00001743	44
+54	361	17.00002905	69
+54	383	17.00003761	40
+54	401	17.00004433	59
+54	421	17.00005209	40
+55	313	17.00000581	46
+55	332	17.00001743	62
+55	362	17.00002905	87
+55	384	17.00003761	58
+55	402	17.00004433	77
+55	422	17.00005209	58
+56	313	17.00000581	64
+56	332	17.00001743	64
+56	362	17.00002905	87
+56	384	17.00003761	64
+56	402	17.00004433	77
+56	422	17.00005209	64
+57	313	17.00000581	1
+57	313	17.00000581	0
+57	332	17.00001743	1
+57	332	17.00001743	0
+57	362	17.00002905	1
+57	362	17.00002905	0
+57	384	17.00003761	1
+57	384	17.00003761	0
+57	402	17.00004433	1
+57	402	17.00004433	0
+57	422	17.00005209	1
+57	422	17.00005209	0
+58	313	17.00000581	64
+58	332	17.00001743	64
+58	362	17.00002905	87
+58	384	17.00003761	64
+58	402	17.00004433	77
+58	422	17.00005209	64
+59	313	17.00000581	0
+59	332	17.00001743	0
+59	362	17.00002905	0
+59	384	17.00003761	0
+59	402	17.00004433	0
+59	422	17.00005209	0
+60	315	17.00001157	64
+60	334	17.00002319	64
+60	364	17.00003665	87
+60	386	17.00004337	64
+60	404	17.00005113	77
+60	424	17.00005785	64
+61	316	17.00001162	64
+61	335	17.00002324	64
+61	365	17.0000367	87
+61	387	17.00004342	64
+61	405	17.00005118	77
+61	425	17.0000579	64
+62	316	17.00001162	64
+62	335	17.00002324	64
+62	365	17.0000367	87
+62	387	17.00004342	64
+62	405	17.00005118	77
+62	425	17.0000579	64
+63	317	17.00001162	46
+63	336	17.00002324	46
+63	366	17.0000367	69
+63	388	17.00004342	46
+63	406	17.00005118	59
+63	426	17.0000579	46
+64	323	17.00001466	102
+64	448	17.548831202304	102
+64	462	18.548831202304	102
+67	329	17.00001743	4257505
+67	329	17.00001743	4257505
+67	358	17.00002905	4257505
+67	379	17.00003761	4257534
+67	399	17.00004433	4257534
+67	418	17.00005209	4257553
+68	329	17.00001743	7504
+68	353	17.00002905	7504
+68	399	17.00004433	7504
+68	434	17.00005881	7504
+69	329	17.00001743	0
+69	358	17.00002905	0
+69	379	17.00003761	0
+69	379	17.00003761	0
+69	399	17.00004433	0
+69	418	17.00005209	0
+69	418	17.00005209	0
+70	329	17.00001743	7504
+70	358	17.00002905	7504
+70	379	17.00003761	7504
+70	399	17.00004433	7504
+70	418	17.00005209	7504
+71	329	17.00001743	4250001
+71	358	17.00002905	4250001
+71	379	17.00003761	4250030
+71	399	17.00004433	4250030
+71	418	17.00005209	4250049
+72	338	17.00002324	4250004
+72	368	17.0000367	4250005
+72	390	17.00004342	4250034
+72	408	17.00005118	4250034
+72	428	17.0000579	4250053
+73	338	17.00002324	4250001
+73	368	17.0000367	4250001
+73	390	17.00004342	4250030
+73	408	17.00005118	4250030
+73	428	17.0000579	4250049
+74	338	17.00002324	7504
+74	390	17.00004342	7504
+74	428	17.0000579	7504
+75	342	17.00002324	4250001
+76	342	17.00002324	29
+76	390	17.00004342	0
+76	390	17.00004342	19
+76	428	17.0000579	0
+77	353	17.00002905	4250001
+77	379	17.00003761	4250001
+77	399	17.00004433	4250030
+77	418	17.00005209	4250030
+77	434	17.00005881	4250049
+78	353	17.00002905	4250005
+78	379	17.00003761	4250005
+78	399	17.00004433	4250034
+78	418	17.00005209	4250034
+78	434	17.00005881	4250053
+79	353	17.00002905	0
+79	358	17.00002905	29
+79	399	17.00004433	0
+79	399	17.00004433	19
+79	434	17.00005881	0
+80	358	17.00002905	4250005
+81	368	17.0000367	0
+81	390	17.00004342	0
+81	408	17.00005118	0
+81	428	17.0000579	0
+82	379	17.00003761	0
+82	399	17.00004433	0
+82	418	17.00005209	0
+82	434	17.00005881	0
+83	390	17.00004342	2.018e-005
+83	428	17.0000579	1.448e-005
+84	390	17.00004342	2.5225e-006
+84	428	17.0000579	4.017188e-006
+85	390	17.00004342	0.6562525225
+85	428	17.0000579	0.574222451875
+86	390	17.00004342	2.6250126125
+86	428	17.0000579	2.296893824688
+87	390	17.00004342	1072
+87	428	17.0000579	1608
+88	390	17.00004342	4294967295
+88	428	17.0000579	4294967295
+89	399	17.00004433	1.528e-005
+89	434	17.00005881	1.448e-005
+90	399	17.00004433	1.91e-006
+90	434	17.00005881	3.48125e-006
+91	399	17.00004433	0.65625191
+91	434	17.00005881	0.5742219925
+92	399	17.00004433	2.62500955
+92	434	17.00005881	2.29689145125
+93	399	17.00004433	1072
+93	434	17.00005881	1608
+94	399	17.00004433	4294967295
+94	434	17.00005881	4294967295
+

@@ -1,0 +1,419 @@
+file 35945 1598852672                                           
+version 2
+run TestRouter-0-20200831-13:22:26-12508
+attr configname TestRouter
+attr datetime 20200831-13:22:26
+attr experiment TestRouter
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestRouter
+attr processid 12508
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.sendhost.numApps 1
+param *.sendhost.app[*].typename "\"PingApp\""
+param *.sendhost.app[*].destAddr "\"recvhost\""
+param *.mitigator.hasBgp true
+param *.router1.hasBgp true
+param **.bgpConfig "xmldoc(\"bgpcfg.xml\")"
+param *.*.bgp.nextHopSelf true
+param *.configurator.addStaticRoutes false
+param *.configurator.addSubnetRoutes false
+param *.configurator.addDefaultRoutes false
+param *.configurator.config "xml(\"<config> \t\t\t\t\t\t\t\t<interface hosts='sendhost' names='eth0' address='10.1.1.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='recvhost' names='eth0' address='10.1.5.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth0' address='10.1.1.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth1' address='10.1.4.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth2' address='10.1.2.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth3' address='10.1.3.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router2' names='eth0' address='10.1.4.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router2' names='eth1' address='10.1.5.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='mitigator' names='eth0' address='10.1.2.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='mitigator' names='eth1' address='10.1.3.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<route hosts='sendhost' destination='*' gateway='router1' interface='eth0' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='recvhost' destination='*' gateway='router2' interface='eth0' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='mitigator' destination='10.1.5.2' netmask='255.255.255.255' gateway='router1' interface='eth1' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='router1' destination='10.1.5.2' netmask='255.255.255.255' gateway='mitigator' interface='eth1' metric='60'/> \t\t\t\t\t\t\t</config>\")"
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestRouter.sendhost.app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+0	17012 493 1 464 0.548813502304 19.548813502304 20 0 19 190 2470
+vector 1 TestRouter.sendhost.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+1	17505 23 3 3 0.548813502304 0.548813502304 1 28 28 28 784
+vector 2 TestRouter.sendhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+2	17528 527 4 466 0.548813502304 19.548813502304 21 28 84 1708 141904
+vector 3 TestRouter.sendhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+3	18055 520 5 453 0.548813502304 18.548813502304 20 46 102 1984 199792
+vector 4 TestRouter.sendhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+4	18575 520 5 453 0.548813502304 18.548813502304 20 64 102 2002 201772
+vector 5 TestRouter.sendhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+5	19095 962 5 453 0.548813502304 18.548813502304 40 0 1 20 20
+vector 6 TestRouter.sendhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+6	20057 520 5 453 0.548813502304 18.548813502304 20 64 102 2002 201772
+vector 7 TestRouter.sendhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+7	20577 481 5 453 0.548813502304 18.548813502304 20 0 0 0 0
+vector 8 TestRouter.sendhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+8	21058 520 6 454 0.548819262304 18.548822302304 20 64 102 2002 201772
+vector 9 TestRouter.router1.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+9	21578 520 7 455 0.548819312304 18.548822352304 20 64 102 2002 201772
+vector 10 TestRouter.router1.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+10	22098 540 7 455 0.548819312304 18.548822352304 20 64 102 2002 201772
+vector 11 TestRouter.router1.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+11	22638 522 8 456 0.548819312304 18.548822352304 20 46 84 1642 136180
+vector 12 TestRouter.router1.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+12	23160 47 9 309 0.548819312304 17.00000581 2 28 28 56 1568
+vector 13 TestRouter.router1.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+13	23207 25 10 10 0.548819312304 0.548819312304 1 28 28 28 784
+vector 14 TestRouter.router1.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+14	23232 25 11 11 0.548819312304 0.548819312304 1 46 46 46 2116
+vector 15 TestRouter.router1.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+15	23257 25 11 11 0.548819312304 0.548819312304 1 64 64 64 4096
+vector 16 TestRouter.router1.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+16	23282 48 11 11 0.548819312304 0.548819312304 2 0 1 1 1
+vector 17 TestRouter.router1.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+17	23330 25 11 11 0.548819312304 0.548819312304 1 64 64 64 4096
+vector 18 TestRouter.router1.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+18	23355 24 11 11 0.548819312304 0.548819312304 1 0 0 0 0
+vector 19 TestRouter.router1.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+19	23379 25 13 13 0.548825072304 0.548825072304 1 64 64 64 4096
+vector 20 TestRouter.sendhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+20	23404 25 14 14 0.548825122304 0.548825122304 1 64 64 64 4096
+vector 21 TestRouter.sendhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+21	23429 25 14 14 0.548825122304 0.548825122304 1 64 64 64 4096
+vector 22 TestRouter.sendhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+22	23454 25 15 15 0.548825122304 0.548825122304 1 46 46 46 2116
+vector 23 TestRouter.router1.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+23	23479 418 23 291 0.548833972304 16.548822352304 16 28 28 448 12544
+vector 24 TestRouter.router1.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+24	23897 495 24 458 0.548833972304 18.548822352304 19 28 84 700 33712
+vector 25 TestRouter.router1.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+25	24392 499 25 459 0.548833972304 18.548822352304 19 46 102 1042 65068
+vector 26 TestRouter.router1.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+26	24891 499 25 459 0.548833972304 18.548822352304 19 64 102 1330 96748
+vector 27 TestRouter.router1.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+27	25390 954 25 459 0.548833972304 18.548822352304 38 0 1 19 19
+vector 28 TestRouter.router1.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+28	26344 499 25 459 0.548833972304 18.548822352304 19 64 102 1330 96748
+vector 29 TestRouter.router1.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+29	26843 477 25 459 0.548833972304 18.548822352304 19 0 0 0 0
+vector 30 TestRouter.router1.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+30	27320 499 27 461 0.548839732304 18.548831152304 19 64 102 1330 96748
+vector 31 TestRouter.router2.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+31	27819 419 28 296 0.548839782304 16.548828162304 16 64 64 1024 65536
+vector 32 TestRouter.router2.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+32	28238 419 28 296 0.548839782304 16.548828162304 16 64 64 1024 65536
+vector 33 TestRouter.router2.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+33	28657 419 29 297 0.548839782304 16.548828162304 16 46 46 736 33856
+vector 34 TestRouter.router1.ipv4.ip packetDropAddressResolutionFailed:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, vector(packetBytes)"
+34	29076 448 75 288 3.548833972304 16.548822352304 17 44 84 1388 114832
+vector 35 TestRouter.router1.tcp.conn-0 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+35	15479 13 281 281 16 16 1 0 0 0 0
+vector 36 TestRouter.router1.tcp.conn-0 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+36	15505 16 281 281 16 16 1 7504 7504 7504 56310016
+vector 37 TestRouter.router1.tcp.conn-0 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+37	15521 111 281 281 16 16 1 7504 7504 7504 56310016
+vector 38 TestRouter.router1.tcp.conn-0 sndAck:vector ETV
+attr interpolationmode sample-hold
+38	15492 13 281 281 16 16 1 0 0 0 0
+vector 39 TestRouter.mitigator.tcp.conn-2 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+39	29524 165 302 408 17 17.00005118 8 0 0 0 0
+vector 40 TestRouter.mitigator.tcp.conn-2 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+40	29689 183 302 408 17 17.00005118 7 7504 4257557 25552664 1.087592562164e+014
+vector 41 TestRouter.mitigator.tcp.conn-2 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+41	29872 140 302 408 17 17.00005118 6 7504 7504 45024 337860096
+vector 42 TestRouter.mitigator.tcp.conn-2 sndAck:vector ETV
+attr interpolationmode sample-hold
+42	30012 152 302 408 17 17.00005118 6 0 4250053 21250131 90313613505171
+vector 43 TestRouter.mitigator.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+43	30164 14 303 303 17 17 1 28 28 28 784
+vector 44 TestRouter.mitigator.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+44	30178 151 304 411 17 17.00005118 7 28 69 320 15762
+vector 45 TestRouter.mitigator.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+45	30329 151 305 412 17 17.00005118 7 46 87 446 29550
+vector 46 TestRouter.mitigator.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+46	30480 151 305 412 17 17.00005118 7 64 87 484 33978
+vector 47 TestRouter.mitigator.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+47	30631 287 305 423 17 17.000053 14 0 1 7 7
+vector 48 TestRouter.mitigator.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+48	30918 150 305 423 17 17.000053 7 64 87 484 33978
+vector 49 TestRouter.mitigator.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+49	31068 175 305 423 17 17.000053 7 0 6.72e-006 1.218e-005 5.50956e-011
+vector 50 TestRouter.mitigator.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+50	31243 159 306 429 17.00000576 17.00005876 7 64 87 484 33978
+vector 51 TestRouter.router1.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+51	31402 161 307 430 17.00000581 17.00005881 7 64 87 484 33978
+vector 52 TestRouter.router1.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+52	31563 161 307 430 17.00000581 17.00005881 7 64 87 484 33978
+vector 53 TestRouter.router1.eth[2].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+53	31724 161 308 432 17.00000581 17.00005881 7 46 69 358 18822
+vector 54 TestRouter.router1.eth[2].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+54	31885 138 311 421 17.00000581 17.00005209 6 28 69 280 14162
+vector 55 TestRouter.router1.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+55	32023 138 313 422 17.00000581 17.00005209 6 46 87 388 26186
+vector 56 TestRouter.router1.eth[2].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+56	32161 138 313 422 17.00000581 17.00005209 6 64 87 420 29882
+vector 57 TestRouter.router1.eth[2].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+57	32299 264 313 422 17.00000581 17.00005209 12 0 1 6 6
+vector 58 TestRouter.router1.eth[2].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+58	32563 138 313 422 17.00000581 17.00005209 6 64 87 420 29882
+vector 59 TestRouter.router1.eth[2].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+59	32701 132 313 422 17.00000581 17.00005209 6 0 0 0 0
+vector 60 TestRouter.router1.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+60	32833 138 315 424 17.00001157 17.00005785 6 64 87 420 29882
+vector 61 TestRouter.mitigator.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+61	32971 136 316 425 17.00001162 17.0000579 6 64 87 420 29882
+vector 62 TestRouter.mitigator.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+62	33107 136 316 425 17.00001162 17.0000579 6 64 87 420 29882
+vector 63 TestRouter.mitigator.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+63	33243 136 317 426 17.00001162 17.0000579 6 46 69 312 16706
+vector 64 TestRouter.router2.eth[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, vector(packetBytes)"
+64	33379 80 323 462 17.00001466 18.548831202304 3 102 102 306 31212
+vector 65 TestRouter.router1.tcp.conn-1 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+65	15654 1358 329 329 17.00001743 17.00001743 1 4250000 4250000 4250000 18062500000000
+vector 66 TestRouter.router1.tcp.conn-1 rcvAck:vector ETV
+attr interpolationmode sample-hold
+66	15632 22 329 329 17.00001743 17.00001743 1 0 0 0 0
+vector 67 TestRouter.router1.tcp.conn-6 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+67	33459 168 329 418 17.00001743 17.00005209 6 4257505 4257553 25545136 1.087589955452e+014
+vector 68 TestRouter.router1.tcp.conn-6 sndWnd:vector ETV
+attr interpolationmode sample-hold
+68	33627 100 329 434 17.00001743 17.00005881 4 7504 7504 30016 225240064
+vector 69 TestRouter.router1.tcp.conn-6 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+69	33727 154 329 418 17.00001743 17.00005209 7 0 0 0 0
+vector 70 TestRouter.router1.tcp.conn-6 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+70	33881 125 329 418 17.00001743 17.00005209 5 7504 7504 37520 281550080
+vector 71 TestRouter.router1.tcp.conn-6 sndAck:vector ETV
+attr interpolationmode sample-hold
+71	34006 140 329 418 17.00001743 17.00005209 5 4250001 4250049 21250111 90313443504203
+vector 72 TestRouter.mitigator.tcp.conn-2 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+72	34146 138 338 428 17.00002324 17.0000579 5 4250004 4250053 21250130 90313605005162
+vector 73 TestRouter.mitigator.tcp.conn-2 rcvAck:vector ETV
+attr interpolationmode sample-hold
+73	34284 138 338 428 17.00002324 17.0000579 5 4250001 4250049 21250111 90313443504203
+vector 74 TestRouter.mitigator.tcp.conn-2 sndWnd:vector ETV
+attr interpolationmode sample-hold
+74	34422 74 338 428 17.00002324 17.0000579 3 7504 7504 22512 168930048
+vector 75 TestRouter.mitigator.tcp.conn-2 sndNxt:vector ETV
+attr interpolationmode sample-hold
+75	34496 28 342 342 17.00002324 17.00002324 1 4250001 4250001 4250001 18062508500001
+vector 76 TestRouter.mitigator.tcp.conn-2 unacked:vector ETV
+attr interpolationmode sample-hold
+76	34524 89 342 428 17.00002324 17.0000579 4 0 29 48 1202
+vector 77 TestRouter.router1.tcp.conn-6 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+77	34613 140 353 434 17.00002905 17.00005881 5 4250001 4250049 21250111 90313443504203
+vector 78 TestRouter.router1.tcp.conn-6 rcvAck:vector ETV
+attr interpolationmode sample-hold
+78	34753 140 353 434 17.00002905 17.00005881 5 4250005 4250053 21250131 90313613505171
+vector 79 TestRouter.router1.tcp.conn-6 unacked:vector ETV
+attr interpolationmode sample-hold
+79	34893 112 353 434 17.00002905 17.00005881 5 0 29 48 1202
+vector 80 TestRouter.router1.tcp.conn-6 sndNxt:vector ETV
+attr interpolationmode sample-hold
+80	35005 28 358 358 17.00002905 17.00002905 1 4250005 4250005 4250005 18062542500025
+vector 81 TestRouter.mitigator.tcp.conn-2 dupAcks:vector ETV
+attr interpolationmode sample-hold
+81	35033 86 368 428 17.0000367 17.0000579 4 0 0 0 0
+vector 82 TestRouter.router1.tcp.conn-6 dupAcks:vector ETV
+attr interpolationmode sample-hold
+82	35119 88 379 434 17.00003761 17.00005881 4 0 0 0 0
+vector 83 TestRouter.mitigator.tcp.conn-2 rtt:vector ETV
+attr interpolationmode sample-hold
+83	35207 61 390 428 17.00004342 17.0000579 2 1.448e-005 2.018e-005 3.466e-005 6.169028e-010
+vector 84 TestRouter.mitigator.tcp.conn-2 srtt:vector ETV
+attr interpolationmode sample-hold
+84	35268 65 390 428 17.00004342 17.0000579 2 2.5225e-006 4.017188e-006 6.539688e-006 2.2500805677344e-011
+vector 85 TestRouter.mitigator.tcp.conn-2 rttvar:vector ETV
+attr interpolationmode sample-hold
+85	35333 67 390 428 17.00004342 17.0000579 2 0.574222451875 0.6562525225 1.230474974375 0.76039879752495
+vector 86 TestRouter.mitigator.tcp.conn-2 rto:vector ETV
+attr interpolationmode sample-hold
+86	35400 67 390 428 17.00004342 17.0000579 2 2.296893824688 2.6250126125 4.921906437188 12.166412457674
+vector 87 TestRouter.mitigator.tcp.conn-2 cwnd:vector ETV
+attr interpolationmode sample-hold
+87	35467 49 390 428 17.00004342 17.0000579 2 1072 1608 2680 3734848
+vector 88 TestRouter.mitigator.tcp.conn-2 ssthresh:vector ETV
+attr interpolationmode sample-hold
+88	35516 61 390 428 17.00004342 17.0000579 2 4294967295 4294967295 8589934590 3.6893488130239e+019
+vector 89 TestRouter.router1.tcp.conn-6 rtt:vector ETV
+attr interpolationmode sample-hold
+89	35577 62 399 434 17.00004433 17.00005881 2 1.448e-005 1.528e-005 2.976e-005 4.431488e-010
+vector 90 TestRouter.router1.tcp.conn-6 srtt:vector ETV
+attr interpolationmode sample-hold
+90	35639 63 399 434 17.00004433 17.00005881 2 1.91e-006 3.48125e-006 5.39125e-006 1.57672015625e-011
+vector 91 TestRouter.router1.tcp.conn-6 rttvar:vector ETV
+attr interpolationmode sample-hold
+91	35702 64 399 434 17.00004433 17.00005881 2 0.5742219925 0.65625191 1.2304739025 0.76039746604932
+vector 92 TestRouter.router1.tcp.conn-6 rto:vector ETV
+attr interpolationmode sample-hold
+92	35766 65 399 434 17.00004433 17.00005881 2 2.29689145125 2.62500955 4.92190100125 12.166385476417
+vector 93 TestRouter.router1.tcp.conn-6 cwnd:vector ETV
+attr interpolationmode sample-hold
+93	35831 50 399 434 17.00004433 17.00005881 2 1072 1608 2680 3734848
+vector 94 TestRouter.router1.tcp.conn-6 ssthresh:vector ETV
+attr interpolationmode sample-hold
+94	35881 64 399 434 17.00004433 17.00005881 2 4294967295 4294967295 8589934590 3.6893488130239e+019

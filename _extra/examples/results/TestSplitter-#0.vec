@@ -1,0 +1,915 @@
+version 2
+run TestSplitter-0-20200911-15:30:11-2892
+attr configname TestSplitter
+attr datetime 20200911-15:30:11
+attr experiment TestSplitter
+attr inifile test.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestSplitter
+attr processid 2892
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.standardHost.numApps 1
+param *.standardHost.app[*].typename "\"PingApp\""
+param *.standardHost.app[*].destAddr "\"standardHost1\""
+param *.standardHost.numPktGen 4
+param *.standardHost.pg[*].destAddr "\"standardHost1\""
+param *.standardHost.pg[*].localPort 1234
+param *.standardHost.pg[*].destPort 1234
+param *.standardHost.pg[*].sendInterval 0.01ms
+param *.standardHost.pg[0].packetType "\"UDP\""
+param *.standardHost.pg[0].packetName "\"UDPFlood\""
+param *.standardHost.pg[1].packetType "\"TCP_SYN\""
+param *.standardHost.pg[1].packetName "\"SYNFlood\""
+param *.standardHost.pg[2].packetType "\"TCP_SYNACK\""
+param *.standardHost.pg[2].packetName "\"SYNACKFlood\""
+param *.standardHost.pg[3].packetType "\"TCP_ACK\""
+param *.standardHost.pg[3].packetName "\"ACKFlood\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestSplitter.standardHost.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 1 TestSplitter.standardHost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 2 TestSplitter.standardHost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 3 TestSplitter.standardHost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 4 TestSplitter.standardHost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 5 TestSplitter.standardHost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 6 TestSplitter.standardHost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 7 TestSplitter.standardHost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 8 TestSplitter.router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 9 TestSplitter.router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 10 TestSplitter.router.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 11 TestSplitter.router.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 12 TestSplitter.router.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 13 TestSplitter.router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 14 TestSplitter.router.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 15 TestSplitter.router.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 16 TestSplitter.router.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 17 TestSplitter.router.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 18 TestSplitter.router.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 19 TestSplitter.standardHost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 20 TestSplitter.standardHost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 21 TestSplitter.standardHost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+0	5	0.00001	28
+1	9	0.00001	28
+1	34	0.00002172	1500
+1	35	0.00002172	40
+1	36	0.00002172	40
+1	37	0.00002172	40
+1	38	0.00002172	1500
+1	39	0.00002172	40
+1	40	0.00002172	40
+1	41	0.00002172	40
+1	60	0.00003	1500
+1	61	0.00003	40
+1	62	0.00003	40
+1	63	0.00003	40
+1	76	0.00004	1500
+1	77	0.00004	40
+1	78	0.00004	40
+1	79	0.00004	40
+1	92	0.00005	1500
+1	93	0.00005	40
+1	94	0.00005	40
+1	95	0.00005	40
+1	108	0.00006	1500
+1	109	0.00006	40
+1	110	0.00006	40
+1	111	0.00006	40
+1	124	0.00007	1500
+1	125	0.00007	40
+1	126	0.00007	40
+1	127	0.00007	40
+1	140	0.00008	1500
+1	141	0.00008	40
+1	142	0.00008	40
+1	143	0.00008	40
+1	156	0.00009	1500
+1	157	0.00009	40
+1	158	0.00009	40
+1	159	0.00009	40
+1	172	0.0001	1500
+1	173	0.0001	40
+1	174	0.0001	40
+1	175	0.0001	40
+1	188	0.00011	1500
+1	189	0.00011	40
+1	190	0.00011	40
+1	191	0.00011	40
+1	204	0.00012	1500
+1	205	0.00012	40
+1	206	0.00012	40
+1	207	0.00012	40
+1	220	0.00013	1500
+1	221	0.00013	40
+1	222	0.00013	40
+1	223	0.00013	40
+1	236	0.00014	1500
+1	237	0.00014	40
+1	238	0.00014	40
+1	239	0.00014	40
+2	10	0.00001	46
+2	42	0.00002172	1518
+2	43	0.00002172	58
+2	44	0.00002172	58
+2	45	0.00002172	58
+2	46	0.00002172	1518
+2	47	0.00002172	58
+2	48	0.00002172	58
+2	49	0.00002172	58
+2	64	0.00003	1518
+2	65	0.00003	58
+2	66	0.00003	58
+2	67	0.00003	58
+2	80	0.00004	1518
+2	81	0.00004	58
+2	82	0.00004	58
+2	83	0.00004	58
+2	96	0.00005	1518
+2	97	0.00005	58
+2	98	0.00005	58
+2	99	0.00005	58
+2	112	0.00006	1518
+2	113	0.00006	58
+2	114	0.00006	58
+2	115	0.00006	58
+2	128	0.00007	1518
+2	129	0.00007	58
+2	130	0.00007	58
+2	131	0.00007	58
+2	144	0.00008	1518
+2	145	0.00008	58
+2	146	0.00008	58
+2	147	0.00008	58
+2	160	0.00009	1518
+2	161	0.00009	58
+2	162	0.00009	58
+2	163	0.00009	58
+2	176	0.0001	1518
+2	177	0.0001	58
+2	178	0.0001	58
+2	179	0.0001	58
+2	192	0.00011	1518
+2	193	0.00011	58
+2	194	0.00011	58
+2	195	0.00011	58
+2	208	0.00012	1518
+2	209	0.00012	58
+2	210	0.00012	58
+2	211	0.00012	58
+2	224	0.00013	1518
+2	225	0.00013	58
+2	226	0.00013	58
+2	227	0.00013	58
+2	240	0.00014	1518
+2	241	0.00014	58
+2	242	0.00014	58
+2	243	0.00014	58
+3	10	0.00001	64
+3	42	0.00002172	1518
+3	43	0.00002172	64
+3	44	0.00002172	64
+3	45	0.00002172	64
+3	46	0.00002172	1518
+3	47	0.00002172	64
+3	48	0.00002172	64
+3	49	0.00002172	64
+3	64	0.00003	1518
+3	65	0.00003	64
+3	66	0.00003	64
+3	67	0.00003	64
+3	80	0.00004	1518
+3	81	0.00004	64
+3	82	0.00004	64
+3	83	0.00004	64
+3	96	0.00005	1518
+3	97	0.00005	64
+3	98	0.00005	64
+3	99	0.00005	64
+3	112	0.00006	1518
+3	113	0.00006	64
+3	114	0.00006	64
+3	115	0.00006	64
+3	128	0.00007	1518
+3	129	0.00007	64
+3	130	0.00007	64
+3	131	0.00007	64
+3	144	0.00008	1518
+3	145	0.00008	64
+3	146	0.00008	64
+3	147	0.00008	64
+3	160	0.00009	1518
+3	161	0.00009	64
+3	162	0.00009	64
+3	163	0.00009	64
+3	176	0.0001	1518
+3	177	0.0001	64
+3	178	0.0001	64
+3	179	0.0001	64
+3	192	0.00011	1518
+3	193	0.00011	64
+3	194	0.00011	64
+3	195	0.00011	64
+3	208	0.00012	1518
+3	209	0.00012	64
+3	210	0.00012	64
+3	211	0.00012	64
+3	224	0.00013	1518
+3	225	0.00013	64
+3	226	0.00013	64
+3	227	0.00013	64
+3	240	0.00014	1518
+3	241	0.00014	64
+3	242	0.00014	64
+3	243	0.00014	64
+4	10	0.00001	1
+4	10	0.00001	0
+4	42	0.00002172	1
+4	42	0.00002172	0
+4	43	0.00002172	1
+4	44	0.00002172	2
+4	45	0.00002172	3
+4	46	0.00002172	4
+4	47	0.00002172	5
+4	48	0.00002172	6
+4	49	0.00002172	7
+4	64	0.00003	8
+4	65	0.00003	9
+4	66	0.00003	10
+4	67	0.00003	11
+4	80	0.00004	12
+4	81	0.00004	13
+4	82	0.00004	14
+4	83	0.00004	15
+4	96	0.00005	16
+4	97	0.00005	17
+4	98	0.00005	18
+4	99	0.00005	19
+4	112	0.00006	20
+4	113	0.00006	21
+4	114	0.00006	22
+4	115	0.00006	23
+4	128	0.00007	24
+4	129	0.00007	25
+4	130	0.00007	26
+4	131	0.00007	27
+4	144	0.00008	28
+4	145	0.00008	29
+4	146	0.00008	30
+4	147	0.00008	31
+4	160	0.00009	32
+4	161	0.00009	33
+4	162	0.00009	34
+4	163	0.00009	35
+4	176	0.0001	36
+4	177	0.0001	37
+4	178	0.0001	38
+4	179	0.0001	39
+4	192	0.00011	40
+4	193	0.00011	41
+4	194	0.00011	42
+4	195	0.00011	43
+4	208	0.00012	44
+4	209	0.00012	45
+4	210	0.00012	46
+4	211	0.00012	47
+4	224	0.00013	48
+4	225	0.00013	49
+4	226	0.00013	50
+4	227	0.00013	51
+4	240	0.00014	52
+4	241	0.00014	53
+4	242	0.00014	54
+4	243	0.00014	55
+5	10	0.00001	64
+5	42	0.00002172	1518
+6	10	0.00001	0
+6	42	0.00002172	0
+7	12	0.00001576	64
+7	244	0.0001438	1518
+8	13	0.00001586	64
+9	13	0.00001586	64
+10	15	0.00001586	46
+11	16	0.00001586	28
+12	17	0.00001586	28
+13	18	0.00001586	46
+14	18	0.00001586	64
+15	18	0.00001586	1
+15	18	0.00001586	0
+16	18	0.00001586	64
+17	18	0.00001586	0
+18	29	0.00002162	64
+19	30	0.00002172	64
+20	30	0.00002172	64
+21	32	0.00002172	46
+8	245	0.0001439	1518
+9	245	0.0001439	1518
+10	247	0.0001439	1500
+vector 22 TestSplitter.router.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 23 TestSplitter.router.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 24 TestSplitter.router.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 25 TestSplitter.router.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 26 TestSplitter.router.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 27 TestSplitter.router.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 28 TestSplitter.router.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 29 TestSplitter.router.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 30 TestSplitter.standardHost1.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 31 TestSplitter.standardHost1.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 32 TestSplitter.standardHost1.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 33 TestSplitter.standardHost1.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 34 TestSplitter.standardHost1.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 35 TestSplitter.standardHost1.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 36 TestSplitter.standardHost1.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 37 TestSplitter.standardHost1.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 38 TestSplitter.standardHost1.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 39 TestSplitter.standardHost1.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+1	267	0.00015	1500
+1	268	0.00015	40
+1	269	0.00015	40
+1	270	0.00015	40
+2	271	0.00015	1518
+2	272	0.00015	58
+2	273	0.00015	58
+2	274	0.00015	58
+3	271	0.00015	1518
+3	272	0.00015	64
+3	273	0.00015	64
+3	274	0.00015	64
+4	251	0.00014476	54
+4	271	0.00015	55
+4	272	0.00015	56
+4	273	0.00015	57
+4	274	0.00015	58
+5	251	0.00014476	64
+6	251	0.00014476	0.00012304
+7	275	0.00015052	64
+8	276	0.00015062	64
+9	276	0.00015062	64
+10	279	0.00015062	46
+22	248	0.0001439	28
+23	249	0.0001439	28
+24	250	0.0001439	46
+25	250	0.0001439	64
+26	250	0.0001439	1
+26	250	0.0001439	0
+27	250	0.0001439	64
+28	250	0.0001439	0
+29	253	0.00014966	64
+30	254	0.00014971	64
+31	254	0.00014971	64
+32	255	0.00014971	46
+33	256	0.00014971	28
+34	257	0.00014971	28
+35	258	0.00014971	46
+36	258	0.00014971	64
+37	258	0.00014971	1
+37	258	0.00014971	0
+38	258	0.00014971	64
+39	258	0.00014971	0
+vector 40 TestSplitter.standardHost1.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 41 TestSplitter.router.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 42 TestSplitter.router.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 43 TestSplitter.router.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+1	309	0.00016	1500
+1	310	0.00016	40
+1	311	0.00016	40
+1	312	0.00016	40
+1	334	0.00017	1500
+1	335	0.00017	40
+1	336	0.00017	40
+1	337	0.00017	40
+2	313	0.00016	1518
+2	314	0.00016	58
+2	315	0.00016	58
+2	316	0.00016	58
+2	338	0.00017	1518
+2	339	0.00017	58
+2	340	0.00017	58
+2	341	0.00017	58
+3	313	0.00016	1518
+3	314	0.00016	64
+3	315	0.00016	64
+3	316	0.00016	64
+3	338	0.00017	1518
+3	339	0.00017	64
+3	340	0.00017	64
+3	341	0.00017	64
+4	281	0.00015148	57
+4	299	0.0001582	56
+4	313	0.00016	57
+4	314	0.00016	58
+4	315	0.00016	59
+4	316	0.00016	60
+4	324	0.00016492	59
+4	338	0.00017	60
+4	339	0.00017	61
+4	340	0.00017	62
+4	341	0.00017	63
+5	281	0.00015148	64
+5	299	0.0001582	64
+5	324	0.00016492	1518
+6	281	0.00015148	0.00012976
+6	299	0.0001582	0.00013648
+6	324	0.00016492	0.0001432
+7	292	0.00015724	64
+7	317	0.00016396	64
+8	293	0.00015734	64
+8	318	0.00016406	64
+9	293	0.00015734	64
+9	318	0.00016406	64
+10	295	0.00015734	46
+10	320	0.00016406	46
+23	287	0.00015552	1500
+23	288	0.00015552	40
+23	297	0.00015734	40
+23	322	0.00016406	40
+24	289	0.00015552	1518
+24	290	0.00015552	58
+24	298	0.00015734	58
+24	323	0.00016406	58
+25	289	0.00015552	1518
+25	290	0.00015552	64
+25	298	0.00015734	64
+25	323	0.00016406	64
+26	289	0.00015552	1
+26	289	0.00015552	0
+26	290	0.00015552	1
+26	298	0.00015734	2
+26	323	0.00016406	3
+27	289	0.00015552	1518
+28	289	0.00015552	0
+40	283	0.00015547	64
+41	284	0.00015552	64
+42	284	0.00015552	64
+43	285	0.00015552	46
+vector 44 TestSplitter.standardHost1.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 45 TestSplitter.standardHost1.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), vector(count)"
+1	350	0.00018	1500
+1	351	0.00018	40
+1	352	0.00018	40
+1	353	0.00018	40
+1	366	0.00019	1500
+1	367	0.00019	40
+1	368	0.00019	40
+1	369	0.00019	40
+1	382	0.0002	1500
+1	383	0.0002	40
+1	384	0.0002	40
+1	385	0.0002	40
+1	398	0.00021	1500
+1	399	0.00021	40
+1	400	0.00021	40
+1	401	0.00021	40
+1	414	0.00022	1500
+1	415	0.00022	40
+1	416	0.00022	40
+1	417	0.00022	40
+1	430	0.00023	1500
+1	431	0.00023	40
+1	432	0.00023	40
+1	433	0.00023	40
+1	446	0.00024	1500
+1	447	0.00024	40
+1	448	0.00024	40
+1	449	0.00024	40
+1	462	0.00025	1500
+1	463	0.00025	40
+1	464	0.00025	40
+1	465	0.00025	40
+1	478	0.00026	1500
+1	479	0.00026	40
+1	480	0.00026	40
+1	481	0.00026	40
+1	494	0.00027	1500
+1	495	0.00027	40
+1	496	0.00027	40
+1	497	0.00027	40
+1	516	0.00028	1500
+1	517	0.00028	40
+1	518	0.00028	40
+1	519	0.00028	40
+1	550	0.00029	1500
+1	551	0.00029	40
+1	552	0.00029	40
+1	553	0.00029	40
+1	616	0.0003	1500
+1	617	0.0003	40
+1	618	0.0003	40
+1	619	0.0003	40
+2	354	0.00018	1518
+2	355	0.00018	58
+2	356	0.00018	58
+2	357	0.00018	58
+2	370	0.00019	1518
+2	371	0.00019	58
+2	372	0.00019	58
+2	373	0.00019	58
+2	386	0.0002	1518
+2	387	0.0002	58
+2	388	0.0002	58
+2	389	0.0002	58
+2	402	0.00021	1518
+2	403	0.00021	58
+2	404	0.00021	58
+2	405	0.00021	58
+2	418	0.00022	1518
+2	419	0.00022	58
+2	420	0.00022	58
+2	421	0.00022	58
+2	434	0.00023	1518
+2	435	0.00023	58
+2	436	0.00023	58
+2	437	0.00023	58
+2	450	0.00024	1518
+2	451	0.00024	58
+2	452	0.00024	58
+2	453	0.00024	58
+2	466	0.00025	1518
+2	467	0.00025	58
+2	468	0.00025	58
+2	469	0.00025	58
+2	482	0.00026	1518
+2	483	0.00026	58
+2	484	0.00026	58
+2	485	0.00026	58
+2	498	0.00027	1518
+2	499	0.00027	58
+2	500	0.00027	58
+2	501	0.00027	58
+2	520	0.00028	1518
+2	521	0.00028	58
+2	522	0.00028	58
+2	523	0.00028	58
+2	554	0.00029	1518
+2	555	0.00029	58
+2	556	0.00029	58
+2	557	0.00029	58
+2	620	0.0003	1518
+2	621	0.0003	58
+2	622	0.0003	58
+2	623	0.0003	58
+3	354	0.00018	1518
+3	355	0.00018	64
+3	356	0.00018	64
+3	357	0.00018	64
+3	370	0.00019	1518
+3	371	0.00019	64
+3	372	0.00019	64
+3	373	0.00019	64
+3	386	0.0002	1518
+3	387	0.0002	64
+3	388	0.0002	64
+3	389	0.0002	64
+3	402	0.00021	1518
+3	403	0.00021	64
+3	404	0.00021	64
+3	405	0.00021	64
+3	418	0.00022	1518
+3	419	0.00022	64
+3	420	0.00022	64
+3	421	0.00022	64
+3	434	0.00023	1518
+3	435	0.00023	64
+3	436	0.00023	64
+3	437	0.00023	64
+3	450	0.00024	1518
+3	451	0.00024	64
+3	452	0.00024	64
+3	453	0.00024	64
+3	466	0.00025	1518
+3	467	0.00025	64
+3	468	0.00025	64
+3	469	0.00025	64
+3	482	0.00026	1518
+3	483	0.00026	64
+3	484	0.00026	64
+3	485	0.00026	64
+3	498	0.00027	1518
+3	499	0.00027	64
+3	500	0.00027	64
+3	501	0.00027	64
+3	520	0.00028	1518
+3	521	0.00028	64
+3	522	0.00028	64
+3	523	0.00028	64
+3	554	0.00029	1518
+3	555	0.00029	64
+3	556	0.00029	64
+3	557	0.00029	64
+3	620	0.0003	1518
+3	621	0.0003	64
+3	622	0.0003	64
+3	623	0.0003	64
+4	354	0.00018	64
+4	355	0.00018	65
+4	356	0.00018	66
+4	357	0.00018	67
+4	370	0.00019	68
+4	371	0.00019	69
+4	372	0.00019	70
+4	373	0.00019	71
+4	386	0.0002	72
+4	387	0.0002	73
+4	388	0.0002	74
+4	389	0.0002	75
+4	402	0.00021	76
+4	403	0.00021	77
+4	404	0.00021	78
+4	405	0.00021	79
+4	418	0.00022	80
+4	419	0.00022	81
+4	420	0.00022	82
+4	421	0.00022	83
+4	434	0.00023	84
+4	435	0.00023	85
+4	436	0.00023	86
+4	437	0.00023	87
+4	450	0.00024	88
+4	451	0.00024	89
+4	452	0.00024	90
+4	453	0.00024	91
+4	466	0.00025	92
+4	467	0.00025	93
+4	468	0.00025	94
+4	469	0.00025	95
+4	482	0.00026	96
+4	483	0.00026	97
+4	484	0.00026	98
+4	485	0.00026	99
+4	498	0.00027	100
+4	499	0.00027	101
+4	500	0.00027	102
+4	501	0.00027	103
+4	520	0.00028	104
+4	521	0.00028	105
+4	522	0.00028	106
+4	523	0.00028	107
+4	540	0.00028796	106
+4	554	0.00029	107
+4	555	0.00029	108
+4	556	0.00029	109
+4	557	0.00029	110
+4	582	0.00029468	109
+4	620	0.0003	110
+4	621	0.0003	111
+4	622	0.0003	112
+4	623	0.0003	113
+4	631	0.0003014	112
+5	540	0.00028796	64
+5	582	0.00029468	64
+5	631	0.0003014	64
+6	540	0.00028796	0.00026624
+6	582	0.00029468	0.00027296
+6	631	0.0003014	0.00027968
+7	533	0.000287	1518
+7	575	0.00029372	64
+7	624	0.00030044	64
+7	648	0.00030716	64
+8	534	0.0002871	1518
+8	576	0.00029382	64
+8	625	0.00030054	64
+9	534	0.0002871	1518
+9	576	0.00029382	64
+9	625	0.00030054	64
+10	536	0.0002871	1500
+10	578	0.00029382	46
+10	627	0.00030054	46
+12	562	0.00029018	40
+12	595	0.0002969	40
+12	644	0.00030362	40
+13	563	0.00029018	58
+13	596	0.0002969	58
+13	645	0.00030362	58
+14	563	0.00029018	64
+14	596	0.0002969	64
+14	645	0.00030362	64
+15	563	0.00029018	1
+15	563	0.00029018	0
+15	596	0.0002969	1
+15	596	0.0002969	0
+15	645	0.00030362	1
+15	645	0.00030362	0
+16	563	0.00029018	64
+16	596	0.0002969	64
+16	645	0.00030362	64
+17	563	0.00029018	0
+17	596	0.0002969	0
+17	645	0.00030362	0
+18	584	0.00029594	64
+18	633	0.00030266	64
+19	585	0.00029604	64
+19	634	0.00030276	64
+20	585	0.00029604	64
+20	634	0.00030276	64
+21	587	0.00029604	46
+21	636	0.00030276	46
+23	538	0.0002871	1500
+23	580	0.00029382	40
+23	629	0.00030054	40
+24	539	0.0002871	1518
+24	581	0.00029382	58
+24	630	0.00030054	58
+25	539	0.0002871	1518
+25	581	0.00029382	64
+25	630	0.00030054	64
+26	507	0.00027856	2
+26	532	0.00028528	1
+26	539	0.0002871	2
+26	574	0.000292	1
+26	581	0.00029382	2
+26	607	0.00029872	1
+26	630	0.00030054	2
+27	507	0.00027856	64
+27	532	0.00028528	64
+27	574	0.000292	64
+27	607	0.00029872	1518
+28	507	0.00027856	0.00012304
+28	532	0.00028528	0.00012794
+28	574	0.000292	0.00012794
+28	607	0.00029872	1.162e-005
+29	502	0.0002776	1518
+29	524	0.00028432	64
+29	565	0.00029104	64
+29	598	0.00029776	64
+30	503	0.00027765	1518
+30	525	0.00028437	64
+30	566	0.00029109	64
+30	599	0.00029781	64
+31	503	0.00027765	1518
+31	525	0.00028437	64
+31	566	0.00029109	64
+31	599	0.00029781	64
+32	504	0.00027765	1500
+32	526	0.00028437	46
+32	568	0.00029109	46
+32	601	0.00029781	46
+34	530	0.00028437	40
+34	572	0.00029109	40
+34	605	0.00029781	40
+35	531	0.00028437	58
+35	573	0.00029109	58
+35	606	0.00029781	58
+36	531	0.00028437	64
+36	573	0.00029109	64
+36	606	0.00029781	64
+37	531	0.00028437	1
+37	531	0.00028437	0
+37	573	0.00029109	1
+37	573	0.00029109	0
+37	606	0.00029781	1
+37	606	0.00029781	0
+38	531	0.00028437	64
+38	573	0.00029109	64
+38	606	0.00029781	64
+39	531	0.00028437	0
+39	573	0.00029109	0
+39	606	0.00029781	0
+40	558	0.00029013	64
+40	590	0.00029685	64
+40	639	0.00030357	64
+41	559	0.00029018	64
+41	591	0.0002969	64
+41	640	0.00030362	64
+42	559	0.00029018	64
+42	591	0.0002969	64
+42	640	0.00030362	64
+43	560	0.00029018	46
+43	593	0.0002969	46
+43	642	0.00030362	46
+44	506	0.00027765	1480
+45	506	0.00027765	1
+

@@ -1,0 +1,674 @@
+version 2
+run TestL3Deploy-0-20200914-14:52:07-6596
+attr configname TestL3Deploy
+attr datetime 20200914-14:52:07
+attr experiment TestL3Deploy
+attr inifile test.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestL3Deploy
+attr processid 6596
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.sendhost.numApps 1
+param *.sendhost.app[*].typename "\"PingApp\""
+param *.sendhost.app[*].destAddr "\"recvhost\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestL3Deploy.sendhost.app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+vector 1 TestL3Deploy.sendhost.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 2 TestL3Deploy.sendhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 3 TestL3Deploy.sendhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 4 TestL3Deploy.sendhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 5 TestL3Deploy.sendhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 6 TestL3Deploy.sendhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 7 TestL3Deploy.sendhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 8 TestL3Deploy.sendhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 9 TestL3Deploy.router1.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 10 TestL3Deploy.router1.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 11 TestL3Deploy.router1.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 12 TestL3Deploy.router1.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 13 TestL3Deploy.router1.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 14 TestL3Deploy.router1.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 15 TestL3Deploy.router1.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 16 TestL3Deploy.router1.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 17 TestL3Deploy.router1.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 18 TestL3Deploy.router1.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 19 TestL3Deploy.router1.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 20 TestL3Deploy.sendhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 21 TestL3Deploy.sendhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 22 TestL3Deploy.sendhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 23 TestL3Deploy.router1.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 24 TestL3Deploy.router1.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 25 TestL3Deploy.router1.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 26 TestL3Deploy.router1.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 27 TestL3Deploy.router1.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 28 TestL3Deploy.router1.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 29 TestL3Deploy.router1.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 30 TestL3Deploy.router1.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 31 TestL3Deploy.router2.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 32 TestL3Deploy.router2.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 33 TestL3Deploy.router2.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 34 TestL3Deploy.router2.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 35 TestL3Deploy.router2.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 36 TestL3Deploy.router2.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 37 TestL3Deploy.router2.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 38 TestL3Deploy.router2.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 39 TestL3Deploy.router2.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 40 TestL3Deploy.router2.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 41 TestL3Deploy.router2.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 42 TestL3Deploy.router1.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 43 TestL3Deploy.router1.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 44 TestL3Deploy.router1.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 45 TestL3Deploy.router2.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 46 TestL3Deploy.router2.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 47 TestL3Deploy.router2.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 48 TestL3Deploy.router2.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 49 TestL3Deploy.router2.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 50 TestL3Deploy.router2.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 51 TestL3Deploy.router2.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 52 TestL3Deploy.router2.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 53 TestL3Deploy.recvhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 54 TestL3Deploy.recvhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 55 TestL3Deploy.recvhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 56 TestL3Deploy.recvhost.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 57 TestL3Deploy.recvhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 58 TestL3Deploy.recvhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 59 TestL3Deploy.recvhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 60 TestL3Deploy.recvhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 61 TestL3Deploy.recvhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 62 TestL3Deploy.recvhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 63 TestL3Deploy.recvhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 64 TestL3Deploy.router2.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 65 TestL3Deploy.router2.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 66 TestL3Deploy.router2.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 67 TestL3Deploy.sendhost.app[0] pingRxSeq:vector ETV
+attr interpolationmode none
+attr title "ping rx seq, vector"
+vector 68 TestL3Deploy.sendhost.app[0] rtt:vector ETV
+attr interpolationmode none
+attr title "ping round-trip time, vector"
+attr unit s
+0	1	0.548813502304	0
+0	92	1.548813502304	1
+0	140	2.548813502304	2
+0	188	3.548813502304	3
+0	236	4.548813502304	4
+1	3	0.548813502304	28
+2	4	0.548813502304	28
+2	17	0.548825122304	84
+2	94	1.548813502304	84
+2	142	2.548813502304	84
+2	190	3.548813502304	84
+2	238	4.548813502304	84
+3	5	0.548813502304	46
+3	18	0.548825122304	102
+3	95	1.548813502304	102
+3	143	2.548813502304	102
+3	191	3.548813502304	102
+3	239	4.548813502304	102
+4	5	0.548813502304	64
+4	18	0.548825122304	102
+4	95	1.548813502304	102
+4	143	2.548813502304	102
+4	191	3.548813502304	102
+4	239	4.548813502304	102
+5	5	0.548813502304	1
+5	5	0.548813502304	0
+5	18	0.548825122304	1
+5	18	0.548825122304	0
+5	95	1.548813502304	1
+5	95	1.548813502304	0
+5	143	2.548813502304	1
+5	143	2.548813502304	0
+5	191	3.548813502304	1
+5	191	3.548813502304	0
+5	239	4.548813502304	1
+5	239	4.548813502304	0
+6	5	0.548813502304	64
+6	18	0.548825122304	102
+6	95	1.548813502304	102
+6	143	2.548813502304	102
+6	191	3.548813502304	102
+6	239	4.548813502304	102
+7	5	0.548813502304	0
+7	18	0.548825122304	0
+7	95	1.548813502304	0
+7	143	2.548813502304	0
+7	191	3.548813502304	0
+7	239	4.548813502304	0
+8	6	0.548819262304	64
+8	20	0.548833922304	102
+8	96	1.548822302304	102
+8	144	2.548822302304	102
+8	192	3.548822302304	102
+8	240	4.548822302304	102
+9	7	0.548819312304	64
+9	21	0.548833972304	102
+9	97	1.548822352304	102
+9	145	2.548822352304	102
+9	193	3.548822352304	102
+9	241	4.548822352304	102
+10	7	0.548819312304	64
+10	21	0.548833972304	102
+10	97	1.548822352304	102
+10	145	2.548822352304	102
+10	193	3.548822352304	102
+10	241	4.548822352304	102
+11	8	0.548819312304	46
+11	22	0.548833972304	84
+11	98	1.548822352304	84
+11	146	2.548822352304	84
+11	194	3.548822352304	84
+11	242	4.548822352304	84
+12	9	0.548819312304	28
+13	10	0.548819312304	28
+13	82	0.548892612304	84
+13	130	1.548857752304	84
+13	178	2.548857752304	84
+13	226	3.548857752304	84
+14	11	0.548819312304	46
+14	83	0.548892612304	102
+14	131	1.548857752304	102
+14	179	2.548857752304	102
+14	227	3.548857752304	102
+15	11	0.548819312304	64
+15	83	0.548892612304	102
+15	131	1.548857752304	102
+15	179	2.548857752304	102
+15	227	3.548857752304	102
+16	11	0.548819312304	1
+16	11	0.548819312304	0
+16	83	0.548892612304	1
+16	83	0.548892612304	0
+16	131	1.548857752304	1
+16	131	1.548857752304	0
+16	179	2.548857752304	1
+16	179	2.548857752304	0
+16	227	3.548857752304	1
+16	227	3.548857752304	0
+17	11	0.548819312304	64
+17	83	0.548892612304	102
+17	131	1.548857752304	102
+17	179	2.548857752304	102
+17	227	3.548857752304	102
+18	11	0.548819312304	0
+18	83	0.548892612304	0
+18	131	1.548857752304	0
+18	179	2.548857752304	0
+18	227	3.548857752304	0
+19	13	0.548825072304	64
+19	85	0.548901412304	102
+19	133	1.548866552304	102
+19	181	2.548866552304	102
+19	229	3.548866552304	102
+20	14	0.548825122304	64
+20	86	0.548901462304	102
+20	134	1.548866602304	102
+20	182	2.548866602304	102
+20	230	3.548866602304	102
+21	14	0.548825122304	64
+21	86	0.548901462304	102
+21	134	1.548866602304	102
+21	182	2.548866602304	102
+21	230	3.548866602304	102
+22	15	0.548825122304	46
+22	87	0.548901462304	84
+22	135	1.548866602304	84
+22	183	2.548866602304	84
+22	231	3.548866602304	84
+23	23	0.548833972304	28
+24	24	0.548833972304	28
+24	38	0.548845592304	84
+24	100	1.548822352304	84
+24	148	2.548822352304	84
+24	196	3.548822352304	84
+24	244	4.548822352304	84
+25	25	0.548833972304	46
+25	39	0.548845592304	102
+25	101	1.548822352304	102
+25	149	2.548822352304	102
+25	197	3.548822352304	102
+25	245	4.548822352304	102
+26	25	0.548833972304	64
+26	39	0.548845592304	102
+26	101	1.548822352304	102
+26	149	2.548822352304	102
+26	197	3.548822352304	102
+26	245	4.548822352304	102
+27	25	0.548833972304	1
+27	25	0.548833972304	0
+27	39	0.548845592304	1
+27	39	0.548845592304	0
+27	101	1.548822352304	1
+27	101	1.548822352304	0
+27	149	2.548822352304	1
+27	149	2.548822352304	0
+27	197	3.548822352304	1
+27	197	3.548822352304	0
+27	245	4.548822352304	1
+27	245	4.548822352304	0
+28	25	0.548833972304	64
+28	39	0.548845592304	102
+28	101	1.548822352304	102
+28	149	2.548822352304	102
+28	197	3.548822352304	102
+28	245	4.548822352304	102
+29	25	0.548833972304	0
+29	39	0.548845592304	0
+29	101	1.548822352304	0
+29	149	2.548822352304	0
+29	197	3.548822352304	0
+29	245	4.548822352304	0
+30	27	0.548839732304	64
+30	41	0.548854392304	102
+30	103	1.548831152304	102
+30	151	2.548831152304	102
+30	199	3.548831152304	102
+30	247	4.548831152304	102
+31	28	0.548839782304	64
+31	42	0.548854442304	102
+31	104	1.548831202304	102
+31	152	2.548831202304	102
+31	200	3.548831202304	102
+31	248	4.548831202304	102
+32	28	0.548839782304	64
+32	42	0.548854442304	102
+32	104	1.548831202304	102
+32	152	2.548831202304	102
+32	200	3.548831202304	102
+32	248	4.548831202304	102
+33	29	0.548839782304	46
+33	43	0.548854442304	84
+33	105	1.548831202304	84
+33	153	2.548831202304	84
+33	201	3.548831202304	84
+33	249	4.548831202304	84
+34	30	0.548839782304	28
+35	31	0.548839782304	28
+35	75	0.548883762304	84
+35	123	1.548848902304	84
+35	171	2.548848902304	84
+35	219	3.548848902304	84
+36	32	0.548839782304	46
+36	76	0.548883762304	102
+36	124	1.548848902304	102
+36	172	2.548848902304	102
+36	220	3.548848902304	102
+37	32	0.548839782304	64
+37	76	0.548883762304	102
+37	124	1.548848902304	102
+37	172	2.548848902304	102
+37	220	3.548848902304	102
+38	32	0.548839782304	1
+38	32	0.548839782304	0
+38	76	0.548883762304	1
+38	76	0.548883762304	0
+38	124	1.548848902304	1
+38	124	1.548848902304	0
+38	172	2.548848902304	1
+38	172	2.548848902304	0
+38	220	3.548848902304	1
+38	220	3.548848902304	0
+39	32	0.548839782304	64
+39	76	0.548883762304	102
+39	124	1.548848902304	102
+39	172	2.548848902304	102
+39	220	3.548848902304	102
+40	32	0.548839782304	0
+40	76	0.548883762304	0
+40	124	1.548848902304	0
+40	172	2.548848902304	0
+40	220	3.548848902304	0
+41	34	0.548845542304	64
+41	78	0.548892562304	102
+41	126	1.548857702304	102
+41	174	2.548857702304	102
+41	222	3.548857702304	102
+42	35	0.548845592304	64
+42	79	0.548892612304	102
+42	127	1.548857752304	102
+42	175	2.548857752304	102
+42	223	3.548857752304	102
+43	35	0.548845592304	64
+43	79	0.548892612304	102
+43	127	1.548857752304	102
+43	175	2.548857752304	102
+43	223	3.548857752304	102
+44	36	0.548845592304	46
+44	80	0.548892612304	84
+44	128	1.548857752304	84
+44	176	2.548857752304	84
+44	224	3.548857752304	84
+45	44	0.548854442304	28
+46	45	0.548854442304	28
+46	59	0.548866062304	84
+46	107	1.548831202304	84
+46	155	2.548831202304	84
+46	203	3.548831202304	84
+46	251	4.548831202304	84
+47	46	0.548854442304	46
+47	60	0.548866062304	102
+47	108	1.548831202304	102
+47	156	2.548831202304	102
+47	204	3.548831202304	102
+47	252	4.548831202304	102
+48	46	0.548854442304	64
+48	60	0.548866062304	102
+48	108	1.548831202304	102
+48	156	2.548831202304	102
+48	204	3.548831202304	102
+48	252	4.548831202304	102
+49	46	0.548854442304	1
+49	46	0.548854442304	0
+49	60	0.548866062304	1
+49	60	0.548866062304	0
+49	108	1.548831202304	1
+49	108	1.548831202304	0
+49	156	2.548831202304	1
+49	156	2.548831202304	0
+49	204	3.548831202304	1
+49	204	3.548831202304	0
+49	252	4.548831202304	1
+49	252	4.548831202304	0
+50	46	0.548854442304	64
+50	60	0.548866062304	102
+50	108	1.548831202304	102
+50	156	2.548831202304	102
+50	204	3.548831202304	102
+50	252	4.548831202304	102
+51	46	0.548854442304	0
+51	60	0.548866062304	0
+51	108	1.548831202304	0
+51	156	2.548831202304	0
+51	204	3.548831202304	0
+51	252	4.548831202304	0
+52	48	0.548860202304	64
+52	62	0.548874862304	102
+52	110	1.548840002304	102
+52	158	2.548840002304	102
+52	206	3.548840002304	102
+52	254	4.548840002304	102
+53	49	0.548860252304	64
+53	63	0.548874912304	102
+53	111	1.548840052304	102
+53	159	2.548840052304	102
+53	207	3.548840052304	102
+53	255	4.548840052304	102
+54	49	0.548860252304	64
+54	63	0.548874912304	102
+54	111	1.548840052304	102
+54	159	2.548840052304	102
+54	207	3.548840052304	102
+54	255	4.548840052304	102
+55	50	0.548860252304	46
+55	64	0.548874912304	84
+55	112	1.548840052304	84
+55	160	2.548840052304	84
+55	208	3.548840052304	84
+55	256	4.548840052304	84
+56	51	0.548860252304	28
+57	52	0.548860252304	28
+57	68	0.548874912304	84
+57	116	1.548840052304	84
+57	164	2.548840052304	84
+57	212	3.548840052304	84
+57	260	4.548840052304	84
+58	53	0.548860252304	46
+58	69	0.548874912304	102
+58	117	1.548840052304	102
+58	165	2.548840052304	102
+58	213	3.548840052304	102
+58	261	4.548840052304	102
+59	53	0.548860252304	64
+59	69	0.548874912304	102
+59	117	1.548840052304	102
+59	165	2.548840052304	102
+59	213	3.548840052304	102
+59	261	4.548840052304	102
+60	53	0.548860252304	1
+60	53	0.548860252304	0
+60	69	0.548874912304	1
+60	69	0.548874912304	0
+60	117	1.548840052304	1
+60	117	1.548840052304	0
+60	165	2.548840052304	1
+60	165	2.548840052304	0
+60	213	3.548840052304	1
+60	213	3.548840052304	0
+60	261	4.548840052304	1
+60	261	4.548840052304	0
+61	53	0.548860252304	64
+61	69	0.548874912304	102
+61	117	1.548840052304	102
+61	165	2.548840052304	102
+61	213	3.548840052304	102
+61	261	4.548840052304	102
+62	53	0.548860252304	0
+62	69	0.548874912304	0
+62	117	1.548840052304	0
+62	165	2.548840052304	0
+62	213	3.548840052304	0
+62	261	4.548840052304	0
+63	55	0.548866012304	64
+63	71	0.548883712304	102
+63	119	1.548848852304	102
+63	167	2.548848852304	102
+63	215	3.548848852304	102
+63	263	4.548848852304	102
+64	56	0.548866062304	64
+64	72	0.548883762304	102
+64	120	1.548848902304	102
+64	168	2.548848902304	102
+64	216	3.548848902304	102
+65	56	0.548866062304	64
+65	72	0.548883762304	102
+65	120	1.548848902304	102
+65	168	2.548848902304	102
+65	216	3.548848902304	102
+66	57	0.548866062304	46
+66	73	0.548883762304	84
+66	121	1.548848902304	84
+66	169	2.548848902304	84
+66	217	3.548848902304	84
+67	89	0.548901462304	0
+67	137	1.548866602304	1
+67	185	2.548866602304	2
+67	233	3.548866602304	3
+68	89	0.548901462304	8.796e-005
+68	137	1.548866602304	5.31e-005
+68	185	2.548866602304	5.31e-005
+68	233	3.548866602304	5.31e-005
+

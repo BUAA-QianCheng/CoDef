@@ -1,0 +1,805 @@
+version 2
+run TestDDoSBot_SYNFlood-0-20200831-20:14:00-15500
+attr configname TestDDoSBot_SYNFlood
+attr datetime 20200831-20:14:00
+attr experiment TestDDoSBot_SYNFlood
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestBot
+attr processid 15500
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.bot.numPktGen 4
+param *.bot.pg[*].destAddr "\"recvhost\""
+param *.bot.pg[*].localPort 1234
+param *.bot.pg[*].destPort 1234
+param *.bot.pg[*].sendInterval 0.01ms
+param *.bot.pg[0].packetType "\"TCP_SYN\""
+param *.bot.pg[0].packetName "\"SYNFlood\""
+param *.bot.pg[1].packetType "\"TCP_SYNACK\""
+param *.bot.pg[1].packetName "\"SYNACKFlood\""
+param *.bot.pg[2].packetType "\"TCP_ACK\""
+param *.bot.pg[2].packetName "\"ACKFlood\""
+param *.bot.pg[3].packetType "\"TCP_RST\""
+param *.bot.pg[3].packetName "\"RSTFlood\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestBot.bot.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 1 TestBot.bot.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 2 TestBot.bot.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 3 TestBot.bot.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 4 TestBot.bot.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 5 TestBot.bot.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 6 TestBot.bot.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 7 TestBot.bot.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 8 TestBot.router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 9 TestBot.router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 10 TestBot.router.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 11 TestBot.router.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 12 TestBot.router.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 13 TestBot.router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 14 TestBot.router.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 15 TestBot.router.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 16 TestBot.router.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 17 TestBot.router.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 18 TestBot.router.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 19 TestBot.bot.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 20 TestBot.bot.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 21 TestBot.bot.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 22 TestBot.router.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 23 TestBot.router.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 24 TestBot.router.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 25 TestBot.router.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 26 TestBot.router.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 27 TestBot.router.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 28 TestBot.router.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 29 TestBot.router.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 30 TestBot.recvhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 31 TestBot.recvhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 32 TestBot.recvhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 33 TestBot.recvhost.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 34 TestBot.recvhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 35 TestBot.recvhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 36 TestBot.recvhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 37 TestBot.recvhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 38 TestBot.recvhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 39 TestBot.recvhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 40 TestBot.recvhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 41 TestBot.router.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 42 TestBot.router.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 43 TestBot.router.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+0	5	0.00001	28
+1	9	0.00001	28
+1	30	0.00002162	40
+1	31	0.00002162	40
+1	32	0.00002162	40
+1	33	0.00002162	40
+1	34	0.00002162	40
+1	35	0.00002162	40
+1	36	0.00002162	40
+1	37	0.00002162	40
+1	62	0.00003	40
+1	63	0.00003	40
+1	64	0.00003	40
+1	65	0.00003	40
+1	99	0.00004	40
+1	100	0.00004	40
+1	101	0.00004	40
+1	102	0.00004	40
+1	138	0.00005	40
+1	139	0.00005	40
+1	140	0.00005	40
+1	141	0.00005	40
+1	199	0.00006	40
+1	200	0.00006	40
+1	201	0.00006	40
+1	202	0.00006	40
+1	253	0.00007	40
+1	254	0.00007	40
+1	255	0.00007	40
+1	256	0.00007	40
+1	302	0.00008	40
+1	303	0.00008	40
+1	304	0.00008	40
+1	305	0.00008	40
+1	354	0.00009	40
+1	355	0.00009	40
+1	356	0.00009	40
+1	357	0.00009	40
+1	411	0.0001	40
+1	412	0.0001	40
+1	413	0.0001	40
+1	414	0.0001	40
+1	457	0.00011	40
+1	458	0.00011	40
+1	459	0.00011	40
+1	460	0.00011	40
+2	10	0.00001	46
+2	38	0.00002162	58
+2	39	0.00002162	58
+2	40	0.00002162	58
+2	41	0.00002162	58
+2	42	0.00002162	58
+2	43	0.00002162	58
+2	44	0.00002162	58
+2	45	0.00002162	58
+2	66	0.00003	58
+2	67	0.00003	58
+2	68	0.00003	58
+2	69	0.00003	58
+2	103	0.00004	58
+2	104	0.00004	58
+2	105	0.00004	58
+2	106	0.00004	58
+2	142	0.00005	58
+2	143	0.00005	58
+2	144	0.00005	58
+2	145	0.00005	58
+2	203	0.00006	58
+2	204	0.00006	58
+2	205	0.00006	58
+2	206	0.00006	58
+2	257	0.00007	58
+2	258	0.00007	58
+2	259	0.00007	58
+2	260	0.00007	58
+2	306	0.00008	58
+2	307	0.00008	58
+2	308	0.00008	58
+2	309	0.00008	58
+2	358	0.00009	58
+2	359	0.00009	58
+2	360	0.00009	58
+2	361	0.00009	58
+2	415	0.0001	58
+2	416	0.0001	58
+2	417	0.0001	58
+2	418	0.0001	58
+2	461	0.00011	58
+2	462	0.00011	58
+2	463	0.00011	58
+2	464	0.00011	58
+3	10	0.00001	64
+3	38	0.00002162	64
+3	39	0.00002162	64
+3	40	0.00002162	64
+3	41	0.00002162	64
+3	42	0.00002162	64
+3	43	0.00002162	64
+3	44	0.00002162	64
+3	45	0.00002162	64
+3	66	0.00003	64
+3	67	0.00003	64
+3	68	0.00003	64
+3	69	0.00003	64
+3	103	0.00004	64
+3	104	0.00004	64
+3	105	0.00004	64
+3	106	0.00004	64
+3	142	0.00005	64
+3	143	0.00005	64
+3	144	0.00005	64
+3	145	0.00005	64
+3	203	0.00006	64
+3	204	0.00006	64
+3	205	0.00006	64
+3	206	0.00006	64
+3	257	0.00007	64
+3	258	0.00007	64
+3	259	0.00007	64
+3	260	0.00007	64
+3	306	0.00008	64
+3	307	0.00008	64
+3	308	0.00008	64
+3	309	0.00008	64
+3	358	0.00009	64
+3	359	0.00009	64
+3	360	0.00009	64
+3	361	0.00009	64
+3	415	0.0001	64
+3	416	0.0001	64
+3	417	0.0001	64
+3	418	0.0001	64
+3	461	0.00011	64
+3	462	0.00011	64
+3	463	0.00011	64
+3	464	0.00011	64
+4	10	0.00001	1
+4	10	0.00001	0
+4	38	0.00002162	1
+4	38	0.00002162	0
+4	39	0.00002162	1
+4	40	0.00002162	2
+4	41	0.00002162	3
+4	42	0.00002162	4
+4	43	0.00002162	5
+4	44	0.00002162	6
+4	45	0.00002162	7
+4	53	0.00002834	6
+4	66	0.00003	7
+4	67	0.00003	8
+4	68	0.00003	9
+4	69	0.00003	10
+4	81	0.00003506	9
+4	103	0.00004	10
+4	104	0.00004	11
+4	105	0.00004	12
+4	106	0.00004	13
+4	113	0.00004178	12
+4	129	0.0000485	11
+4	142	0.00005	12
+4	143	0.00005	13
+4	144	0.00005	14
+4	145	0.00005	15
+4	168	0.00005522	14
+4	203	0.00006	15
+4	204	0.00006	16
+4	205	0.00006	17
+4	206	0.00006	18
+4	213	0.00006194	17
+4	239	0.00006866	16
+4	257	0.00007	17
+4	258	0.00007	18
+4	259	0.00007	19
+4	260	0.00007	20
+4	277	0.00007538	19
+4	306	0.00008	20
+4	307	0.00008	21
+4	308	0.00008	22
+4	309	0.00008	23
+4	316	0.0000821	22
+4	345	0.00008882	21
+4	358	0.00009	22
+4	359	0.00009	23
+4	360	0.00009	24
+4	361	0.00009	25
+4	387	0.00009554	24
+4	415	0.0001	25
+4	416	0.0001	26
+4	417	0.0001	27
+4	418	0.0001	28
+4	425	0.00010226	27
+4	448	0.00010898	26
+4	461	0.00011	27
+4	462	0.00011	28
+4	463	0.00011	29
+4	464	0.00011	30
+5	10	0.00001	64
+5	38	0.00002162	64
+5	53	0.00002834	64
+5	81	0.00003506	64
+5	113	0.00004178	64
+5	129	0.0000485	64
+5	168	0.00005522	64
+5	213	0.00006194	64
+5	239	0.00006866	64
+5	277	0.00007538	64
+5	316	0.0000821	64
+5	345	0.00008882	64
+5	387	0.00009554	64
+5	425	0.00010226	64
+5	448	0.00010898	64
+6	10	0.00001	0
+6	38	0.00002162	0
+6	53	0.00002834	6.72e-006
+6	81	0.00003506	1.344e-005
+6	113	0.00004178	2.016e-005
+6	129	0.0000485	2.688e-005
+6	168	0.00005522	3.36e-005
+6	213	0.00006194	4.032e-005
+6	239	0.00006866	4.704e-005
+6	277	0.00007538	4.538e-005
+6	316	0.0000821	5.21e-005
+6	345	0.00008882	5.882e-005
+6	387	0.00009554	6.554e-005
+6	425	0.00010226	6.226e-005
+6	448	0.00010898	6.898e-005
+7	11	0.00001576	64
+7	47	0.00002738	64
+7	76	0.0000341	64
+7	107	0.00004082	64
+7	123	0.00004754	64
+7	162	0.00005426	64
+7	207	0.00006098	64
+7	233	0.0000677	64
+7	271	0.00007442	64
+7	310	0.00008114	64
+7	339	0.00008786	64
+7	381	0.00009458	64
+7	419	0.0001013	64
+7	442	0.00010802	64
+8	12	0.00001581	64
+8	48	0.00002743	64
+8	77	0.00003415	64
+8	108	0.00004087	64
+8	124	0.00004759	64
+8	163	0.00005431	64
+8	208	0.00006103	64
+8	234	0.00006775	64
+8	272	0.00007447	64
+8	311	0.00008119	64
+8	340	0.00008791	64
+8	382	0.00009463	64
+8	420	0.00010135	64
+8	443	0.00010807	64
+9	12	0.00001581	64
+9	48	0.00002743	64
+9	77	0.00003415	64
+9	108	0.00004087	64
+9	124	0.00004759	64
+9	163	0.00005431	64
+9	208	0.00006103	64
+9	234	0.00006775	64
+9	272	0.00007447	64
+9	311	0.00008119	64
+9	340	0.00008791	64
+9	382	0.00009463	64
+9	420	0.00010135	64
+9	443	0.00010807	64
+10	13	0.00001581	46
+10	49	0.00002743	46
+10	79	0.00003415	46
+10	109	0.00004087	46
+10	125	0.00004759	46
+10	164	0.00005431	46
+10	209	0.00006103	46
+10	235	0.00006775	46
+10	273	0.00007447	46
+10	312	0.00008119	46
+10	341	0.00008791	46
+10	383	0.00009463	46
+10	421	0.00010135	46
+10	444	0.00010807	46
+11	14	0.00001581	28
+12	15	0.00001581	28
+12	150	0.00005067	40
+12	179	0.00005739	40
+12	224	0.00006411	40
+12	282	0.00007755	40
+12	327	0.00008427	40
+12	372	0.00009099	40
+12	430	0.00010443	40
+13	16	0.00001581	46
+13	151	0.00005067	58
+13	180	0.00005739	58
+13	225	0.00006411	58
+13	283	0.00007755	58
+13	328	0.00008427	58
+13	373	0.00009099	58
+13	431	0.00010443	58
+14	16	0.00001581	64
+14	151	0.00005067	64
+14	180	0.00005739	64
+14	225	0.00006411	64
+14	283	0.00007755	64
+14	328	0.00008427	64
+14	373	0.00009099	64
+14	431	0.00010443	64
+15	16	0.00001581	1
+15	16	0.00001581	0
+15	151	0.00005067	1
+15	151	0.00005067	0
+15	180	0.00005739	1
+15	180	0.00005739	0
+15	225	0.00006411	1
+15	225	0.00006411	0
+15	283	0.00007755	1
+15	283	0.00007755	0
+15	328	0.00008427	1
+15	328	0.00008427	0
+15	373	0.00009099	1
+15	373	0.00009099	0
+15	431	0.00010443	1
+15	431	0.00010443	0
+16	16	0.00001581	64
+16	151	0.00005067	64
+16	180	0.00005739	64
+16	225	0.00006411	64
+16	283	0.00007755	64
+16	328	0.00008427	64
+16	373	0.00009099	64
+16	431	0.00010443	64
+17	16	0.00001581	0
+17	151	0.00005067	0
+17	180	0.00005739	0
+17	225	0.00006411	0
+17	283	0.00007755	0
+17	328	0.00008427	0
+17	373	0.00009099	0
+17	431	0.00010443	0
+18	26	0.00002157	64
+18	169	0.00005643	64
+18	214	0.00006315	64
+18	240	0.00006987	64
+18	317	0.00008331	64
+18	362	0.00009003	64
+18	388	0.00009675	64
+18	465	0.00011019	64
+19	27	0.00002162	64
+19	170	0.00005648	64
+19	215	0.0000632	64
+19	241	0.00006992	64
+19	318	0.00008336	64
+19	363	0.00009008	64
+19	389	0.0000968	64
+19	466	0.00011024	64
+20	27	0.00002162	64
+20	170	0.00005648	64
+20	215	0.0000632	64
+20	241	0.00006992	64
+20	318	0.00008336	64
+20	363	0.00009008	64
+20	389	0.0000968	64
+20	466	0.00011024	64
+21	28	0.00002162	46
+21	171	0.00005648	46
+21	216	0.0000632	46
+21	242	0.00006992	46
+21	319	0.00008336	46
+21	364	0.00009008	46
+21	390	0.0000968	46
+21	467	0.00011024	46
+22	50	0.00002743	28
+23	51	0.00002743	28
+23	86	0.00003905	40
+23	87	0.00003905	40
+23	111	0.00004087	40
+23	127	0.00004759	40
+23	166	0.00005431	40
+23	211	0.00006103	40
+23	237	0.00006775	40
+23	275	0.00007447	40
+23	314	0.00008119	40
+23	343	0.00008791	40
+23	385	0.00009463	40
+23	423	0.00010135	40
+23	446	0.00010807	40
+24	52	0.00002743	46
+24	88	0.00003905	58
+24	89	0.00003905	58
+24	112	0.00004087	58
+24	128	0.00004759	58
+24	167	0.00005431	58
+24	212	0.00006103	58
+24	238	0.00006775	58
+24	276	0.00007447	58
+24	315	0.00008119	58
+24	344	0.00008791	58
+24	386	0.00009463	58
+24	424	0.00010135	58
+24	447	0.00010807	58
+25	52	0.00002743	64
+25	88	0.00003905	64
+25	89	0.00003905	64
+25	112	0.00004087	64
+25	128	0.00004759	64
+25	167	0.00005431	64
+25	212	0.00006103	64
+25	238	0.00006775	64
+25	276	0.00007447	64
+25	315	0.00008119	64
+25	344	0.00008791	64
+25	386	0.00009463	64
+25	424	0.00010135	64
+25	447	0.00010807	64
+26	52	0.00002743	1
+26	52	0.00002743	0
+26	88	0.00003905	1
+26	88	0.00003905	0
+26	89	0.00003905	1
+26	112	0.00004087	2
+26	122	0.00004577	1
+26	128	0.00004759	2
+26	161	0.00005249	1
+26	167	0.00005431	2
+26	190	0.00005921	1
+26	212	0.00006103	2
+26	232	0.00006593	1
+26	238	0.00006775	2
+26	270	0.00007265	1
+26	276	0.00007447	2
+26	293	0.00007937	1
+26	315	0.00008119	2
+26	338	0.00008609	1
+26	344	0.00008791	2
+26	380	0.00009281	1
+26	386	0.00009463	2
+26	402	0.00009953	1
+26	424	0.00010135	2
+26	441	0.00010625	1
+26	447	0.00010807	2
+27	52	0.00002743	64
+27	88	0.00003905	64
+27	122	0.00004577	64
+27	161	0.00005249	64
+27	190	0.00005921	64
+27	232	0.00006593	64
+27	270	0.00007265	64
+27	293	0.00007937	64
+27	338	0.00008609	64
+27	380	0.00009281	64
+27	402	0.00009953	64
+27	441	0.00010625	64
+28	52	0.00002743	0
+28	88	0.00003905	0
+28	122	0.00004577	6.72e-006
+28	161	0.00005249	1.162e-005
+28	190	0.00005921	1.162e-005
+28	232	0.00006593	1.162e-005
+28	270	0.00007265	1.162e-005
+28	293	0.00007937	1.162e-005
+28	338	0.00008609	1.162e-005
+28	380	0.00009281	1.162e-005
+28	402	0.00009953	1.162e-005
+28	441	0.00010625	1.162e-005
+29	70	0.00003319	64
+29	114	0.00004481	64
+29	152	0.00005153	64
+29	181	0.00005825	64
+29	226	0.00006497	64
+29	262	0.00007169	64
+29	284	0.00007841	64
+29	329	0.00008513	64
+29	374	0.00009185	64
+29	394	0.00009857	64
+29	432	0.00010529	64
+30	71	0.00003324	64
+30	115	0.00004486	64
+30	153	0.00005158	64
+30	182	0.0000583	64
+30	227	0.00006502	64
+30	263	0.00007174	64
+30	285	0.00007846	64
+30	330	0.00008518	64
+30	375	0.0000919	64
+30	395	0.00009862	64
+30	433	0.00010534	64
+31	71	0.00003324	64
+31	115	0.00004486	64
+31	153	0.00005158	64
+31	182	0.0000583	64
+31	227	0.00006502	64
+31	263	0.00007174	64
+31	285	0.00007846	64
+31	330	0.00008518	64
+31	375	0.0000919	64
+31	395	0.00009862	64
+31	433	0.00010534	64
+32	72	0.00003324	46
+32	116	0.00004486	46
+32	155	0.00005158	46
+32	184	0.0000583	46
+32	229	0.00006502	46
+32	264	0.00007174	46
+32	287	0.00007846	46
+32	332	0.00008518	46
+32	377	0.0000919	46
+32	396	0.00009862	46
+32	435	0.00010534	46
+33	73	0.00003324	28
+34	74	0.00003324	28
+34	120	0.00004486	40
+34	159	0.00005158	40
+34	188	0.0000583	40
+34	268	0.00007174	40
+34	291	0.00007846	40
+34	336	0.00008518	40
+34	400	0.00009862	40
+34	439	0.00010534	40
+35	75	0.00003324	46
+35	121	0.00004486	58
+35	160	0.00005158	58
+35	189	0.0000583	58
+35	269	0.00007174	58
+35	292	0.00007846	58
+35	337	0.00008518	58
+35	401	0.00009862	58
+35	440	0.00010534	58
+36	75	0.00003324	64
+36	121	0.00004486	64
+36	160	0.00005158	64
+36	189	0.0000583	64
+36	269	0.00007174	64
+36	292	0.00007846	64
+36	337	0.00008518	64
+36	401	0.00009862	64
+36	440	0.00010534	64
+37	75	0.00003324	1
+37	75	0.00003324	0
+37	121	0.00004486	1
+37	121	0.00004486	0
+37	160	0.00005158	1
+37	160	0.00005158	0
+37	189	0.0000583	1
+37	189	0.0000583	0
+37	269	0.00007174	1
+37	269	0.00007174	0
+37	292	0.00007846	1
+37	292	0.00007846	0
+37	337	0.00008518	1
+37	337	0.00008518	0
+37	401	0.00009862	1
+37	401	0.00009862	0
+37	440	0.00010534	1
+37	440	0.00010534	0
+38	75	0.00003324	64
+38	121	0.00004486	64
+38	160	0.00005158	64
+38	189	0.0000583	64
+38	269	0.00007174	64
+38	292	0.00007846	64
+38	337	0.00008518	64
+38	401	0.00009862	64
+38	440	0.00010534	64
+39	75	0.00003324	0
+39	121	0.00004486	0
+39	160	0.00005158	0
+39	189	0.0000583	0
+39	269	0.00007174	0
+39	292	0.00007846	0
+39	337	0.00008518	0
+39	401	0.00009862	0
+39	440	0.00010534	0
+40	82	0.000039	64
+40	146	0.00005062	64
+40	174	0.00005734	64
+40	219	0.00006406	64
+40	278	0.0000775	64
+40	322	0.00008422	64
+40	367	0.00009094	64
+40	426	0.00010438	64
+40	470	0.0001111	64
+41	83	0.00003905	64
+41	147	0.00005067	64
+41	175	0.00005739	64
+41	220	0.00006411	64
+41	279	0.00007755	64
+41	323	0.00008427	64
+41	368	0.00009099	64
+41	427	0.00010443	64
+42	83	0.00003905	64
+42	147	0.00005067	64
+42	175	0.00005739	64
+42	220	0.00006411	64
+42	279	0.00007755	64
+42	323	0.00008427	64
+42	368	0.00009099	64
+42	427	0.00010443	64
+43	84	0.00003905	46
+43	148	0.00005067	46
+43	177	0.00005739	46
+43	222	0.00006411	46
+43	280	0.00007755	46
+43	325	0.00008427	46
+43	370	0.00009099	46
+43	428	0.00010443	46
+

@@ -1,0 +1,544 @@
+file 27510 1599793151                                           
+version 2
+run ExperimentNetwork2-0-20200911-10:58:47-3596
+attr configname ExperimentNetwork2
+attr datetime 20200911-10:58:47
+attr experiment ExperimentNetwork2
+attr inifile experiment.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network ExperimentNetwork2
+attr processid 3596
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.visualizer.*.interfaceTableVisualizer.nodeFilter "\"not (*Switch* accessPoint*)\""
+param *.visualizer.*.mobilityVisualizer.displayMobility true
+param *.visualizer.*.mobilityVisualizer.displayPositions true
+param *.visualizer.*.mobilityVisualizer.displayOrientations true
+param *.visualizer.*.mobilityVisualizer.displayVelocities true
+param *.visualizer.*.mobilityVisualizer.displayMovementTrails true
+param *.DDoS*.numPktGen 4
+param *.DDoS*.pg[*].localPort 1234
+param *.DDoS*.pg[*].destPort 1234
+param *.DDoS*.pg[*].startTime "2s+uniform(0.01ms, 0.05ms)"
+param *.DDoS*.pg[*].sendInterval 0.01ms
+param *.DDoS*.pg[0].packetType "\"UDP\""
+param *.DDoS*.pg[0].packetName "\"UDPFlood\""
+param *.DDoS*.pg[1].packetType "\"TCP_SYN\""
+param *.DDoS*.pg[1].packetName "\"SYNFlood\""
+param *.DDoS*.pg[2].packetType "\"TCP_SYNACK\""
+param *.DDoS*.pg[2].packetName "\"SYNACKFlood\""
+param *.DDoS*.pg[3].packetType "\"TCP_ACK\""
+param *.DDoS*.pg[3].packetName "\"ACKFlood\""
+param *.*Bot.pg[0].destAddr "\"standardHost2\""
+param *.*Bot.pg[1].destAddr "\"standardHost9\""
+param *.*Bot.pg[2].destAddr "\"standardHost7\""
+param *.*Bot.pg[3].destAddr "\"standardHost4\""
+param *.*Bot1.pg[0].destAddr "\"standardHost5\""
+param *.*Bot1.pg[1].destAddr "\"standardHost10\""
+param *.*Bot1.pg[2].destAddr "\"wirelessHost\""
+param *.*Bot1.pg[3].destAddr "\"adhocHost\""
+param *.*Bot2.pg[0].destAddr "\"standardHost1\""
+param *.*Bot2.pg[1].destAddr "\"standardHost6\""
+param *.*Bot2.pg[2].destAddr "\"adhocHost2\""
+param *.*Bot2.pg[3].destAddr "\"wirelessHost3\""
+param *.*Bot3.pg[0].destAddr "\"standardHost4\""
+param *.*Bot3.pg[1].destAddr "\"standardHost9\""
+param *.*Bot3.pg[2].destAddr "\"adhocHost\""
+param *.*Bot3.pg[3].destAddr "\"wirelessHost\""
+param *.*Bot4.pg[*].destAddr "\"standardHost1\""
+param *.*Bot5.pg[*].destAddr "\"wirelessHost2\""
+param *.*Host*.numApps 1
+param *.*Host*.app[*].typename "\"PingApp\""
+param *.*Host*.app[*].sendInterval 0.02ms
+param *.*Host*.app[*].startTime "2s+uniform(0.01ms, 0.05ms)"
+param *.standardHost.app[*].destAddr "\"standardHost1\""
+param *.standardHost1.app[*].destAddr "\"standardHost7\""
+param *.standardHost2.app[*].destAddr "\"standardHost8\""
+param *.standardHost3.app[*].destAddr "\"standardHost10\""
+param *.standardHost4.app[*].destAddr "\"adhocHost1\""
+param *.standardHost5.app[*].destAddr "\"wirelessHost\""
+param *.standardHost6.app[*].destAddr "\"wirelessHost2\""
+param *.standardHost7.app[*].destAddr "\"standardHost9\""
+param *.standardHost8.app[*].destAddr "\"standardHost1\""
+param *.standardHost9.app[*].destAddr "\"standardHost\""
+param *.adhocHost.app[*].destAddr "\"standardHost1\""
+param *.adhocHost1.app[*].destAddr "\"wirelessHost\""
+param *.adhocHost2.app[*].destAddr "\"adhocHost\""
+param *.wirelessHost.app[*].destAddr "\"standardHost\""
+param *.wirelessHost1.app[*].destAddr "\"standardHost5\""
+param *.wirelessHost2.app[*].destAddr "\"adhocHost\""
+param *.wirelessHost3.app[*].destAddr "\"standardHost9\""
+param *.wireless*.mobility.typename "\"MassMobility\""
+param *.wireless*.mobility.initFromDisplayString false
+param *.wireless*.mobility.changeInterval "truncnormal(0.02ms, 0.05ms)"
+param *.wireless*.mobility.angleDelta "normal(0deg, 30deg)"
+param *.wireless*.mobility.speed "truncnormal(20mps, 8mps)"
+param *.wirelessHost.mobility.initialX 998m
+param *.wirelessHost.mobility.initialY 914m
+param *.wirelessHost.mobility.initialZ 0m
+param *.wirelessHost1.mobility.initialX 1066m
+param *.wirelessHost1.mobility.initialY 858m
+param *.wirelessHost1.mobility.initialZ 0m
+param *.wirelessHost2.mobility.initialX 1206m
+param *.wirelessHost2.mobility.initialY 731m
+param *.wirelessHost2.mobility.initialZ 0m
+param *.wirelessHost3.mobility.initialX 1249m
+param *.wirelessHost3.mobility.initialY 655m
+param *.wirelessHost3.mobility.initialZ 0m
+param **.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 ExperimentNetwork2.accessPoint.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 1 ExperimentNetwork2.accessPoint.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 2 ExperimentNetwork2.accessPoint1.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 3 ExperimentNetwork2.accessPoint1.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 4 ExperimentNetwork2.wirelessHost.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 5 ExperimentNetwork2.wirelessHost.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 6 ExperimentNetwork2.wirelessHost1.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 7 ExperimentNetwork2.wirelessHost1.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 8 ExperimentNetwork2.wirelessHost2.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 9 ExperimentNetwork2.wirelessHost2.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 10 ExperimentNetwork2.wirelessHost3.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 11 ExperimentNetwork2.wirelessHost3.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 12 ExperimentNetwork2.adhocHost.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 13 ExperimentNetwork2.adhocHost.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 14 ExperimentNetwork2.accessPoint2.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 15 ExperimentNetwork2.accessPoint2.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 16 ExperimentNetwork2.adhocHost1.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 17 ExperimentNetwork2.adhocHost1.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 18 ExperimentNetwork2.adhocHost2.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 19 ExperimentNetwork2.adhocHost2.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 20 ExperimentNetwork2.accessPoint.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 21 ExperimentNetwork2.accessPoint1.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 22 ExperimentNetwork2.wirelessHost.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 23 ExperimentNetwork2.wirelessHost1.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 24 ExperimentNetwork2.wirelessHost2.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 25 ExperimentNetwork2.wirelessHost3.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 26 ExperimentNetwork2.adhocHost.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 27 ExperimentNetwork2.accessPoint2.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 28 ExperimentNetwork2.adhocHost1.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 29 ExperimentNetwork2.adhocHost2.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 30 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 31 ExperimentNetwork2.accessPoint1.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 32 ExperimentNetwork2.wirelessHost.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 33 ExperimentNetwork2.wirelessHost1.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 34 ExperimentNetwork2.wirelessHost2.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 35 ExperimentNetwork2.wirelessHost3.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 36 ExperimentNetwork2.adhocHost.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 37 ExperimentNetwork2.accessPoint2.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 38 ExperimentNetwork2.adhocHost1.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 39 ExperimentNetwork2.adhocHost2.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 40 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 41 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 42 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+vector 43 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+vector 44 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 45 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 46 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+vector 47 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+vector 48 ExperimentNetwork2.accessPoint.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 49 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+vector 50 ExperimentNetwork2.accessPoint.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 51 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+vector 52 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+vector 53 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf packetSentToPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , vector(packetBytes)"
+vector 54 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+vector 55 ExperimentNetwork2.accessPoint.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+vector 56 ExperimentNetwork2.wirelessHost1.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 57 ExperimentNetwork2.wirelessHost1.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 58 ExperimentNetwork2.wirelessHost1.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 59 ExperimentNetwork2.wirelessHost1.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, vector(packetBytes)"
+vector 60 ExperimentNetwork2.wirelessHost1.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 61 ExperimentNetwork2.wirelessHost.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 62 ExperimentNetwork2.wirelessHost.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 63 ExperimentNetwork2.wirelessHost.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 64 ExperimentNetwork2.wirelessHost.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, vector(packetBytes)"
+vector 65 ExperimentNetwork2.wirelessHost.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 66 ExperimentNetwork2.wirelessHost2.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 67 ExperimentNetwork2.wirelessHost2.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 68 ExperimentNetwork2.wirelessHost2.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 69 ExperimentNetwork2.wirelessHost2.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, vector(packetBytes)"
+vector 70 ExperimentNetwork2.wirelessHost2.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 71 ExperimentNetwork2.accessPoint1.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 72 ExperimentNetwork2.accessPoint1.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 73 ExperimentNetwork2.accessPoint1.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 74 ExperimentNetwork2.accessPoint1.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, vector(packetBytes)"
+vector 75 ExperimentNetwork2.accessPoint1.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 76 ExperimentNetwork2.wirelessHost3.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 77 ExperimentNetwork2.wirelessHost3.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 78 ExperimentNetwork2.wirelessHost3.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 79 ExperimentNetwork2.wirelessHost3.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, vector(packetBytes)"
+vector 80 ExperimentNetwork2.wirelessHost3.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 81 ExperimentNetwork2.accessPoint2.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 82 ExperimentNetwork2.accessPoint2.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 83 ExperimentNetwork2.accessPoint2.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 84 ExperimentNetwork2.accessPoint2.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, vector(packetBytes)"
+vector 85 ExperimentNetwork2.accessPoint2.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 86 ExperimentNetwork2.adhocHost2.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 87 ExperimentNetwork2.adhocHost2.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 88 ExperimentNetwork2.adhocHost2.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 89 ExperimentNetwork2.adhocHost2.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, vector(packetBytes)"
+vector 90 ExperimentNetwork2.adhocHost2.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 91 ExperimentNetwork2.adhocHost.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 92 ExperimentNetwork2.adhocHost.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 93 ExperimentNetwork2.adhocHost.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 94 ExperimentNetwork2.adhocHost.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, vector(packetBytes)"
+vector 95 ExperimentNetwork2.adhocHost.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+0	24790 75 0 175 0 0.001924979802 5 0 3 7 17
+1	24865 9 0 0 0 0 1 0 0 0 0
+2	24874 27 0 0 0 0 3 0 2 2 4
+3	24901 9 0 0 0 0 1 0 0 0 0
+4	24910 27 0 0 0 0 3 0 2 2 4
+5	24937 9 0 0 0 0 1 0 0 0 0
+6	24946 27 0 0 0 0 3 0 2 2 4
+7	24973 9 0 0 0 0 1 0 0 0 0
+8	24982 27 0 0 0 0 3 0 2 2 4
+9	25009 9 0 0 0 0 1 0 0 0 0
+10	25018 30 0 0 0 0 3 0 2 2 4
+11	25048 10 0 0 0 0 1 0 0 0 0
+12	25058 30 0 0 0 0 3 0 2 2 4
+13	25088 10 0 0 0 0 1 0 0 0 0
+14	25098 30 0 0 0 0 3 0 2 2 4
+15	25128 10 0 0 0 0 1 0 0 0 0
+16	25138 30 0 0 0 0 3 0 2 2 4
+17	25168 10 0 0 0 0 1 0 0 0 0
+18	25178 30 0 0 0 0 3 0 2 2 4
+19	25208 10 0 0 0 0 1 0 0 0 0
+20	25218 60 0 175 0 0.001924979802 3 0 1 2 2
+21	25278 60 0 185 0 0.001925797857 3 1 3 5 11
+22	25338 60 0 179 0 0.001925211212 3 1 3 5 11
+23	25398 60 0 176 0 0.001925187833 3 1 3 5 11
+24	25458 60 0 182 0 0.001925750522 3 1 3 5 11
+25	25518 60 0 188 0 0.001926011351 3 1 3 5 11
+26	25578 60 0 197 0 0.001927340663 3 1 3 5 11
+27	25638 60 0 191 0 0.001926832167 3 1 3 5 11
+28	25698 10 0 0 0 0 1 1 1 1 1
+29	25708 58 0 194 0 0.00192715061 3 1 3 5 11
+30	25766 11 0 0 0 0 1 31 31 31 961
+31	25777 11 0 0 0 0 1 31 31 31 961
+32	25788 11 0 0 0 0 1 31 31 31 961
+33	25799 11 0 0 0 0 1 31 31 31 961
+34	25810 11 0 0 0 0 1 31 31 31 961
+35	25821 11 0 0 0 0 1 31 31 31 961
+36	25832 11 0 0 0 0 1 31 31 31 961
+37	25843 11 0 0 0 0 1 31 31 31 961
+38	25854 11 0 0 0 0 1 31 31 31 961
+39	25865 11 0 0 0 0 1 31 31 31 961
+40	25876 26 152 152 0.001878979802 0.001878979802 1 48 48 48 2304
+41	25902 50 152 154 0.001878979802 0.001878979802 2 0 1 1 1
+42	25952 26 152 152 0.001878979802 0.001878979802 1 30 30 30 900
+43	25978 50 152 153 0.001878979802 0.001878979802 2 0 1 1 1
+44	26028 26 154 154 0.001878979802 0.001878979802 1 48 48 48 2304
+45	26054 25 154 154 0.001878979802 0.001878979802 1 0 0 0 0
+46	26079 50 154 174 0.001878979802 0.001924979802 2 0 1 1 1
+47	26129 32 154 154 0.001878979802 0.001878979802 1 24000000 24000000 24000000 5.76e+014
+48	26161 26 154 154 0.001878979802 0.001878979802 1 48 48 48 2304
+49	26187 50 154 174 0.001878979802 0.001924979802 2 0 1 1 1
+50	26237 100 155 175 0.001878979802 0.001924979802 4 0 2 4 6
+51	26337 26 174 174 0.001924979802 0.001924979802 1 48 48 48 2304
+52	26363 26 174 174 0.001924979802 0.001924979802 1 48 48 48 2304
+53	26389 26 174 174 0.001924979802 0.001924979802 1 48 48 48 2304
+54	26415 26 174 174 0.001924979802 0.001924979802 1 48 48 48 2304
+55	26441 32 174 174 0.001924979802 0.001924979802 1 4.6e-005 4.6e-005 4.6e-005 2.116e-009
+56	26473 26 177 177 0.001925187833 0.001925187833 1 48 48 48 2304
+57	26499 26 177 177 0.001925187833 0.001925187833 1 48 48 48 2304
+58	26525 26 177 177 0.001925187833 0.001925187833 1 48 48 48 2304
+59	26551 26 177 177 0.001925187833 0.001925187833 1 48 48 48 2304
+60	26577 26 177 177 0.001925187833 0.001925187833 1 48 48 48 2304
+61	26603 26 180 180 0.001925211212 0.001925211212 1 48 48 48 2304
+62	26629 26 180 180 0.001925211212 0.001925211212 1 48 48 48 2304
+63	26655 26 180 180 0.001925211212 0.001925211212 1 48 48 48 2304
+64	26681 26 180 180 0.001925211212 0.001925211212 1 48 48 48 2304
+65	26707 26 180 180 0.001925211212 0.001925211212 1 48 48 48 2304
+66	26733 26 183 183 0.001925750522 0.001925750522 1 48 48 48 2304
+67	26759 26 183 183 0.001925750522 0.001925750522 1 48 48 48 2304
+68	26785 26 183 183 0.001925750522 0.001925750522 1 48 48 48 2304
+69	26811 26 183 183 0.001925750522 0.001925750522 1 48 48 48 2304
+70	26837 26 183 183 0.001925750522 0.001925750522 1 48 48 48 2304
+71	26863 26 186 186 0.001925797857 0.001925797857 1 48 48 48 2304
+72	26889 26 186 186 0.001925797857 0.001925797857 1 48 48 48 2304
+73	26915 26 186 186 0.001925797857 0.001925797857 1 48 48 48 2304
+74	26941 26 186 186 0.001925797857 0.001925797857 1 48 48 48 2304
+75	26967 26 186 186 0.001925797857 0.001925797857 1 48 48 48 2304
+76	26993 26 189 189 0.001926011351 0.001926011351 1 48 48 48 2304
+77	27019 26 189 189 0.001926011351 0.001926011351 1 48 48 48 2304
+78	27045 26 189 189 0.001926011351 0.001926011351 1 48 48 48 2304
+79	27071 26 189 189 0.001926011351 0.001926011351 1 48 48 48 2304
+80	27097 26 189 189 0.001926011351 0.001926011351 1 48 48 48 2304
+81	27123 26 192 192 0.001926832167 0.001926832167 1 48 48 48 2304
+82	27149 26 192 192 0.001926832167 0.001926832167 1 48 48 48 2304
+83	27175 26 192 192 0.001926832167 0.001926832167 1 48 48 48 2304
+84	27201 26 192 192 0.001926832167 0.001926832167 1 48 48 48 2304
+85	27227 26 192 192 0.001926832167 0.001926832167 1 48 48 48 2304
+86	27253 25 195 195 0.00192715061 0.00192715061 1 48 48 48 2304
+87	27278 25 195 195 0.00192715061 0.00192715061 1 48 48 48 2304
+88	27303 25 195 195 0.00192715061 0.00192715061 1 48 48 48 2304
+89	27328 25 195 195 0.00192715061 0.00192715061 1 48 48 48 2304
+90	27353 25 195 195 0.00192715061 0.00192715061 1 48 48 48 2304
+91	27378 26 198 198 0.001927340663 0.001927340663 1 48 48 48 2304
+92	27404 26 198 198 0.001927340663 0.001927340663 1 48 48 48 2304
+93	27430 26 198 198 0.001927340663 0.001927340663 1 48 48 48 2304
+94	27456 26 198 198 0.001927340663 0.001927340663 1 48 48 48 2304
+95	27482 26 198 198 0.001927340663 0.001927340663 1 48 48 48 2304
+

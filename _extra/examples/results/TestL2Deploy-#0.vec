@@ -1,0 +1,869 @@
+version 2
+run TestL2Deploy-0-20200910-12:27:01-9740
+attr configname TestL2Deploy
+attr datetime 20200910-12:27:01
+attr experiment TestL2Deploy
+attr inifile test.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestL2Deploy
+attr processid 9740
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.visualizer.*.interfaceTableVisualizer.nodeFilter "\"not (switch*)\""
+param *.*host.numApps 1
+param *.sendhost.app[0].typename "\"TcpSessionApp\""
+param *.sendhost.app[0].connectAddress "\"recvhost\""
+param *.sendhost.app[0].connectPort 1234
+param *.sendhost.app[0].sendBytes 300kB
+param *.recvhost.app[0].typename "\"TcpSinkApp\""
+param *.recvhost.app[0].localPort 1234
+param *.configurator.addStaticRoutes false
+param *.configurator.addSubnetRoutes false
+param *.configurator.addDefaultRoutes false
+param *.configurator.config "xml(\"<config> \t\t\t\t\t\t\t\t<interface hosts='sendhost' names='eth0' address='10.1.1.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='recvhost' names='eth0' address='10.1.3.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='mitigator' names='eth0' address='10.1.1.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='mitigator' names='eth1' address='10.1.2.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth0' address='10.1.2.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth1' address='10.1.3.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<route hosts='mitigator' destination='10.1.3.2' netmask='255.255.255.255' gateway='router1' interface='eth1' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='router1' destination='10.1.1.2' netmask='255.255.255.255' gateway='sendhost' interface='eth0' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='sendhost' destination='*' gateway='mitigator' interface='eth0' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='recvhost' destination='*' gateway='router1' interface='eth0' metric='60'/> \t\t\t\t\t\t\t</config>\")"
+param *.*.eth[*].qEncap.typename "\"Ieee8021qEncap\""
+param *.switch1.eth[0].qEncap.inboundVlanIdFilter "\"-1\""
+param *.switch1.eth[0].qEncap.inboundVlanIdMap "\"-1 2\""
+param *.switch1.eth[0].qEncap.outboundVlanIdFilter "\"2\""
+param *.switch1.eth[0].qEncap.outboundVlanIdMap "\"2 -1\""
+param *.switch1.eth[1].qEncap.inboundVlanIdFilter "\"-1\""
+param *.switch1.eth[1].qEncap.inboundVlanIdMap "\"-1 2\""
+param *.switch1.eth[1].qEncap.outboundVlanIdFilter "\"2\""
+param *.switch1.eth[1].qEncap.outboundVlanIdMap "\"2 -1\""
+param *.switch1.eth[2].qEncap.inboundVlanIdFilter "\"-1\""
+param *.switch1.eth[2].qEncap.inboundVlanIdMap "\"-1 3\""
+param *.switch1.eth[2].qEncap.outboundVlanIdFilter "\"3\""
+param *.switch1.eth[2].qEncap.outboundVlanIdMap "\"3 -1\""
+param *.switch1.eth[3].qEncap.inboundVlanIdFilter "\"-1\""
+param *.switch1.eth[3].qEncap.inboundVlanIdMap "\"-1 3\""
+param *.switch1.eth[3].qEncap.outboundVlanIdFilter "\"3\""
+param *.switch1.eth[3].qEncap.outboundVlanIdMap "\"3 -1\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestL2Deploy.sendhost.tcp.conn-2 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+vector 1 TestL2Deploy.sendhost.tcp.conn-2 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+vector 2 TestL2Deploy.sendhost.tcp.conn-2 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+vector 3 TestL2Deploy.sendhost.tcp.conn-2 sndAck:vector ETV
+attr interpolationmode sample-hold
+vector 4 TestL2Deploy.sendhost.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 5 TestL2Deploy.sendhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 6 TestL2Deploy.sendhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 7 TestL2Deploy.sendhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 8 TestL2Deploy.sendhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 9 TestL2Deploy.sendhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 10 TestL2Deploy.sendhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 11 TestL2Deploy.sendhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 12 TestL2Deploy.switch1.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 13 TestL2Deploy.switch1.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 14 TestL2Deploy.switch1.eth[2].qEncap packetDropped:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet dropped, vector(packetBytes)"
+vector 15 TestL2Deploy.switch1.eth[3].qEncap packetDropped:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet dropped, vector(packetBytes)"
+vector 16 TestL2Deploy.switch1.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 17 TestL2Deploy.switch1.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 18 TestL2Deploy.switch1.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 19 TestL2Deploy.switch1.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 20 TestL2Deploy.switch1.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 21 TestL2Deploy.switch1.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 22 TestL2Deploy.mitigator.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 23 TestL2Deploy.mitigator.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 24 TestL2Deploy.mitigator.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 25 TestL2Deploy.mitigator.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 26 TestL2Deploy.mitigator.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 27 TestL2Deploy.mitigator.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 28 TestL2Deploy.mitigator.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 29 TestL2Deploy.mitigator.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 30 TestL2Deploy.mitigator.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 31 TestL2Deploy.mitigator.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 32 TestL2Deploy.mitigator.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 33 TestL2Deploy.switch1.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 34 TestL2Deploy.switch1.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 35 TestL2Deploy.switch1.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 36 TestL2Deploy.switch1.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 37 TestL2Deploy.switch1.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 38 TestL2Deploy.switch1.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 39 TestL2Deploy.switch1.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 40 TestL2Deploy.switch1.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 41 TestL2Deploy.sendhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 42 TestL2Deploy.sendhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 43 TestL2Deploy.sendhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 44 TestL2Deploy.mitigator.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 45 TestL2Deploy.mitigator.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 46 TestL2Deploy.mitigator.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 47 TestL2Deploy.mitigator.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 48 TestL2Deploy.mitigator.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 49 TestL2Deploy.mitigator.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 50 TestL2Deploy.mitigator.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 51 TestL2Deploy.mitigator.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 52 TestL2Deploy.switch1.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 53 TestL2Deploy.switch1.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 54 TestL2Deploy.switch1.eth[0].qEncap packetDropped:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet dropped, vector(packetBytes)"
+vector 55 TestL2Deploy.switch1.eth[1].qEncap packetDropped:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet dropped, vector(packetBytes)"
+vector 56 TestL2Deploy.switch1.eth[3].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 57 TestL2Deploy.switch1.eth[3].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 58 TestL2Deploy.switch1.eth[3].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 59 TestL2Deploy.switch1.eth[3].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 60 TestL2Deploy.switch1.eth[3].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 61 TestL2Deploy.switch1.eth[3].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 62 TestL2Deploy.router1.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 63 TestL2Deploy.router1.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 64 TestL2Deploy.router1.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 65 TestL2Deploy.router1.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 66 TestL2Deploy.router1.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 67 TestL2Deploy.router1.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 68 TestL2Deploy.router1.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 69 TestL2Deploy.router1.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 70 TestL2Deploy.router1.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 71 TestL2Deploy.router1.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 72 TestL2Deploy.router1.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 73 TestL2Deploy.switch1.eth[3].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 74 TestL2Deploy.switch1.eth[3].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 75 TestL2Deploy.switch1.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 76 TestL2Deploy.switch1.eth[2].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 77 TestL2Deploy.switch1.eth[2].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 78 TestL2Deploy.switch1.eth[2].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 79 TestL2Deploy.switch1.eth[2].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 80 TestL2Deploy.switch1.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 81 TestL2Deploy.mitigator.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 82 TestL2Deploy.mitigator.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 83 TestL2Deploy.mitigator.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 84 TestL2Deploy.router1.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+vector 85 TestL2Deploy.router1.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 86 TestL2Deploy.router1.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 87 TestL2Deploy.router1.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 88 TestL2Deploy.router1.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 89 TestL2Deploy.router1.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 90 TestL2Deploy.router1.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 91 TestL2Deploy.router1.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 92 TestL2Deploy.recvhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 93 TestL2Deploy.recvhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 94 TestL2Deploy.recvhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 95 TestL2Deploy.recvhost.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+vector 96 TestL2Deploy.recvhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+vector 97 TestL2Deploy.recvhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 98 TestL2Deploy.recvhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 99 TestL2Deploy.recvhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 100 TestL2Deploy.recvhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 101 TestL2Deploy.recvhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 102 TestL2Deploy.recvhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+vector 103 TestL2Deploy.router1.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 104 TestL2Deploy.router1.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 105 TestL2Deploy.router1.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+vector 106 TestL2Deploy.recvhost.tcp.conn-1 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+vector 107 TestL2Deploy.recvhost.tcp.conn-1 rcvAck:vector ETV
+attr interpolationmode sample-hold
+vector 108 TestL2Deploy.recvhost.tcp.conn-3 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+vector 109 TestL2Deploy.recvhost.tcp.conn-3 sndWnd:vector ETV
+attr interpolationmode sample-hold
+vector 110 TestL2Deploy.recvhost.tcp.conn-3 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+vector 111 TestL2Deploy.recvhost.tcp.conn-3 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+vector 112 TestL2Deploy.recvhost.tcp.conn-3 sndAck:vector ETV
+attr interpolationmode sample-hold
+vector 113 TestL2Deploy.sendhost.tcp.conn-2 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+vector 114 TestL2Deploy.sendhost.tcp.conn-2 rcvAck:vector ETV
+attr interpolationmode sample-hold
+vector 115 TestL2Deploy.sendhost.tcp.conn-2 sndWnd:vector ETV
+attr interpolationmode sample-hold
+vector 116 TestL2Deploy.sendhost.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 117 TestL2Deploy.sendhost.tcp.conn-2 sndNxt:vector ETV
+attr interpolationmode sample-hold
+vector 118 TestL2Deploy.sendhost.tcp.conn-2 unacked:vector ETV
+attr interpolationmode sample-hold
+vector 119 TestL2Deploy.recvhost.tcp.conn-3 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+vector 120 TestL2Deploy.recvhost.tcp.conn-3 rcvAck:vector ETV
+attr interpolationmode sample-hold
+vector 121 TestL2Deploy.recvhost.tcp.conn-3 unacked:vector ETV
+attr interpolationmode sample-hold
+0	3	1	0
+0	228	1.00013944	0
+0	234	1.00013944	0
+1	3	1	7504
+1	228	1.00013944	257526
+1	228	1.00013944	257526
+1	234	1.00013944	257526
+2	3	1	7504
+2	228	1.00013944	7504
+2	234	1.00013944	7504
+3	3	1	0
+3	228	1.00013944	250022
+3	234	1.00013944	250022
+4	4	1	28
+5	5	1	28
+5	42	1.00002324	44
+5	231	1.00013944	40
+5	237	1.00013944	576
+6	7	1	46
+6	44	1.00002324	62
+6	235	1.00013944	58
+6	239	1.00013944	594
+7	7	1	64
+7	44	1.00002324	64
+7	235	1.00013944	64
+7	239	1.00013944	594
+8	7	1	1
+8	7	1	0
+8	44	1.00002324	1
+8	44	1.00002324	0
+8	235	1.00013944	1
+8	235	1.00013944	0
+8	239	1.00013944	1
+8	248	1.00014616	0
+9	7	1	64
+9	44	1.00002324	64
+9	235	1.00013944	64
+9	248	1.00014616	594
+10	7	1	0
+10	44	1.00002324	0
+10	235	1.00013944	0
+10	248	1.00014616	6.72e-006
+11	9	1.00000576	64
+11	47	1.000029	64
+11	242	1.0001452	64
+11	288	1.00019432	594
+12	10	1.00000581	64
+12	48	1.00002905	64
+12	243	1.00014525	64
+12	289	1.00019437	594
+13	10	1.00000581	64
+13	48	1.00002905	64
+13	243	1.00014525	64
+13	289	1.00019437	594
+14	14	1.00000581	50
+15	15	1.00000581	50
+16	16	1.00000581	64
+16	52	1.00002905	64
+16	247	1.00014525	64
+16	293	1.00019437	594
+17	16	1.00000581	64
+17	52	1.00002905	64
+17	247	1.00014525	64
+17	293	1.00019437	594
+18	16	1.00000581	1
+18	16	1.00000581	0
+18	52	1.00002905	1
+18	52	1.00002905	0
+18	247	1.00014525	1
+18	247	1.00014525	0
+18	293	1.00019437	1
+18	293	1.00019437	0
+19	16	1.00000581	64
+19	52	1.00002905	64
+19	247	1.00014525	64
+19	293	1.00019437	594
+20	16	1.00000581	0
+20	52	1.00002905	0
+20	247	1.00014525	0
+20	293	1.00019437	0
+21	19	1.00001157	64
+21	55	1.00003481	64
+21	251	1.00015101	64
+21	296	1.00024253	594
+22	20	1.00001162	64
+22	56	1.00003486	64
+22	252	1.00015106	64
+22	297	1.00024258	594
+23	20	1.00001162	64
+23	56	1.00003486	64
+23	252	1.00015106	64
+23	297	1.00024258	594
+24	22	1.00001162	46
+24	58	1.00003486	46
+24	254	1.00015106	46
+24	299	1.00024258	576
+25	23	1.00001162	28
+25	173	1.00010458	28
+26	24	1.00001162	28
+26	210	1.00012782	44
+27	26	1.00001162	46
+27	212	1.00012782	62
+28	26	1.00001162	64
+28	212	1.00012782	64
+29	26	1.00001162	1
+29	26	1.00001162	0
+29	212	1.00012782	1
+29	212	1.00012782	0
+30	26	1.00001162	64
+30	212	1.00012782	64
+31	26	1.00001162	0
+31	212	1.00012782	0
+32	29	1.00001738	64
+32	215	1.00013358	64
+33	30	1.00001743	64
+33	216	1.00013363	64
+34	30	1.00001743	64
+34	216	1.00013363	64
+35	34	1.00001743	64
+35	220	1.00013363	64
+36	34	1.00001743	64
+36	220	1.00013363	64
+37	34	1.00001743	1
+37	34	1.00001743	0
+37	220	1.00013363	1
+37	220	1.00013363	0
+38	34	1.00001743	64
+38	220	1.00013363	64
+39	34	1.00001743	0
+39	220	1.00013363	0
+40	37	1.00002319	64
+40	223	1.00013939	64
+41	38	1.00002324	64
+41	224	1.00013944	64
+42	38	1.00002324	64
+42	224	1.00013944	64
+43	40	1.00002324	46
+43	226	1.00013944	46
+44	59	1.00003486	28
+45	60	1.00003486	28
+45	98	1.0000581	44
+45	174	1.00010458	28
+45	256	1.00015106	40
+45	301	1.00024258	576
+46	62	1.00003486	46
+46	100	1.0000581	62
+46	176	1.00010458	46
+46	258	1.00015106	58
+46	303	1.00024258	594
+47	62	1.00003486	64
+47	100	1.0000581	64
+47	176	1.00010458	64
+47	258	1.00015106	64
+47	303	1.00024258	594
+48	62	1.00003486	1
+48	62	1.00003486	0
+48	100	1.0000581	1
+48	100	1.0000581	0
+48	176	1.00010458	1
+48	176	1.00010458	0
+48	258	1.00015106	1
+48	258	1.00015106	0
+48	303	1.00024258	1
+48	303	1.00024258	0
+49	62	1.00003486	64
+49	100	1.0000581	64
+49	176	1.00010458	64
+49	258	1.00015106	64
+49	303	1.00024258	594
+50	62	1.00003486	0
+50	100	1.0000581	0
+50	176	1.00010458	0
+50	258	1.00015106	0
+50	303	1.00024258	0
+51	65	1.00004062	64
+51	103	1.00006386	64
+51	179	1.00011034	64
+51	261	1.00015682	64
+51	306	1.00029074	594
+52	66	1.00004067	64
+52	104	1.00006391	64
+52	180	1.00011039	64
+52	262	1.00015687	64
+52	307	1.00029079	594
+53	66	1.00004067	64
+53	104	1.00006391	64
+53	180	1.00011039	64
+53	262	1.00015687	64
+53	307	1.00029079	594
+54	69	1.00004067	50
+54	163	1.00009877	50
+55	70	1.00004067	50
+55	164	1.00009877	50
+56	72	1.00004067	64
+56	108	1.00006391	64
+56	184	1.00011039	64
+56	266	1.00015687	64
+56	311	1.00029079	594
+57	72	1.00004067	64
+57	108	1.00006391	64
+57	184	1.00011039	64
+57	266	1.00015687	64
+57	311	1.00029079	594
+58	72	1.00004067	1
+58	72	1.00004067	0
+58	108	1.00006391	1
+58	108	1.00006391	0
+58	184	1.00011039	1
+58	184	1.00011039	0
+58	266	1.00015687	1
+58	266	1.00015687	0
+58	311	1.00029079	1
+58	311	1.00029079	0
+59	72	1.00004067	64
+59	108	1.00006391	64
+59	184	1.00011039	64
+59	266	1.00015687	64
+59	311	1.00029079	594
+60	72	1.00004067	0
+60	108	1.00006391	0
+60	184	1.00011039	0
+60	266	1.00015687	0
+60	311	1.00029079	0
+61	75	1.00004643	64
+61	111	1.00006967	64
+61	187	1.00011615	64
+61	269	1.00016263	64
+61	314	1.00033895	594
+62	76	1.00004648	64
+62	112	1.00006972	64
+62	188	1.0001162	64
+62	270	1.00016268	64
+62	315	1.000339	594
+63	76	1.00004648	64
+63	112	1.00006972	64
+63	188	1.0001162	64
+63	270	1.00016268	64
+63	315	1.000339	594
+64	78	1.00004648	46
+64	114	1.00006972	46
+64	190	1.0001162	46
+64	272	1.00016268	46
+64	317	1.000339	576
+65	79	1.00004648	28
+66	80	1.00004648	28
+66	154	1.00009296	28
+66	192	1.0001162	44
+67	82	1.00004648	46
+67	156	1.00009296	46
+67	194	1.0001162	62
+68	82	1.00004648	64
+68	156	1.00009296	64
+68	194	1.0001162	64
+69	82	1.00004648	1
+69	82	1.00004648	0
+69	156	1.00009296	1
+69	156	1.00009296	0
+69	194	1.0001162	1
+69	194	1.0001162	0
+70	82	1.00004648	64
+70	156	1.00009296	64
+70	194	1.0001162	64
+71	82	1.00004648	0
+71	156	1.00009296	0
+71	194	1.0001162	0
+72	85	1.00005224	64
+72	159	1.00009872	64
+72	197	1.00012196	64
+73	86	1.00005229	64
+73	160	1.00009877	64
+73	198	1.00012201	64
+74	86	1.00005229	64
+74	160	1.00009877	64
+74	198	1.00012201	64
+75	90	1.00005229	64
+75	166	1.00009877	64
+75	202	1.00012201	64
+76	90	1.00005229	64
+76	166	1.00009877	64
+76	202	1.00012201	64
+77	90	1.00005229	1
+77	90	1.00005229	0
+77	166	1.00009877	1
+77	166	1.00009877	0
+77	202	1.00012201	1
+77	202	1.00012201	0
+78	90	1.00005229	64
+78	166	1.00009877	64
+78	202	1.00012201	64
+79	90	1.00005229	0
+79	166	1.00009877	0
+79	202	1.00012201	0
+80	93	1.00005805	64
+80	169	1.00010453	64
+80	205	1.00012777	64
+81	94	1.0000581	64
+81	170	1.00010458	64
+81	206	1.00012782	64
+82	94	1.0000581	64
+82	170	1.00010458	64
+82	206	1.00012782	64
+83	96	1.0000581	46
+83	172	1.00010458	46
+83	208	1.00012782	46
+84	115	1.00006972	28
+84	153	1.00009296	28
+85	116	1.00006972	28
+85	134	1.00008134	44
+85	274	1.00016268	40
+85	319	1.000339	576
+86	118	1.00006972	46
+86	136	1.00008134	62
+86	276	1.00016268	58
+86	321	1.000339	594
+87	118	1.00006972	64
+87	136	1.00008134	64
+87	276	1.00016268	64
+87	321	1.000339	594
+88	118	1.00006972	1
+88	118	1.00006972	0
+88	136	1.00008134	1
+88	136	1.00008134	0
+88	276	1.00016268	1
+88	276	1.00016268	0
+88	321	1.000339	1
+88	321	1.000339	0
+89	118	1.00006972	64
+89	136	1.00008134	64
+89	276	1.00016268	64
+89	321	1.000339	594
+90	118	1.00006972	0
+90	136	1.00008134	0
+90	276	1.00016268	0
+90	321	1.000339	0
+91	120	1.00007548	64
+91	138	1.0000871	64
+91	278	1.00016844	64
+92	121	1.00007553	64
+92	139	1.00008715	64
+92	279	1.00016849	64
+93	121	1.00007553	64
+93	139	1.00008715	64
+93	279	1.00016849	64
+94	123	1.00007553	46
+94	141	1.00008715	46
+94	281	1.00016849	46
+95	124	1.00007553	28
+96	125	1.00007553	28
+96	145	1.00008715	44
+97	127	1.00007553	46
+97	147	1.00008715	62
+98	127	1.00007553	64
+98	147	1.00008715	64
+99	127	1.00007553	1
+99	127	1.00007553	0
+99	147	1.00008715	1
+99	147	1.00008715	0
+100	127	1.00007553	64
+100	147	1.00008715	64
+101	127	1.00007553	0
+101	147	1.00008715	0
+102	129	1.00008129	64
+102	149	1.00009291	64
+103	130	1.00008134	64
+103	150	1.00009296	64
+104	130	1.00008134	64
+104	150	1.00009296	64
+105	132	1.00008134	46
+105	152	1.00009296	46
+106	143	1.00008715	250000
+107	143	1.00008715	0
+108	143	1.00008715	257505
+108	143	1.00008715	257505
+109	143	1.00008715	7504
+109	283	1.00016849	7504
+110	143	1.00008715	0
+111	143	1.00008715	7504
+112	143	1.00008715	250001
+113	228	1.00013944	250021
+114	228	1.00013944	250001
+115	228	1.00013944	7504
+116	232	1.00013944	300000
+117	234	1.00013944	250001
+118	234	1.00013944	536
+119	283	1.00016849	250001
+120	283	1.00016849	250022
+121	283	1.00016849	0
+

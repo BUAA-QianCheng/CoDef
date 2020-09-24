@@ -1,0 +1,997 @@
+file 152870 1599542802                                          
+version 2
+run TestWirelessAndWiredNetwork-0-20200908-13:24:43-20228
+attr configname TestWirelessAndWiredNetwork
+attr datetime 20200908-13:24:43
+attr experiment TestWirelessAndWiredNetwork
+attr inifile test.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestWirelessAndWiredNetwork
+attr processid 20228
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.visualizer.*.interfaceTableVisualizer.nodeFilter "\"not (*Switch* accessPoint)\""
+param *.*Host*.numApps 1
+param *.*Host*.app[*].typename "\"PingApp\""
+param *.*Host*.app[*].startTime "5s+uniform(0.01ms, 0.05ms)"
+param *.standardHost1.app[*].destAddr "\"wirelessHost2\""
+param *.standardHost2.app[*].destAddr "\"wirelessHost1\""
+param *.wirelessHost1.app[*].destAddr "\"standardHost2\""
+param *.wirelessHost2.app[*].destAddr "\"standardHost1\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+0	22601 407 0 354 0 0.491228665699 19 0 3 42 108
+0	123099 150 1513 1804 5.000300264862 5.002121677279 6 2 3 15 39
+vector 1 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+1	23008 80 0 291 0 0.490571904325 4 0 0 0 0
+vector 2 TestWirelessAndWiredNetwork.accessPoint.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+2	23088 3128 0 1313 0 4.905717297573 131 0 3 322 836
+2	123249 450 1465 1784 5.000087884175 5.001781296592 18 2 3 45 117
+vector 3 TestWirelessAndWiredNetwork.accessPoint.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+3	26216 9 0 0 0 0 1 0 0 0 0
+vector 4 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+4	26225 411 0 573 0 0.669980184649 19 0 3 42 108
+4	123699 298 1334 1823 5.000027503488 5.002305677279 12 2 3 30 78
+vector 5 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+5	26636 81 0 510 0 0.669063423275 4 0 0 0 0
+vector 6 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+6	26717 3772 0 1314 0 4.90571767826 161 0 3 297 729
+6	123997 865 1336 1824 5.000027870409 5.0023060442 35 0 3 61 147
+vector 7 TestWirelessAndWiredNetwork.accessPoint.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+7	30489 3874 0 1313 0 4.905717297573 161 0 3 129 225
+7	124862 875 1337 1826 5.000027884175 5.002306057966 35 0 3 43 93
+vector 8 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+8	34363 3772 0 1315 0 4.90571767826 161 0 3 297 729
+8	125737 844 1334 1823 5.000027503488 5.002305677279 34 0 3 50 116
+vector 9 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+9	38135 10 0 0 0 0 1 31 31 31 961
+9	126581 26 1813 1813 5.002176677279 5.002176677279 1 63 63 63 3969
+vector 10 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+10	38145 11 0 0 0 0 1 31 31 31 961
+vector 11 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+11	38156 11 0 0 0 0 1 31 31 31 961
+11	126607 27 1815 1815 5.002196677279 5.002196677279 1 63 63 63 3969
+vector 12 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+12	38167 1521 2 1305 0.005671297573 4.905671297573 58 34 48 2704 127024
+12	126634 247 1433 1775 5.000073696192 5.001650396592 9 64 120 854 85964
+vector 13 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+13	39688 2927 2 1307 0.005671297573 4.905671297573 116 0 1 58 58
+13	126881 390 1433 1778 5.000073696192 5.001731296592 15 1 5 50 184
+vector 14 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+14	42615 1499 2 1305 0.005671297573 4.905671297573 58 0 31 828 17126
+14	127271 158 1433 1783 5.000073696192 5.001781296592 6 1 18 46 540
+vector 15 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+15	44114 3227 2 1306 0.005671297573 4.905671297573 128 0 1 64 64
+15	127429 754 1445 1826 5.000077884175 5.002306057966 29 0 1 15 15
+vector 16 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+16	47341 1522 4 1307 0.005671297573 4.905671297573 58 34 48 2704 127024
+16	128183 164 1490 1778 5.000191884175 5.001731296592 6 64 120 532 50440
+vector 17 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+17	48863 1517 4 1307 0.005671297573 4.905671297573 58 0 0.000694 0.002784 1.213376e-006
+17	128347 234 1490 1778 5.000191884175 5.001731296592 6 0.000118187983 5.001182168297 10.00416351562 50.013744740458
+vector 18 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+18	50380 2928 4 1312 0.005671297573 4.905717297573 116 0 1 58 58
+18	128581 286 1490 1783 5.000191884175 5.001781296592 11 1 2 16 26
+vector 19 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+19	53308 2062 4 1307 0.005671297573 4.905671297573 64 24000000 24000000 1536000000 3.6864e+016
+19	128867 330 1446 1827 5.000077884175 5.002306057966 10 24000000 24000000 240000000 5.76e+015
+vector 20 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+20	55370 1678 4 1307 0.005671297573 4.905671297573 64 14 48 2788 128200
+20	129197 244 1464 1778 5.000087884175 5.001731296592 9 14 120 468 36824
+vector 21 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+21	57048 2928 4 1312 0.005671297573 4.905717297573 116 0 1 58 58
+21	129441 260 1490 1783 5.000191884175 5.001781296592 10 0 1 5 5
+vector 22 TestWirelessAndWiredNetwork.accessPoint.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+22	59976 6457 5 1313 0.005671297573 4.905717297573 256 0 2 256 384
+22	129701 936 1465 1784 5.000087884175 5.001781296592 36 0 2 36 54
+vector 23 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+23	66433 1678 9 1312 0.005717297573 4.905717297573 64 14 48 2788 128200
+23	130637 244 1483 1783 5.000121884175 5.001781296592 9 14 120 468 36824
+vector 24 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+24	68111 1315 9 1312 0.005717297573 4.905717297573 50 48 48 2400 115200
+24	130881 81 1495 1783 5.000249884175 5.001781296592 3 64 82 210 14916
+vector 25 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf packetSentToPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , vector(packetBytes)"
+25	69426 1315 9 1312 0.005717297573 4.905717297573 50 48 48 2400 115200
+25	130962 81 1495 1783 5.000249884175 5.001781296592 3 64 82 210 14916
+vector 26 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+26	70741 1678 9 1312 0.005717297573 4.905717297573 64 14 48 2788 128200
+26	131043 244 1483 1783 5.000121884175 5.001781296592 9 14 120 468 36824
+vector 27 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+27	72419 1918 9 1312 0.005717297573 4.905717297573 58 4.6e-005 9.0761374e-005 0.003002090992 1.6744047013094e-007
+27	131287 189 1495 1783 5.000249884175 5.001781296592 5 5.8e-005 0.000599128295 0.001914935165 8.9130592845092e-007
+vector 28 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+28	74337 1836 13 1316 0.00571767826 4.90571767826 72 14 48 2980 133616
+28	131476 377 1444 1825 5.000077870409 5.0023060442 14 14 120 800 70112
+vector 29 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+29	76173 1473 13 1316 0.00571767826 4.90571767826 58 14 48 2626 122724
+29	131853 108 1499 1768 5.000250264862 5.001641677279 4 14 82 174 11212
+vector 30 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+30	77646 1292 13 1316 0.00571767826 4.90571767826 51 32 48 2432 116224
+30	131961 54 1499 1570 5.000250264862 5.000635026236 2 64 82 146 10820
+vector 31 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, vector(packetBytes)"
+31	78938 1292 13 1316 0.00571767826 4.90571767826 51 32 48 2432 116224
+31	132015 54 1499 1570 5.000250264862 5.000635026236 2 64 82 146 10820
+vector 32 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+32	80230 1473 13 1316 0.00571767826 4.90571767826 58 14 48 2626 122724
+32	132069 108 1499 1768 5.000250264862 5.001641677279 4 14 82 174 11212
+vector 33 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+33	81703 1834 14 1317 0.00571767826 4.90571767826 72 14 48 2980 133616
+33	132177 297 1488 1788 5.000122264862 5.001781677279 11 14 120 652 55320
+vector 34 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+34	83537 1473 14 1317 0.00571767826 4.90571767826 58 14 48 2626 122724
+34	132474 161 1488 1788 5.000122264862 5.001781677279 6 14 120 376 32336
+vector 35 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+35	85010 1291 14 1317 0.00571767826 4.90571767826 51 32 48 2432 116224
+35	132635 54 1500 1788 5.000250264862 5.001781677279 2 64 82 146 10820
+vector 36 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, vector(packetBytes)"
+36	86301 1291 14 1317 0.00571767826 4.90571767826 51 32 48 2432 116224
+36	132689 54 1500 1788 5.000250264862 5.001781677279 2 64 82 146 10820
+vector 37 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+37	87592 1473 14 1317 0.00571767826 4.90571767826 58 14 48 2626 122724
+37	132743 161 1488 1788 5.000122264862 5.001781677279 6 14 120 376 32336
+vector 38 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].agent sentRequest:vector ETV
+attr title "sent requests, vector"
+38	89065 74 18 287 0.089260381577 0.490571904325 3 1 4 7 21
+vector 39 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+39	89139 103 40 290 0.189260381577 0.490571904325 4 32 36 136 4632
+39	132904 81 1362 1509 5.00004377063 5.000250264862 3 64 120 248 22592
+vector 40 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+40	89242 198 40 306 0.189260381577 0.490825904325 8 0 1 4 4
+40	132985 155 1362 1706 5.00004377063 5.001526915905 6 0 3 9 19
+vector 41 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+41	89440 102 40 290 0.189260381577 0.490571904325 4 8 26 76 1654
+41	133140 106 1362 1813 5.00004377063 5.002176677279 4 1 27 67 1551
+vector 42 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+42	89542 298 40 305 0.189260381577 0.490825904325 12 0 1 6 6
+42	133246 770 1443 1825 5.000077870409 5.0023060442 30 0 1 15 15
+vector 43 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+43	89840 103 42 306 0.189260381577 0.490825904325 4 32 36 136 4632
+43	134016 82 1512 1706 5.000300264862 5.001526915905 3 64 120 248 22592
+vector 44 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+44	89943 113 42 306 0.189260381577 0.490825904325 4 0 0.000594 0.000848 4.17352e-007
+44	134098 109 1512 1706 5.000300264862 5.001526915905 3 5e-005 0.001276651043 0.001583145275 1.6981271766423e-006
+vector 45 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+45	90056 198 42 330 0.189260381577 0.490912665699 8 0 1 4 4
+45	134207 130 1512 1768 5.000300264862 5.001641677279 5 1 2 7 11
+vector 46 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+46	90254 254 42 342 0.189260381577 0.491184665699 8 24000000 24000000 192000000 4.608e+015
+46	134337 99 1512 1793 5.000300264862 5.002071677279 3 24000000 24000000 72000000 1.728e+015
+vector 47 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+47	90508 206 42 346 0.189260381577 0.491194665699 8 14 36 192 5416
+47	134436 82 1512 1793 5.000300264862 5.002071677279 3 64 120 248 22592
+vector 48 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+48	90714 198 42 330 0.189260381577 0.490912665699 8 0 1 4 4
+48	134518 156 1512 1813 5.000300264862 5.002176677279 6 0 1 3 3
+vector 49 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+49	90912 792 43 354 0.189260381577 0.491228665699 32 0 2 32 48
+49	134674 312 1513 1804 5.000300264862 5.002121677279 12 0 2 12 18
+vector 50 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+50	91704 206 47 353 0.189298381577 0.491228665699 8 14 36 192 5416
+50	134986 82 1517 1803 5.000350264862 5.002121677279 3 64 120 248 22592
+vector 51 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+51	91910 25 47 47 0.189298381577 0.189298381577 1 32 32 32 1024
+vector 52 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetSentToPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , vector(packetBytes)"
+52	91935 25 47 47 0.189298381577 0.189298381577 1 32 32 32 1024
+vector 53 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+53	91960 206 47 353 0.189298381577 0.491228665699 8 14 36 192 5416
+53	135068 82 1517 1803 5.000350264862 5.002121677279 3 64 120 248 22592
+vector 54 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+54	92166 145 47 330 0.189298381577 0.490912665699 4 3.8e-005 8.6761374e-005 0.000298284122 2.4026608055104e-008
+54	135150 78 1558 1768 5.000395026236 5.001641677279 2 9.4761374e-005 0.001341412417 0.001436173791 1.8083669904841e-006
+vector 55 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+55	92311 414 53 577 0.189298762264 0.669980565336 16 14 36 384 10832
+55	135228 219 1446 1827 5.000077884175 5.002306057966 8 14 120 580 55880
+vector 56 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+56	92725 414 53 577 0.189298762264 0.669980565336 16 14 36 384 10832
+56	135447 192 1446 1827 5.000077884175 5.002306057966 7 14 120 516 51784
+vector 57 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+57	93139 51 53 138 0.189298762264 0.367570281214 2 32 32 64 2048
+vector 58 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, vector(packetBytes)"
+58	93190 51 53 138 0.189298762264 0.367570281214 2 32 32 64 2048
+vector 59 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+59	93241 414 53 577 0.189298762264 0.669980565336 16 14 36 384 10832
+59	135639 164 1446 1716 5.000077884175 5.001597296592 6 14 120 396 37384
+vector 60 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf packetSentToPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, vector(packetBytes)"
+60	93655 363 62 557 0.189414762264 0.669935803962 14 14 48 388 13000
+60	135803 163 1483 1758 5.000121884175 5.001641296592 6 14 120 258 21908
+vector 61 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.rx nav:vector ETV
+attr interpolationmode linear
+attr source navChanged
+attr title "network allocation vector, vector"
+61	94018 653 62 570 0.189414762264 0.669979803962 24 0 4.4e-005 0.000352 1.5488e-008
+61	135966 170 1652 1697 5.000967406923 5.001296168297 6 0 4.4e-005 8.8e-005 3.872e-009
+vector 62 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetReceivedFromPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, vector(packetBytes)"
+62	94671 181 66 342 0.189415142951 0.491184665699 7 14 48 194 6500
+62	136136 54 1558 1768 5.000395026236 5.001641677279 2 14 14 28 392
+vector 63 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.rx nav:vector ETV
+attr interpolationmode linear
+attr source navChanged
+attr title "network allocation vector, vector"
+63	94852 817 67 543 0.189415142951 0.669543423275 30 0 4.4e-005 0.00044 1.936e-008
+63	136190 484 1441 1822 5.000077503488 5.002305677279 17 0 4.4e-005 0.000264 1.1616e-008
+vector 64 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetDrop:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, vector(packetBytes)"
+64	95669 361 67 356 0.189415142951 0.49122903262 14 14 48 354 10892
+64	136674 136 1520 1769 5.000350631783 5.001641677279 5 14 120 276 22984
+vector 65 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, vector(packetBytes)"
+65	96030 361 67 356 0.189415142951 0.49122903262 14 14 48 354 10892
+65	136810 136 1520 1769 5.000350631783 5.001641677279 5 14 120 276 22984
+vector 66 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac packetDrop:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, vector(packetBytes)"
+66	96391 361 67 356 0.189415142951 0.49122903262 14 14 48 354 10892
+66	136946 136 1520 1769 5.000350631783 5.001641677279 5 14 120 276 22984
+vector 67 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, vector(packetBytes)"
+67	96752 361 67 356 0.189415142951 0.49122903262 14 14 48 354 10892
+67	137082 136 1520 1769 5.000350631783 5.001641677279 5 14 120 276 22984
+vector 68 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetSentToPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, vector(packetBytes)"
+68	97113 181 76 353 0.189459142951 0.491228665699 7 14 36 160 4392
+68	137218 82 1517 1803 5.000350264862 5.002121677279 3 64 120 248 22592
+vector 69 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf packetReceivedFromPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, vector(packetBytes)"
+69	97294 363 81 577 0.189459523638 0.669980565336 14 14 36 320 8784
+69	137300 192 1446 1827 5.000077884175 5.002306057966 7 14 120 516 51784
+vector 70 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].agent sentRequest:vector ETV
+attr title "sent requests, vector"
+70	97657 75 102 506 0.267531900527 0.669063423275 3 1 4 7 21
+vector 71 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+71	97732 104 125 509 0.367531900527 0.669063423275 4 32 36 136 4632
+71	137492 83 1331 1691 5.000027503488 5.001252548984 3 64 120 304 32896
+vector 72 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+72	97836 200 125 525 0.367531900527 0.669457423275 8 0 1 4 4
+72	137575 156 1331 1796 5.000027503488 5.002071677279 6 0 1 3 3
+vector 73 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+73	98036 103 125 509 0.367531900527 0.669063423275 4 5 23 59 1035
+73	137731 106 1331 1815 5.000027503488 5.002196677279 4 0 24 56 1186
+vector 74 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+74	98139 300 125 524 0.367531900527 0.669457423275 12 0 1 6 6
+74	137837 572 1331 1816 5.000027503488 5.002235677279 22 0 1 11 11
+vector 75 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+75	98439 104 127 525 0.367531900527 0.669457423275 4 32 36 136 4632
+75	138409 83 1333 1796 5.000027503488 5.002071677279 3 64 120 304 32896
+vector 76 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+76	98543 114 127 525 0.367531900527 0.669457423275 4 0 0.000394 0.000588 1.92872e-007
+76	138492 104 1333 1796 5.000027503488 5.002071677279 3 0 0.000819128295 0.001293889669 8.9636952591197e-007
+vector 77 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+77	98657 200 127 550 0.367531900527 0.669544184649 8 0 1 4 4
+77	138596 129 1333 1796 5.000027503488 5.002071677279 5 0 1 3 3
+vector 78 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+78	98857 256 127 562 0.367531900527 0.669936184649 8 24000000 24000000 192000000 4.608e+015
+78	138725 197 1333 1817 5.000027503488 5.002235677279 6 24000000 24000000 144000000 3.456e+015
+vector 79 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+79	99113 208 127 565 0.367531900527 0.669946184649 8 14 36 192 5416
+79	138922 164 1333 1817 5.000027503488 5.002235677279 6 14 120 452 47688
+vector 80 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+80	99321 200 127 550 0.367531900527 0.669544184649 8 0 1 4 4
+80	139086 181 1333 1817 5.000027503488 5.002235677279 7 0 1 4 4
+vector 81 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+81	99521 800 128 573 0.367531900527 0.669980184649 32 0 2 32 48
+81	139267 620 1334 1823 5.000027503488 5.002305677279 24 0 2 24 36
+vector 82 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+82	100321 208 132 572 0.367569900527 0.669980184649 8 14 36 192 5416
+82	139887 164 1441 1822 5.000077503488 5.002305677279 6 14 120 452 47688
+vector 83 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+83	100529 26 132 132 0.367569900527 0.367569900527 1 32 32 32 1024
+vector 84 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetSentToPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , vector(packetBytes)"
+84	100555 26 132 132 0.367569900527 0.367569900527 1 32 32 32 1024
+vector 85 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+85	100581 208 132 572 0.367569900527 0.669980184649 8 14 36 192 5416
+85	140051 136 1441 1808 5.000077503488 5.002141677279 5 14 120 332 33288
+vector 86 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+86	100789 146 132 550 0.367569900527 0.669544184649 4 3.8e-005 8.6761374e-005 0.000298284122 2.4026608055104e-008
+86	140187 77 1488 1638 5.000122264862 5.00083978761 2 9.4761374e-005 0.000114761374 0.000209522748 2.2149890964736e-008
+vector 87 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.rx nav:vector ETV
+attr interpolationmode linear
+attr source navChanged
+attr title "network allocation vector, vector"
+87	100935 820 151 571 0.367946661901 0.669980184649 30 0 4.4e-005 0.00044 1.936e-008
+87	140264 647 1444 1825 5.000077870409 5.0023060442 23 0 4.4e-005 0.000352 1.5488e-008
+vector 88 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetDrop:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, vector(packetBytes)"
+88	101755 363 151 575 0.367946661901 0.66998055157 14 14 48 354 10892
+88	140911 269 1444 1825 5.000077870409 5.0023060442 10 14 120 626 58900
+vector 89 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac.dcf packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, vector(packetBytes)"
+89	102118 363 151 575 0.367946661901 0.66998055157 14 14 48 354 10892
+89	141180 269 1444 1825 5.000077870409 5.0023060442 10 14 120 626 58900
+vector 90 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac packetDrop:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, vector(packetBytes)"
+90	102481 363 151 575 0.367946661901 0.66998055157 14 14 48 354 10892
+90	141449 269 1444 1825 5.000077870409 5.0023060442 10 14 120 626 58900
+vector 91 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, vector(packetBytes)"
+91	102844 363 151 575 0.367946661901 0.66998055157 14 14 48 354 10892
+91	141718 269 1444 1825 5.000077870409 5.0023060442 10 14 120 626 58900
+vector 92 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetReceivedFromPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, vector(packetBytes)"
+92	103207 182 152 562 0.367946661901 0.669936184649 7 14 48 194 6500
+92	141987 107 1488 1684 5.000122264862 5.001252548984 4 14 120 230 21516
+vector 93 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetSentToPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, vector(packetBytes)"
+93	103389 182 161 572 0.367990661901 0.669980184649 7 14 36 160 4392
+93	142094 164 1441 1822 5.000077503488 5.002305677279 6 14 120 452 47688
+vector 94 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].agent acceptConfirm:vector ETV
+attr title "accepted confirms, vector"
+94	103571 75 188 345 0.489260381577 0.491184665699 3 1 4 7 21
+vector 95 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].agent acceptConfirm:vector ETV
+attr title "accepted confirms, vector"
+95	103646 19453 407 564 0.667531900527 0.669936184649 3 1 4 7 21
+vector 96 TestWirelessAndWiredNetwork.standardHost2.app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+96	142258 26 1321 1321 5.000026946192 5.000026946192 1 0 0 0 0
+vector 97 TestWirelessAndWiredNetwork.standardHost2.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+97	142284 27 1323 1323 5.000026946192 5.000026946192 1 28 28 28 784
+vector 98 TestWirelessAndWiredNetwork.standardHost2.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+98	142311 81 1324 1746 5.000026946192 5.001623846592 3 28 84 196 14896
+vector 99 TestWirelessAndWiredNetwork.standardHost2.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+99	142392 83 1325 1747 5.000026946192 5.001623846592 3 46 102 250 22924
+vector 100 TestWirelessAndWiredNetwork.standardHost2.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+100	142475 86 1325 1747 5.000026946192 5.001623846592 3 64 102 268 24904
+vector 101 TestWirelessAndWiredNetwork.standardHost2.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+101	142561 162 1325 1747 5.000026946192 5.001623846592 6 0 1 3 3
+vector 102 TestWirelessAndWiredNetwork.standardHost2.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+102	142723 86 1325 1747 5.000026946192 5.001623846592 3 64 102 268 24904
+vector 103 TestWirelessAndWiredNetwork.standardHost2.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+103	142809 81 1325 1747 5.000026946192 5.001623846592 3 0 0 0 0
+vector 104 TestWirelessAndWiredNetwork.wirelessHost2.app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+104	142890 27 1327 1327 5.000027503488 5.000027503488 1 0 0 0 0
+vector 105 TestWirelessAndWiredNetwork.wirelessHost2.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+105	142917 28 1329 1329 5.000027503488 5.000027503488 1 28 28 28 784
+vector 106 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+106	142945 84 1331 1691 5.000027503488 5.001252548984 3 36 92 220 18224
+vector 107 TestWirelessAndWiredNetwork.standardHost2.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+107	143029 86 1338 1750 5.000032706192 5.001632646592 3 64 102 268 24904
+vector 108 TestWirelessAndWiredNetwork.etherSwitch.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+108	143115 86 1339 1751 5.000032756192 5.001632696592 3 64 102 268 24904
+vector 109 TestWirelessAndWiredNetwork.etherSwitch.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+109	143201 86 1339 1751 5.000032756192 5.001632696592 3 64 102 268 24904
+vector 110 TestWirelessAndWiredNetwork.etherSwitch.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+110	143287 172 1341 1753 5.000032756192 5.001632696592 6 64 102 536 49808
+vector 111 TestWirelessAndWiredNetwork.etherSwitch.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+111	143459 172 1341 1753 5.000032756192 5.001632696592 6 64 102 536 49808
+vector 112 TestWirelessAndWiredNetwork.etherSwitch.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+112	143631 324 1341 1753 5.000032756192 5.001632696592 12 0 1 6 6
+vector 113 TestWirelessAndWiredNetwork.etherSwitch.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+113	143955 172 1341 1753 5.000032756192 5.001632696592 6 64 102 536 49808
+vector 114 TestWirelessAndWiredNetwork.etherSwitch.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+114	144127 162 1341 1753 5.000032756192 5.001632696592 6 0 0 0 0
+vector 115 TestWirelessAndWiredNetwork.etherSwitch.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+115	144289 85 1342 1605 5.000032756192 5.000813106923 3 64 102 230 18596
+vector 116 TestWirelessAndWiredNetwork.etherSwitch.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+116	144374 85 1342 1605 5.000032756192 5.000813106923 3 64 102 230 18596
+vector 117 TestWirelessAndWiredNetwork.etherSwitch.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+117	144459 162 1342 1605 5.000032756192 5.000813106923 6 0 1 3 3
+vector 118 TestWirelessAndWiredNetwork.etherSwitch.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+118	144621 85 1342 1605 5.000032756192 5.000813106923 3 64 102 230 18596
+vector 119 TestWirelessAndWiredNetwork.etherSwitch.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+119	144706 81 1342 1605 5.000032756192 5.000813106923 3 0 0 0 0
+vector 120 TestWirelessAndWiredNetwork.etherSwitch.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+120	144787 172 1345 1760 5.000038516192 5.001641496592 6 64 102 536 49808
+vector 121 TestWirelessAndWiredNetwork.etherSwitch.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+121	144959 85 1346 1608 5.000038516192 5.000821906923 3 64 102 230 18596
+vector 122 TestWirelessAndWiredNetwork.router.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+122	145044 172 1347 1761 5.000038566192 5.001641546592 6 64 102 536 49808
+vector 123 TestWirelessAndWiredNetwork.router.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+123	145216 172 1347 1761 5.000038566192 5.001641546592 6 64 102 536 49808
+vector 124 TestWirelessAndWiredNetwork.standardHost1.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+124	145388 85 1348 1609 5.000038566192 5.000821956923 3 64 102 230 18596
+vector 125 TestWirelessAndWiredNetwork.standardHost1.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+125	145473 85 1348 1609 5.000038566192 5.000821956923 3 64 102 230 18596
+vector 126 TestWirelessAndWiredNetwork.router.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+126	145558 168 1349 1762 5.000038566192 5.001641546592 6 46 84 428 32456
+vector 127 TestWirelessAndWiredNetwork.standardHost1.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+127	145726 84 1350 1610 5.000038566192 5.000821956923 3 46 84 176 11288
+vector 128 TestWirelessAndWiredNetwork.router.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+128	145810 112 1351 1529 5.000038566192 5.000356455549 4 28 28 112 3136
+vector 129 TestWirelessAndWiredNetwork.router.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+129	145922 112 1353 1724 5.000038566192 5.001606146592 4 28 84 224 15680
+vector 130 TestWirelessAndWiredNetwork.router.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+130	146034 114 1354 1725 5.000038566192 5.001606146592 4 46 102 296 25040
+vector 131 TestWirelessAndWiredNetwork.router.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+131	146148 114 1354 1725 5.000038566192 5.001606146592 4 64 102 332 29000
+vector 132 TestWirelessAndWiredNetwork.router.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+132	146262 216 1354 1725 5.000038566192 5.001606146592 8 0 1 4 4
+vector 133 TestWirelessAndWiredNetwork.router.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+133	146478 114 1354 1725 5.000038566192 5.001606146592 4 64 102 332 29000
+vector 134 TestWirelessAndWiredNetwork.router.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+134	146592 108 1354 1725 5.000038566192 5.001606146592 4 0 0 0 0
+vector 135 TestWirelessAndWiredNetwork.wirelessHost1.app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+135	146700 26 1358 1358 5.00004377063 5.00004377063 1 0 0 0 0
+vector 136 TestWirelessAndWiredNetwork.wirelessHost1.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+136	146726 27 1360 1360 5.00004377063 5.00004377063 1 28 28 28 784
+vector 137 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+137	146753 83 1362 1509 5.00004377063 5.000250264862 3 36 92 164 11056
+vector 138 TestWirelessAndWiredNetwork.standardHost1.app[0] pingTxSeq:vector ETV
+attr interpolationmode none
+attr title "ping tx seq, vector"
+138	146836 27 1363 1363 5.000043890069 5.000043890069 1 0 0 0 0
+vector 139 TestWirelessAndWiredNetwork.standardHost1.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+139	146863 28 1365 1365 5.000043890069 5.000043890069 1 28 28 28 784
+vector 140 TestWirelessAndWiredNetwork.standardHost1.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+140	146891 84 1366 1615 5.000043890069 5.000821956923 3 28 84 196 14896
+vector 141 TestWirelessAndWiredNetwork.standardHost1.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+141	146975 86 1367 1616 5.000043890069 5.000821956923 3 46 102 250 22924
+vector 142 TestWirelessAndWiredNetwork.standardHost1.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+142	147061 86 1367 1616 5.000043890069 5.000821956923 3 64 102 268 24904
+vector 143 TestWirelessAndWiredNetwork.standardHost1.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+143	147147 162 1367 1616 5.000043890069 5.000821956923 6 0 1 3 3
+vector 144 TestWirelessAndWiredNetwork.standardHost1.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+144	147309 86 1367 1616 5.000043890069 5.000821956923 3 64 102 268 24904
+vector 145 TestWirelessAndWiredNetwork.standardHost1.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+145	147395 81 1367 1616 5.000043890069 5.000821956923 3 0 0 0 0
+vector 146 TestWirelessAndWiredNetwork.router.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+146	147476 114 1369 1733 5.000044326192 5.001614946592 4 64 102 332 29000
+vector 147 TestWirelessAndWiredNetwork.etherSwitch.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+147	147590 114 1370 1734 5.000044376192 5.001614996592 4 64 102 332 29000
+vector 148 TestWirelessAndWiredNetwork.etherSwitch.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+148	147704 114 1370 1734 5.000044376192 5.001614996592 4 64 102 332 29000
+vector 149 TestWirelessAndWiredNetwork.etherSwitch.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+149	147818 85 1372 1736 5.000044376192 5.001614996592 3 64 102 230 18596
+vector 150 TestWirelessAndWiredNetwork.etherSwitch.eth[2].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+150	147903 85 1372 1736 5.000044376192 5.001614996592 3 64 102 230 18596
+vector 151 TestWirelessAndWiredNetwork.etherSwitch.eth[2].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+151	147988 162 1372 1736 5.000044376192 5.001614996592 6 0 1 3 3
+vector 152 TestWirelessAndWiredNetwork.etherSwitch.eth[2].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+152	148150 85 1372 1736 5.000044376192 5.001614996592 3 64 102 230 18596
+vector 153 TestWirelessAndWiredNetwork.etherSwitch.eth[2].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+153	148235 92 1372 1736 5.000044376192 5.001614996592 3 0 4.36123e-007 4.36123e-007 1.90203271129e-013
+vector 154 TestWirelessAndWiredNetwork.standardHost1.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+154	148327 86 1375 1619 5.000049650069 5.000830756923 3 64 102 268 24904
+vector 155 TestWirelessAndWiredNetwork.etherSwitch.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+155	148413 86 1376 1620 5.000049700069 5.000830806923 3 64 102 268 24904
+vector 156 TestWirelessAndWiredNetwork.etherSwitch.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+156	148499 86 1376 1620 5.000049700069 5.000830806923 3 64 102 268 24904
+vector 157 TestWirelessAndWiredNetwork.etherSwitch.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+157	148585 85 1380 1739 5.000050136192 5.001623796592 3 64 102 230 18596
+vector 158 TestWirelessAndWiredNetwork.standardHost2.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+158	148670 85 1381 1740 5.000050186192 5.001623846592 3 64 102 230 18596
+vector 159 TestWirelessAndWiredNetwork.standardHost2.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+159	148755 85 1381 1740 5.000050186192 5.001623846592 3 64 102 230 18596
+vector 160 TestWirelessAndWiredNetwork.standardHost2.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+160	148840 84 1382 1741 5.000050186192 5.001623846592 3 46 84 176 11288
+vector 161 TestWirelessAndWiredNetwork.router.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+161	148924 28 1424 1424 5.000067886192 5.000067886192 1 28 28 28 784
+vector 162 TestWirelessAndWiredNetwork.router.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+162	148952 196 1425 1764 5.000067886192 5.001641546592 7 28 84 420 30576
+vector 163 TestWirelessAndWiredNetwork.router.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+163	149148 200 1426 1765 5.000067886192 5.001641546592 7 46 102 546 47964
+vector 164 TestWirelessAndWiredNetwork.router.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+164	149348 200 1426 1765 5.000067886192 5.001641546592 7 64 102 600 53904
+vector 165 TestWirelessAndWiredNetwork.router.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+165	149548 378 1426 1765 5.000067886192 5.001641546592 14 0 1 7 7
+vector 166 TestWirelessAndWiredNetwork.router.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+166	149926 200 1426 1765 5.000067886192 5.001641546592 7 64 102 600 53904
+vector 167 TestWirelessAndWiredNetwork.router.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+167	150126 209 1426 1765 5.000067886192 5.001641546592 7 0 9.76e-006 1.5344106e-005 1.2643983981924e-010
+vector 168 TestWirelessAndWiredNetwork.router.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+168	150335 200 1429 1771 5.000073646192 5.001650346592 7 64 102 600 53904
+vector 169 TestWirelessAndWiredNetwork.accessPoint.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+169	150535 200 1430 1772 5.000073696192 5.001650396592 7 64 102 600 53904
+vector 170 TestWirelessAndWiredNetwork.accessPoint.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+170	150735 200 1430 1772 5.000073696192 5.001650396592 7 64 102 600 53904
+vector 171 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+171	150935 196 1433 1775 5.000073696192 5.001650396592 7 54 92 530 42604
+vector 172 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+172	151131 140 1446 1827 5.000077884175 5.002306057966 5 36 92 348 27984
+vector 173 TestWirelessAndWiredNetwork.accessPoint.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+173	151271 143 1449 1830 5.000077884175 5.002306057966 5 46 102 398 35444
+vector 174 TestWirelessAndWiredNetwork.accessPoint.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+174	151414 143 1449 1830 5.000077884175 5.002306057966 5 64 102 434 39404
+vector 175 TestWirelessAndWiredNetwork.accessPoint.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+175	151557 270 1449 1830 5.000077884175 5.002306057966 10 0 1 5 5
+vector 176 TestWirelessAndWiredNetwork.accessPoint.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+176	151827 143 1449 1830 5.000077884175 5.002306057966 5 64 102 434 39404
+vector 177 TestWirelessAndWiredNetwork.accessPoint.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+177	151970 135 1449 1830 5.000077884175 5.002306057966 5 0 0 0 0
+vector 178 TestWirelessAndWiredNetwork.accessPoint.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+178	152105 114 1450 1720 5.000083644175 5.001606096592 4 64 102 332 29000
+vector 179 TestWirelessAndWiredNetwork.router.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+179	152219 114 1451 1721 5.000083694175 5.001606146592 4 64 102 332 29000
+vector 180 TestWirelessAndWiredNetwork.router.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+180	152333 114 1451 1721 5.000083694175 5.001606146592 4 64 102 332 29000
+vector 181 TestWirelessAndWiredNetwork.router.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+181	152447 112 1452 1722 5.000083694175 5.001606146592 4 46 84 260 18344
+vector 182 TestWirelessAndWiredNetwork.wirelessHost1.wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+182	152559 56 1499 1570 5.000250264862 5.000635026236 2 36 54 90 4212
+vector 183 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+183	152615 111 1500 1788 5.000250264862 5.001781677279 4 36 92 236 15592
+vector 184 TestWirelessAndWiredNetwork.wirelessHost1.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+184	152726 28 1503 1503 5.000250264862 5.000250264862 1 28 28 28 784
+vector 185 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac packetDrop:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet drops, vector(packetBytes)"
+185	152754 28 1807 1807 5.002122057966 5.002122057966 1 64 64 64 4096
+vector 186 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, vector(packetBytes)"
+186	152782 28 1807 1807 5.002122057966 5.002122057966 1 64 64 64 4096
+vector 187 TestWirelessAndWiredNetwork.wirelessHost2.wlan[0].mac.dcf packetSentToPeerWithRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, vector(packetBytes)"
+187	152810 29 1822 1822 5.002305677279 5.002305677279 1 120 120 120 14400
+vector 188 TestWirelessAndWiredNetwork.accessPoint.wlan[0].mac.dcf packetReceivedFromPeerWithRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, vector(packetBytes)"
+188	152839 31 1827 1827 5.002306057966 5.002306057966 1 120 120 120 14400

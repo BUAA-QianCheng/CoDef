@@ -1,0 +1,604 @@
+file 33025 1599712054                                           
+version 2
+run TestL2Deploy-0-20200910-12:27:01-9740
+attr configname TestL2Deploy
+attr datetime 20200910-12:27:01
+attr experiment TestL2Deploy
+attr inifile test.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network TestL2Deploy
+attr processid 9740
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.visualizer.*.interfaceTableVisualizer.nodeFilter "\"not (switch*)\""
+param *.*host.numApps 1
+param *.sendhost.app[0].typename "\"TcpSessionApp\""
+param *.sendhost.app[0].connectAddress "\"recvhost\""
+param *.sendhost.app[0].connectPort 1234
+param *.sendhost.app[0].sendBytes 300kB
+param *.recvhost.app[0].typename "\"TcpSinkApp\""
+param *.recvhost.app[0].localPort 1234
+param *.configurator.addStaticRoutes false
+param *.configurator.addSubnetRoutes false
+param *.configurator.addDefaultRoutes false
+param *.configurator.config "xml(\"<config> \t\t\t\t\t\t\t\t<interface hosts='sendhost' names='eth0' address='10.1.1.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='recvhost' names='eth0' address='10.1.3.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='mitigator' names='eth0' address='10.1.1.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='mitigator' names='eth1' address='10.1.2.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth0' address='10.1.2.2' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<interface hosts='router1' names='eth1' address='10.1.3.1' netmask='255.255.255.0'/> \t\t\t\t\t\t\t\t<route hosts='mitigator' destination='10.1.3.2' netmask='255.255.255.255' gateway='router1' interface='eth1' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='router1' destination='10.1.1.2' netmask='255.255.255.255' gateway='sendhost' interface='eth0' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='sendhost' destination='*' gateway='mitigator' interface='eth0' metric='60'/> \t\t\t\t\t\t\t\t<route hosts='recvhost' destination='*' gateway='router1' interface='eth0' metric='60'/> \t\t\t\t\t\t\t</config>\")"
+param *.*.eth[*].qEncap.typename "\"Ieee8021qEncap\""
+param *.switch1.eth[0].qEncap.inboundVlanIdFilter "\"-1\""
+param *.switch1.eth[0].qEncap.inboundVlanIdMap "\"-1 2\""
+param *.switch1.eth[0].qEncap.outboundVlanIdFilter "\"2\""
+param *.switch1.eth[0].qEncap.outboundVlanIdMap "\"2 -1\""
+param *.switch1.eth[1].qEncap.inboundVlanIdFilter "\"-1\""
+param *.switch1.eth[1].qEncap.inboundVlanIdMap "\"-1 2\""
+param *.switch1.eth[1].qEncap.outboundVlanIdFilter "\"2\""
+param *.switch1.eth[1].qEncap.outboundVlanIdMap "\"2 -1\""
+param *.switch1.eth[2].qEncap.inboundVlanIdFilter "\"-1\""
+param *.switch1.eth[2].qEncap.inboundVlanIdMap "\"-1 3\""
+param *.switch1.eth[2].qEncap.outboundVlanIdFilter "\"3\""
+param *.switch1.eth[2].qEncap.outboundVlanIdMap "\"3 -1\""
+param *.switch1.eth[3].qEncap.inboundVlanIdFilter "\"-1\""
+param *.switch1.eth[3].qEncap.inboundVlanIdMap "\"-1 3\""
+param *.switch1.eth[3].qEncap.outboundVlanIdFilter "\"3\""
+param *.switch1.eth[3].qEncap.outboundVlanIdMap "\"3 -1\""
+param *.visualizer.*.interfaceTableVisualizer.displayInterfaceTables true
+
+vector 0 TestL2Deploy.sendhost.tcp.conn-2 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+0	24787 49 3 234 1 1.00013944 3 0 0 0 0
+vector 1 TestL2Deploy.sendhost.tcp.conn-2 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+1	24836 87 3 234 1 1.00013944 4 7504 257526 780082 199015232044
+vector 2 TestL2Deploy.sendhost.tcp.conn-2 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+2	24923 58 3 234 1 1.00013944 3 7504 7504 22512 168930048
+vector 3 TestL2Deploy.sendhost.tcp.conn-2 sndAck:vector ETV
+attr interpolationmode sample-hold
+3	24981 59 3 234 1 1.00013944 3 0 250022 500044 125022000968
+vector 4 TestL2Deploy.sendhost.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+4	25040 10 4 4 1 1 1 28 28 28 784
+vector 5 TestL2Deploy.sendhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+5	25050 73 5 237 1 1.00013944 4 28 576 688 336096
+vector 6 TestL2Deploy.sendhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+6	25123 73 7 239 1 1.00013944 4 46 594 760 362160
+vector 7 TestL2Deploy.sendhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+7	25196 73 7 239 1 1.00013944 4 64 594 786 365124
+vector 8 TestL2Deploy.sendhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+8	25269 136 7 248 1 1.00014616 8 0 1 4 4
+vector 9 TestL2Deploy.sendhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+9	25405 73 7 248 1 1.00014616 4 64 594 786 365124
+vector 10 TestL2Deploy.sendhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+10	25478 80 7 248 1 1.00014616 4 0 6.72e-006 6.72e-006 4.51584e-011
+vector 11 TestL2Deploy.sendhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+11	25558 83 9 288 1.00000576 1.00019432 4 64 594 786 365124
+vector 12 TestL2Deploy.switch1.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+12	25641 87 10 289 1.00000581 1.00019437 4 64 594 786 365124
+vector 13 TestL2Deploy.switch1.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+13	25728 87 10 289 1.00000581 1.00019437 4 64 594 786 365124
+vector 14 TestL2Deploy.switch1.eth[2].qEncap packetDropped:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet dropped, vector(packetBytes)"
+14	25815 21 14 14 1.00000581 1.00000581 1 50 50 50 2500
+vector 15 TestL2Deploy.switch1.eth[3].qEncap packetDropped:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet dropped, vector(packetBytes)"
+15	25836 21 15 15 1.00000581 1.00000581 1 50 50 50 2500
+vector 16 TestL2Deploy.switch1.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+16	25857 87 16 293 1.00000581 1.00019437 4 64 594 786 365124
+vector 17 TestL2Deploy.switch1.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+17	25944 87 16 293 1.00000581 1.00019437 4 64 594 786 365124
+vector 18 TestL2Deploy.switch1.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+18	26031 164 16 293 1.00000581 1.00019437 8 0 1 4 4
+vector 19 TestL2Deploy.switch1.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+19	26195 87 16 293 1.00000581 1.00019437 4 64 594 786 365124
+vector 20 TestL2Deploy.switch1.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+20	26282 82 16 293 1.00000581 1.00019437 4 0 0 0 0
+vector 21 TestL2Deploy.switch1.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+21	26364 87 19 296 1.00001157 1.00024253 4 64 594 786 365124
+vector 22 TestL2Deploy.mitigator.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+22	26451 87 20 297 1.00001162 1.00024258 4 64 594 786 365124
+vector 23 TestL2Deploy.mitigator.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+23	26538 87 20 297 1.00001162 1.00024258 4 64 594 786 365124
+vector 24 TestL2Deploy.mitigator.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+24	26625 87 22 299 1.00001162 1.00024258 4 46 576 714 338124
+vector 25 TestL2Deploy.mitigator.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+25	26712 43 23 173 1.00001162 1.00010458 2 28 28 56 1568
+vector 26 TestL2Deploy.mitigator.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+26	26755 43 24 210 1.00001162 1.00012782 2 28 44 72 2720
+vector 27 TestL2Deploy.mitigator.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+27	26798 43 26 212 1.00001162 1.00012782 2 46 62 108 5960
+vector 28 TestL2Deploy.mitigator.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+28	26841 43 26 212 1.00001162 1.00012782 2 64 64 128 8192
+vector 29 TestL2Deploy.mitigator.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+29	26884 82 26 212 1.00001162 1.00012782 4 0 1 2 2
+vector 30 TestL2Deploy.mitigator.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+30	26966 43 26 212 1.00001162 1.00012782 2 64 64 128 8192
+vector 31 TestL2Deploy.mitigator.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+31	27009 41 26 212 1.00001162 1.00012782 2 0 0 0 0
+vector 32 TestL2Deploy.mitigator.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+32	27050 43 29 215 1.00001738 1.00013358 2 64 64 128 8192
+vector 33 TestL2Deploy.switch1.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+33	27093 43 30 216 1.00001743 1.00013363 2 64 64 128 8192
+vector 34 TestL2Deploy.switch1.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+34	27136 43 30 216 1.00001743 1.00013363 2 64 64 128 8192
+vector 35 TestL2Deploy.switch1.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+35	27179 43 34 220 1.00001743 1.00013363 2 64 64 128 8192
+vector 36 TestL2Deploy.switch1.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+36	27222 43 34 220 1.00001743 1.00013363 2 64 64 128 8192
+vector 37 TestL2Deploy.switch1.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+37	27265 82 34 220 1.00001743 1.00013363 4 0 1 2 2
+vector 38 TestL2Deploy.switch1.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+38	27347 43 34 220 1.00001743 1.00013363 2 64 64 128 8192
+vector 39 TestL2Deploy.switch1.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+39	27390 41 34 220 1.00001743 1.00013363 2 0 0 0 0
+vector 40 TestL2Deploy.switch1.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+40	27431 43 37 223 1.00002319 1.00013939 2 64 64 128 8192
+vector 41 TestL2Deploy.sendhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+41	27474 43 38 224 1.00002324 1.00013944 2 64 64 128 8192
+vector 42 TestL2Deploy.sendhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+42	27517 43 38 224 1.00002324 1.00013944 2 64 64 128 8192
+vector 43 TestL2Deploy.sendhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+43	27560 43 40 226 1.00002324 1.00013944 2 46 46 92 4232
+vector 44 TestL2Deploy.mitigator.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+44	27603 21 59 59 1.00003486 1.00003486 1 28 28 28 784
+vector 45 TestL2Deploy.mitigator.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+45	27624 108 60 301 1.00003486 1.00024258 5 28 576 716 336880
+vector 46 TestL2Deploy.mitigator.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+46	27732 109 62 303 1.00003486 1.00024258 5 46 594 806 364276
+vector 47 TestL2Deploy.mitigator.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+47	27841 109 62 303 1.00003486 1.00024258 5 64 594 850 369220
+vector 48 TestL2Deploy.mitigator.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+48	27950 206 62 303 1.00003486 1.00024258 10 0 1 5 5
+vector 49 TestL2Deploy.mitigator.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+49	28156 109 62 303 1.00003486 1.00024258 5 64 594 850 369220
+vector 50 TestL2Deploy.mitigator.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+50	28265 103 62 303 1.00003486 1.00024258 5 0 0 0 0
+vector 51 TestL2Deploy.mitigator.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+51	28368 110 65 306 1.00004062 1.00029074 5 64 594 850 369220
+vector 52 TestL2Deploy.switch1.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+52	28478 110 66 307 1.00004067 1.00029079 5 64 594 850 369220
+vector 53 TestL2Deploy.switch1.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+53	28588 110 66 307 1.00004067 1.00029079 5 64 594 850 369220
+vector 54 TestL2Deploy.switch1.eth[0].qEncap packetDropped:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet dropped, vector(packetBytes)"
+54	28698 43 69 163 1.00004067 1.00009877 2 50 50 100 5000
+vector 55 TestL2Deploy.switch1.eth[1].qEncap packetDropped:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropped
+attr title "packet dropped, vector(packetBytes)"
+55	28741 43 70 164 1.00004067 1.00009877 2 50 50 100 5000
+vector 56 TestL2Deploy.switch1.eth[3].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+56	28784 110 72 311 1.00004067 1.00029079 5 64 594 850 369220
+vector 57 TestL2Deploy.switch1.eth[3].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+57	28894 110 72 311 1.00004067 1.00029079 5 64 594 850 369220
+vector 58 TestL2Deploy.switch1.eth[3].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+58	29004 208 72 311 1.00004067 1.00029079 10 0 1 5 5
+vector 59 TestL2Deploy.switch1.eth[3].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+59	29212 110 72 311 1.00004067 1.00029079 5 64 594 850 369220
+vector 60 TestL2Deploy.switch1.eth[3].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+60	29322 104 72 311 1.00004067 1.00029079 5 0 0 0 0
+vector 61 TestL2Deploy.switch1.eth[3].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+61	29426 110 75 314 1.00004643 1.00033895 5 64 594 850 369220
+vector 62 TestL2Deploy.router1.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+62	29536 107 76 315 1.00004648 1.000339 5 64 594 850 369220
+vector 63 TestL2Deploy.router1.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+63	29643 107 76 315 1.00004648 1.000339 5 64 594 850 369220
+vector 64 TestL2Deploy.router1.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+64	29750 107 78 317 1.00004648 1.000339 5 46 576 760 340240
+vector 65 TestL2Deploy.router1.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+65	29857 21 79 79 1.00004648 1.00004648 1 28 28 28 784
+vector 66 TestL2Deploy.router1.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+66	29878 64 80 192 1.00004648 1.0001162 3 28 44 100 3504
+vector 67 TestL2Deploy.router1.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+67	29942 64 82 194 1.00004648 1.0001162 3 46 62 154 8076
+vector 68 TestL2Deploy.router1.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+68	30006 64 82 194 1.00004648 1.0001162 3 64 64 192 12288
+vector 69 TestL2Deploy.router1.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+69	30070 122 82 194 1.00004648 1.0001162 6 0 1 3 3
+vector 70 TestL2Deploy.router1.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+70	30192 64 82 194 1.00004648 1.0001162 3 64 64 192 12288
+vector 71 TestL2Deploy.router1.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+71	30256 61 82 194 1.00004648 1.0001162 3 0 0 0 0
+vector 72 TestL2Deploy.router1.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+72	30317 65 85 197 1.00005224 1.00012196 3 64 64 192 12288
+vector 73 TestL2Deploy.switch1.eth[3].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+73	30382 65 86 198 1.00005229 1.00012201 3 64 64 192 12288
+vector 74 TestL2Deploy.switch1.eth[3].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+74	30447 65 86 198 1.00005229 1.00012201 3 64 64 192 12288
+vector 75 TestL2Deploy.switch1.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+75	30512 65 90 202 1.00005229 1.00012201 3 64 64 192 12288
+vector 76 TestL2Deploy.switch1.eth[2].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+76	30577 65 90 202 1.00005229 1.00012201 3 64 64 192 12288
+vector 77 TestL2Deploy.switch1.eth[2].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+77	30642 124 90 202 1.00005229 1.00012201 6 0 1 3 3
+vector 78 TestL2Deploy.switch1.eth[2].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+78	30766 65 90 202 1.00005229 1.00012201 3 64 64 192 12288
+vector 79 TestL2Deploy.switch1.eth[2].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+79	30831 62 90 202 1.00005229 1.00012201 3 0 0 0 0
+vector 80 TestL2Deploy.switch1.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+80	30893 65 93 205 1.00005805 1.00012777 3 64 64 192 12288
+vector 81 TestL2Deploy.mitigator.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+81	30958 64 94 206 1.0000581 1.00012782 3 64 64 192 12288
+vector 82 TestL2Deploy.mitigator.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+82	31022 64 94 206 1.0000581 1.00012782 3 64 64 192 12288
+vector 83 TestL2Deploy.mitigator.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+83	31086 64 96 208 1.0000581 1.00012782 3 46 46 138 6348
+vector 84 TestL2Deploy.router1.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr source arpRequestSent
+attr title "ARP request sent, vector(packetBytes)"
+84	31150 44 115 153 1.00006972 1.00009296 2 28 28 56 1568
+vector 85 TestL2Deploy.router1.eth[1].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+85	31194 87 116 319 1.00006972 1.000339 4 28 576 688 336096
+vector 86 TestL2Deploy.router1.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+86	31281 87 118 321 1.00006972 1.000339 4 46 594 760 362160
+vector 87 TestL2Deploy.router1.eth[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+87	31368 87 118 321 1.00006972 1.000339 4 64 594 786 365124
+vector 88 TestL2Deploy.router1.eth[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+88	31455 164 118 321 1.00006972 1.000339 8 0 1 4 4
+vector 89 TestL2Deploy.router1.eth[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+89	31619 87 118 321 1.00006972 1.000339 4 64 594 786 365124
+vector 90 TestL2Deploy.router1.eth[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+90	31706 82 118 321 1.00006972 1.000339 4 0 0 0 0
+vector 91 TestL2Deploy.router1.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+91	31788 65 120 278 1.00007548 1.00016844 3 64 64 192 12288
+vector 92 TestL2Deploy.recvhost.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+92	31853 66 121 279 1.00007553 1.00016849 3 64 64 192 12288
+vector 93 TestL2Deploy.recvhost.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+93	31919 66 121 279 1.00007553 1.00016849 3 64 64 192 12288
+vector 94 TestL2Deploy.recvhost.eth[0].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+94	31985 66 123 281 1.00007553 1.00016849 3 46 46 138 6348
+vector 95 TestL2Deploy.recvhost.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr source arpReplySent
+attr title "ARP replies sent, vector(packetBytes)"
+95	32051 22 124 124 1.00007553 1.00007553 1 28 28 28 784
+vector 96 TestL2Deploy.recvhost.eth[0].encap encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source encapPk
+attr title "packets encapsulated, vector(packetBytes)"
+96	32073 44 125 145 1.00007553 1.00008715 2 28 44 72 2720
+vector 97 TestL2Deploy.recvhost.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, vector(packetBytes)"
+97	32117 44 127 147 1.00007553 1.00008715 2 46 62 108 5960
+vector 98 TestL2Deploy.recvhost.eth[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+98	32161 44 127 147 1.00007553 1.00008715 2 64 64 128 8192
+vector 99 TestL2Deploy.recvhost.eth[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+99	32205 84 127 147 1.00007553 1.00008715 4 0 1 2 2
+vector 100 TestL2Deploy.recvhost.eth[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+100	32289 46 127 147 1.00007553 1.00008715 2 64 64 128 8192
+vector 101 TestL2Deploy.recvhost.eth[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+101	32335 44 127 147 1.00007553 1.00008715 2 0 0 0 0
+vector 102 TestL2Deploy.recvhost.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets transmitted, vector(packetBytes)"
+102	32379 46 129 149 1.00008129 1.00009291 2 64 64 128 8192
+vector 103 TestL2Deploy.router1.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+103	32425 46 130 150 1.00008134 1.00009296 2 64 64 128 8192
+vector 104 TestL2Deploy.router1.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+104	32471 46 130 150 1.00008134 1.00009296 2 64 64 128 8192
+vector 105 TestL2Deploy.router1.eth[1].encap decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source decapPk
+attr title "packets decapsulated, vector(packetBytes)"
+105	32517 46 132 152 1.00008134 1.00009296 2 46 46 92 4232
+vector 106 TestL2Deploy.recvhost.tcp.conn-1 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+106	32563 27 143 143 1.00008715 1.00008715 1 250000 250000 250000 62500000000
+vector 107 TestL2Deploy.recvhost.tcp.conn-1 rcvAck:vector ETV
+attr interpolationmode sample-hold
+107	32590 22 143 143 1.00008715 1.00008715 1 0 0 0 0
+vector 108 TestL2Deploy.recvhost.tcp.conn-3 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+108	32612 54 143 143 1.00008715 1.00008715 2 257505 257505 515010 132617650050
+vector 109 TestL2Deploy.recvhost.tcp.conn-3 sndWnd:vector ETV
+attr interpolationmode sample-hold
+109	32666 50 143 283 1.00008715 1.00016849 2 7504 7504 15008 112620032
+vector 110 TestL2Deploy.recvhost.tcp.conn-3 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+110	32716 22 143 143 1.00008715 1.00008715 1 0 0 0 0
+vector 111 TestL2Deploy.recvhost.tcp.conn-3 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+111	32738 25 143 143 1.00008715 1.00008715 1 7504 7504 7504 56310016
+vector 112 TestL2Deploy.recvhost.tcp.conn-3 sndAck:vector ETV
+attr interpolationmode sample-hold
+112	32763 27 143 143 1.00008715 1.00008715 1 250001 250001 250001 62500500001
+vector 113 TestL2Deploy.sendhost.tcp.conn-2 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+113	32790 27 228 228 1.00013944 1.00013944 1 250021 250021 250021 62510500441
+vector 114 TestL2Deploy.sendhost.tcp.conn-2 rcvAck:vector ETV
+attr interpolationmode sample-hold
+114	32817 27 228 228 1.00013944 1.00013944 1 250001 250001 250001 62500500001
+vector 115 TestL2Deploy.sendhost.tcp.conn-2 sndWnd:vector ETV
+attr interpolationmode sample-hold
+115	32844 25 228 228 1.00013944 1.00013944 1 7504 7504 7504 56310016
+vector 116 TestL2Deploy.sendhost.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+116	32869 27 232 232 1.00013944 1.00013944 1 300000 300000 300000 90000000000
+vector 117 TestL2Deploy.sendhost.tcp.conn-2 sndNxt:vector ETV
+attr interpolationmode sample-hold
+117	32896 27 234 234 1.00013944 1.00013944 1 250001 250001 250001 62500500001
+vector 118 TestL2Deploy.sendhost.tcp.conn-2 unacked:vector ETV
+attr interpolationmode sample-hold
+118	32923 24 234 234 1.00013944 1.00013944 1 536 536 536 287296
+vector 119 TestL2Deploy.recvhost.tcp.conn-3 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+119	32947 27 283 283 1.00016849 1.00016849 1 250001 250001 250001 62500500001
+vector 120 TestL2Deploy.recvhost.tcp.conn-3 rcvAck:vector ETV
+attr interpolationmode sample-hold
+120	32974 27 283 283 1.00016849 1.00016849 1 250022 250022 250022 62511000484
+vector 121 TestL2Deploy.recvhost.tcp.conn-3 unacked:vector ETV
+attr interpolationmode sample-hold
+121	33001 24 283 283 1.00016849 1.00016849 1 0 0 0 0
